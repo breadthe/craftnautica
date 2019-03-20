@@ -26,5 +26,10 @@ export default new Router({
       name: 'recipes',
       component: () => import(/* webpackChunkName: "recipes" */ './views/Recipes.vue'),
     },
+    {
+      path: '/recipes2',
+      name: 'recipes2',
+      component: () => import(/* webpackChunkName: "recipes2" */ './views/Recipes2.vue'),
+    },
   ],
 });
