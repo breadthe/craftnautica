@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto max-w-lg">
+  <section class="container mx-auto max-w-lg">
     <h1>Craftnautica</h1>
 
     <h2 class="mt-8">Raw Materials</h2>
@@ -8,7 +8,7 @@
     <h2 class="mt-8">Recipes</h2>
     <item-section :items="recipes"></item-section>
 
-  </div>
+  </section>
 </template>
 
 <script>

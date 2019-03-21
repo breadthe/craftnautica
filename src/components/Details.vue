@@ -1,23 +1,15 @@
 <template>
-  <section>
-
-    <div class="flex">
-      <div v-for="a in adv" :key="a" class="m-2 p-2 border border-grey-darkest text-xs text-grey-darkest">
-        <router-link :to="{name: 'details', params: { id: a }}" class="border-0">
-          {{ pretty(a) }}
-        </router-link>
-      </div>
-    </div>
-
+  <section class="container mx-auto max-w-lg">
     <div class="my-4">
       <router-link :to="{name: 'home'}">&laquo; Back</router-link>
     </div>
 
     <h2>{{ pretty(id) }}</h2>
 
-    <div class="flex">
-      <div v-for="c in comps" :key="c.c" class="m-2 p-2 border border-grey-darkest text-xs text-grey-darkest">
-        {{ pretty(c.c) }} {{ c.q }}
+    <div class="flex flex-wrap -mx-2">
+      <div v-for="comp in components" :key="comp.c" class="flex items-center m-2 p-2 border border-grey-darkest text-lg font-light">
+        <div class="w-12 h-12 mr-2 rounded-full bg-grey-darkest border border-grey-darker"></div>
+        {{ pretty(comp.c) }} x {{ comp.q }}
       </div>
     </div>
   </section>
@@ -34,27 +26,25 @@ export default {
   },
   data: () => ({
     pretty: util.pretty,
-    comps: null,
-    base: util.base(),
-    adv: util.adv(),
+    components: null,
   }),
   methods: {
-    setData: function(comps) {
-      this.comps = comps;
+    setData: function(components) {
+      this.components = components;
     },
   },
   beforeRouteEnter(to, from, next) {
-    const comps = algo.flatten(to.params.id);
-    if (comps.length) {
-      next(vm => vm.setData(comps));
+    const components = algo.listOfMaterials(to.params.id);
+    if (components.length) {
+      next(vm => vm.setData(components));
     } else {
       next(vm => vm.$router.push({ path: '/404' }));
     }
   },
   beforeRouteUpdate(to, from, next) {
-    const comps = algo.flatten(to.params.id);
-    if (comps.length) {
-      this.setData(comps);
+    const components = algo.listOfMaterials(to.params.id);
+    if (components.length) {
+      this.setData(components);
     } else {
       this.$router.push({ path: '/404' });
     }

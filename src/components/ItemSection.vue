@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-start -ml-2">
+  <div class="flex flex-wrap justify-start -mx-2">
       <router-link
         :to="{name: 'details', params: { id }}"
         v-for="id in items"
