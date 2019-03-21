@@ -57,7 +57,7 @@ export default {
   ],
   Enameled_Glass: [
     { c: 'Glass', q: 1 },
-    { c: 'Stalker_Tooth', q: 1 },
+    { c: 'Stalker_Teeth', q: 1 },
   ],
   Plasteel_Ingot: [
     { c: 'Titanium_Ingot', q: 1 },
