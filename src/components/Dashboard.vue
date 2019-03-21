@@ -1,14 +1,13 @@
 <template>
   <div class="container mx-auto">
-    <h1>{{ msg }}</h1>
+    <h1>Craftnautica</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Dashboard',
   props: {
-    msg: String,
   },
 };
 </script>
