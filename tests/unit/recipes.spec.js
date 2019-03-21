@@ -26,6 +26,17 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Ion_Cube')).toEqual([{ c: 'Ion_Cube', q: 1 }]);
   });
 
+  /* Recipes.Fabricator.Basic_Materials */
+  test('it returns the correct list of base materials for Recipes.Fabricator.Basic_Materials', () => {
+    expect(algo.listOfMaterials('Titanium_Ingot')).toEqual([{ c: 'Titanium', q: 10 }]);
+    expect(algo.listOfMaterials('Fiber_Mesh')).toEqual([{ c: 'Creepvine_Sample', q: 2 }]);
+    expect(algo.listOfMaterials('Silicone_Rubber')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 0.5 }]);
+    expect(algo.listOfMaterials('Glass')).toEqual([{ c: 'Quartz', q: 2 }]);
+    expect(algo.listOfMaterials('Bleach')).toEqual([{ c: 'Salt_Deposit', q: 1 }, { c: 'Coral_Tube_Sample', q: 1 }]);
+    expect(algo.listOfMaterials('Enameled_Glass')).toEqual([{ c: 'Quartz', q: 2 }, { c: 'Stalker_Teeth', q: 1 }]);
+    expect(algo.listOfMaterials('Plasteel_Ingot')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }]);
+  });
+
   /* Recipes.Fabricator.Electronics */
   test('it returns the correct list of base materials for Recipes.Fabricator.Electronics', () => {
     expect(algo.listOfMaterials('Copper_Wire')).toEqual([{ c: 'Copper_Ore', q: 2 }]);
