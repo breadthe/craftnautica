@@ -37,6 +37,15 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Plasteel_Ingot')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }]);
   });
 
+  /* Recipes.Fabricator.Advanced_Materials */
+  test('it returns the correct list of base materials for Recipes.Fabricator.Advanced_Materials', () => {
+    expect(algo.listOfMaterials('Hydrochloric_Acid')).toEqual([{ c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }]);
+    expect(algo.listOfMaterials('Benzene')).toEqual([{ c: 'Blood_Oil', q: 3 }]);
+    expect(algo.listOfMaterials('Synthetic_Fibers')).toEqual([{ c: 'Blood_Oil', q: 3 }, { c: 'Creepvine_Sample', q: 2 }]);
+    expect(algo.listOfMaterials('Aerogel')).toEqual([{ c: 'Gel_Sack', q: 1 }, { c: 'Ruby', q: 1 }]);
+    expect(algo.listOfMaterials('Polyaniline')).toEqual([{ c: 'Gold', q: 1 }, { c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }]);
+  });
+
   /* Recipes.Fabricator.Electronics */
   test('it returns the correct list of base materials for Recipes.Fabricator.Electronics', () => {
     expect(algo.listOfMaterials('Copper_Wire')).toEqual([{ c: 'Copper_Ore', q: 2 }]);
