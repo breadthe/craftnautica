@@ -1,0 +1,14 @@
+body {
+    font-family: Roboto, sans-serif;
+    @apply bg-blue-darkest;
+    @apply text-grey-light;
+}
+
+a {
+    @apply no-underline;
+    @apply text-green;
+
+    &:hover {
+        @apply text-green-light;
+    }
+}

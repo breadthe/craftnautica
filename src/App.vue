@@ -23,5 +23,5 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
-@import './assets/index.scss';
+@import 'assets/app';
 </style>

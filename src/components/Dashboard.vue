@@ -1,14 +1,31 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto max-w-lg">
     <h1>Craftnautica</h1>
+
+    <h2 class="mt-8">Raw Materials</h2>
+    <item-section :items="rawMats"></item-section>
+
+    <h2 class="mt-8">Recipes</h2>
+    <item-section :items="recipes"></item-section>
+
   </div>
 </template>
 
 <script>
+import items from '@/items';
+import util from '@/util';
+import ItemSection from '@/components/ItemSection.vue';
+
 export default {
   name: 'Dashboard',
+  components: { ItemSection },
   props: {
   },
+  data: () => ({
+    items,
+    rawMats: util.rawMats(),
+    recipes: util.recipes(),
+  }),
 };
 </script>
 
