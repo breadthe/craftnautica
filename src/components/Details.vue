@@ -8,14 +8,19 @@
     <div class="flex justify-between items-center my-8 text-lg font-light">
       <div class="flex items-center">
         <div class="item-icon"></div>
-        <h2 class="ml-4">{{ pretty(id) }}</h2>
+        <h2 class="ml-4 text-blue">{{ pretty(id) }}</h2>
       </div>
     </div>
 
-    <h3 class="border-b border-grey-darkest py-2">Components</h3>
 
-    <div class="flex flex-col -mx-2">
-      <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 p-2 text-lg font-light hover:bg-blue-darker">
+    <div class="" v-if="rawMat">
+      This item is a raw material or base component.
+    </div>
+
+    <div class="flex flex-col" v-else>
+      <h3 class="border-b border-grey-darkest py-2">Components</h3>
+
+      <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
         <div class="flex items-center">
           <div class="item-icon"></div>
           <div class="ml-4">{{ pretty(comp.c) }}</div>
@@ -43,6 +48,7 @@ export default {
   }),
   computed: {
     type: vm => items[vm.id].t,
+    rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
   },
   methods: {
     setData: function(components) {
