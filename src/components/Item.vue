@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-wrap justify-start -mx-2">
       <router-link
-        :to="{name: 'details', params: { id }}"
-        v-for="id in items"
+        v-for="(data, id) in items"
         :key="id"
+        :to="{name: 'details', params: { id }}"
         class="flex items-center m-2 p-2 border border-grey-darkest text-lg font-light hover:bg-blue-darker hover:border-blue-dark"
       >
         <div class="w-12 h-12 mr-2 rounded-full bg-grey-darkest border border-grey-darker"></div>
@@ -16,10 +16,10 @@
 import util from '@/util';
 
 export default {
-  name: 'ItemSection',
+  name: 'Item',
   props: {
     items: {
-      type: Array,
+      type: Object,
       required: true,
       default: () => [],
     },

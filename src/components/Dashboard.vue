@@ -2,11 +2,9 @@
   <section class="container mx-auto max-w-lg">
     <h1>Craftnautica</h1>
 
-    <h2 class="mt-8">Raw Materials</h2>
-    <item-section :items="rawMats"></item-section>
-
-    <h2 class="mt-8">Recipes</h2>
-    <item-section :items="recipes"></item-section>
+    <div v-for="type in types" :key="type" class="-mx-2">
+      <types :type="type" :types="filterByType(type)"></types>
+    </div>
 
   </section>
 </template>
@@ -14,18 +12,18 @@
 <script>
 import items from '@/items';
 import util from '@/util';
-import ItemSection from '@/components/ItemSection.vue';
+import Types from '@/components/Types.vue';
 
 export default {
   name: 'Dashboard',
-  components: { ItemSection },
-  props: {
-  },
+  components: { Types },
   data: () => ({
     items,
-    rawMats: util.rawMats(),
-    recipes: util.recipes(),
+    types: util.types(items),
   }),
+  methods: {
+    filterByType: type => util.filterByType(items, type),
+  },
 };
 </script>
 

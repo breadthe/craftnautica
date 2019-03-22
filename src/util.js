@@ -1,7 +1,6 @@
-import items from '@/items';
-
 export default {
   pretty: n => n.split('_').join(' '),
-  rawMats: () => Object.keys(items).filter(k => !items[k]),
-  recipes: () => Object.keys(items).filter(k => items[k]),
+  types: items => Object.values(items).map(v => v.t).filter((val, key, self) => self.indexOf(val) === key),
+  filterByType: (items, type) => Object.fromEntries(Object.entries(items).filter(i => i[1].t === type)),
+  search: (items, srcStr) => Object.fromEntries(Object.entries(items).filter(i => i[0].match(new RegExp(srcStr, 'ig')))),
 };
