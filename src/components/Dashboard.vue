@@ -3,7 +3,7 @@
     <h1>Craftnautica</h1>
 
     <div v-for="type in types" :key="type" class="-mx-2">
-      <types :type="type" :types="filterByType(type)"></types>
+      <type :type="type" :types="filterByType(type)"></type>
     </div>
 
   </section>
@@ -12,11 +12,11 @@
 <script>
 import items from '@/items';
 import util from '@/util';
-import Types from '@/components/Types.vue';
+import Type from '@/components/Type.vue';
 
 export default {
   name: 'Dashboard',
-  components: { Types },
+  components: { Type },
   data: () => ({
     items,
     types: util.types(items),

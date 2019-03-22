@@ -12,7 +12,7 @@ import util from '@/util';
 import Item from '@/components/Item.vue';
 
 export default {
-  name: 'Types',
+  name: 'Type',
   components: {
     Item,
   },
