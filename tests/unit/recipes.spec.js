@@ -62,8 +62,15 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Gravsphere')).toEqual([{ c: 'Copper_Ore', q: 2 }, { c: 'Titanium', q: 1 }, { c: 'Acid_Mushroom', q: 2 }]);
   });
 
+  /* Recipes.Fabricator.Personal.Equipment */
+  test('it returns the correct list of base materials for Recipes.Fabricator.Personal.Equipment', () => {
+    expect(algo.listOfMaterials('Standard_O₂_Tank')).toEqual([{ c: 'Titanium', q: 3 }]);
+    expect(algo.listOfMaterials('High_Capacity_O₂_Tank')).toEqual([{ c: 'Titanium', q: 7 }, { c: 'Quartz', q: 4 }, { c: 'Silver_Ore', q: 1 }]);
+    expect(algo.listOfMaterials('Fins')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 1 }]);
+  });
+
   /* Recipes.Fabricator.Sustenance */
-  test('it returns the correct list of base materials for Recipes.Fabricator.Deployables', () => {
+  test('it returns the correct list of base materials for Recipes.Fabricator.Sustenance', () => {
     expect(algo.listOfMaterials('Filtered_Water')).toEqual([{ c: 'Bladderfish', q: 1 }]);
     expect(algo.listOfMaterials('Disinfected_Water')).toEqual([{ c: 'Salt_Deposit', q: 0.5 }, { c: 'Coral_Tube_Sample', q: 0.5 }]);
   });

@@ -235,6 +235,34 @@ export default {
     ],
   },
 
+  // ============= Recipes.Fabricator.Personal.Equipment
+  'Standard_O₂_Tank': { // TODO: Figure out if non-ASCII subscript works for linking & stuff
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Titanium', q: 3 },
+    ],
+  },
+  /**
+   * TODO: This could get weird, Standard O2 Tank is not calculated as a basic mat, even though it is.
+   * It may require a special flag to indicate that it should be treated as a raw material,
+   * to prevent adding the components that were already used when constructing the original item.
+  */
+  'High_Capacity_O₂_Tank': {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Standard_O₂_Tank', q: 1 },
+      { c: 'Titanium', q: 4 },
+      { c: 'Glass', q: 2 },
+      { c: 'Silver_Ore', q: 1 },
+    ],
+  },
+  Fins: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Silicone_Rubber', q: 2 },
+    ],
+  },
+
   // ============= Recipes.Habitat_Builder
   Scanner_Room: {
     t: 'Recipes.Habitat_Builder',
