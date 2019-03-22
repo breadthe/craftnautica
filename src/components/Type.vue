@@ -1,6 +1,6 @@
 <template>
   <section v-if="render">
-    <h2 class="my-4">{{ type }}</h2>
+    <h3 class="mt-8 mb-4">{{ type }}</h3>
 
     <item :items="filteredItems"></item>
 

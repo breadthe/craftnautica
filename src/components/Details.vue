@@ -4,14 +4,23 @@
       <router-link :to="{name: 'home'}">&laquo; Back</router-link>
     </div>
 
-    <h2>{{ pretty(id) }}</h2>
+    <div class="flex items-center my-8 text-lg font-light">
+      <div class="item-icon"></div>
+      <h2 class="ml-4">{{ pretty(id) }}</h2>
+    </div>
 
-    <div class="flex flex-wrap -mx-2">
-      <div v-for="comp in components" :key="comp.c" class="flex items-center m-2 p-2 border border-grey-darkest text-lg font-light">
-        <div class="w-12 h-12 mr-2 rounded-full bg-grey-darkest border border-grey-darker"></div>
-        {{ pretty(comp.c) }} x {{ comp.q }}
+    <h3 class="border-b border-grey-darkest py-2">Bill of Materials</h3>
+
+    <div class="flex flex-col -mx-2">
+      <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 p-2 text-lg font-light">
+        <div class="flex items-center">
+          <div class="item-icon"></div>
+          <div class="ml-4">{{ pretty(comp.c) }}</div>
+        </div>
+        <div>{{ comp.q }}</div>
       </div>
     </div>
+
   </section>
 </template>
 

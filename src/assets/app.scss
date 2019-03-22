@@ -26,3 +26,27 @@ input {
     @apply p-4;
   }
 }
+
+.item-frame {
+  @apply flex;
+  @apply items-center;
+  @apply m-2;
+  @apply p-2;
+  @apply border;
+  @apply border-grey-darkest;
+  @apply text-lg;
+  @apply font-light;
+  &:hover {
+    @apply bg-blue-darker;
+    @apply border-blue-dark;
+  }
+}
+
+.item-icon {
+  @apply w-12;
+  @apply h-12;
+  @apply rounded-full;
+  @apply bg-grey-darkest;
+  @apply border;
+  @apply border-grey-darker;
+}

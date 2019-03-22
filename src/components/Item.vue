@@ -4,10 +4,10 @@
         v-for="(data, id) in items"
         :key="id"
         :to="{name: 'details', params: { id }}"
-        class="flex items-center m-2 p-2 border border-grey-darkest text-lg font-light hover:bg-blue-darker hover:border-blue-dark"
+        class="item-frame"
       >
-        <div class="w-12 h-12 mr-2 rounded-full bg-grey-darkest border border-grey-darker"></div>
-        {{ pretty(id) }}
+        <div class="item-icon"></div>
+        <span class="ml-2">{{ pretty(id) }}</span>
       </router-link>
   </div>
 </template>
