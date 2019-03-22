@@ -33,6 +33,7 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Silicone_Rubber')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 0.5 }]);
     expect(algo.listOfMaterials('Glass')).toEqual([{ c: 'Quartz', q: 2 }]);
     expect(algo.listOfMaterials('Bleach')).toEqual([{ c: 'Salt_Deposit', q: 1 }, { c: 'Coral_Tube_Sample', q: 1 }]);
+    expect(algo.listOfMaterials('Lubricant')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 1 }]);
     expect(algo.listOfMaterials('Enameled_Glass')).toEqual([{ c: 'Quartz', q: 2 }, { c: 'Stalker_Teeth', q: 1 }]);
     expect(algo.listOfMaterials('Plasteel_Ingot')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }]);
   });
@@ -59,5 +60,11 @@ describe('Test recipes', () => {
   /* Recipes.Fabricator.Deployables */
   test('it returns the correct list of base materials for Recipes.Fabricator.Deployables', () => {
     expect(algo.listOfMaterials('Gravsphere')).toEqual([{ c: 'Copper_Ore', q: 2 }, { c: 'Titanium', q: 1 }, { c: 'Acid_Mushroom', q: 2 }]);
+  });
+
+  /* Recipes.Fabricator.Sustenance */
+  test('it returns the correct list of base materials for Recipes.Fabricator.Deployables', () => {
+    expect(algo.listOfMaterials('Filtered_Water')).toEqual([{ c: 'Bladderfish', q: 1 }]);
+    expect(algo.listOfMaterials('Disinfected_Water')).toEqual([{ c: 'Salt_Deposit', q: 0.5 }, { c: 'Coral_Tube_Sample', q: 0.5 }]);
   });
 });

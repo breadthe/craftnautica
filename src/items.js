@@ -1,4 +1,7 @@
 export default {
+  // ============= Mats.Fauna
+  Bladderfish: { t: 'Raw_Materials.Fauna', m: null },
+
   // ============= Mats.Minerals
   Copper_Ore: { t: 'Raw_Materials.Minerals', m: null },
   Cave_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
@@ -68,6 +71,12 @@ export default {
     m: [
       { c: 'Salt_Deposit', q: 1 },
       { c: 'Coral_Tube_Sample', q: 1 },
+    ],
+  },
+  Lubricant: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Creepvine_Seed_Cluster', q: 1 },
     ],
   },
   Enameled_Glass: {
@@ -189,16 +198,36 @@ export default {
     ],
   },
 
+  // ============= Recipes.Fabricator.Sustenance
+  Filtered_Water: {
+    t: 'Recipes.Fabricator.Sustenance',
+    m: [
+      { c: 'Bladderfish', q: 1 },
+    ],
+  },
+  Disinfected_Water: {
+    t: 'Recipes.Fabricator.Sustenance',
+    m: [
+      { c: 'Bleach', q: 0.5 }, // TODO: figure out a way to indicate that 2 Disinfected Water are produced from 1 component
+    ],
+  },
+
+  // ============= Recipes.Fabricator.Cooked_Food
+  // TODO
+
+  // ============= Recipes.Fabricator.Cured_Food
+  // TODO
+
   // ============= Recipes.Fabricator.Deployables
   Beacon: {
-    t: 'Recipes.Deployables',
+    t: 'Recipes.Fabricator.Deployables',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 1 },
     ],
   },
   Gravsphere: {
-    t: 'Recipes.Deployables',
+    t: 'Recipes.Fabricator.Deployables',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 1 },
