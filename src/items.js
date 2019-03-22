@@ -191,14 +191,14 @@ export default {
 
   // ============= Recipes.Fabricator.Deployables
   Beacon: {
-    t: 'Recipes.Habitat_Builder',
+    t: 'Recipes.Deployables',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 1 },
     ],
   },
   Gravsphere: {
-    t: 'Recipes.Habitat_Builder',
+    t: 'Recipes.Deployables',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 1 },
@@ -234,7 +234,7 @@ export default {
 
   // ============= Recipes.Scanner_Room
   Scanner_Room_Range_Upgrade: {
-    t: 'Recipes.Habitat_Builder',
+    t: 'Recipes.Scanner_Room',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Magnetite', q: 1 },
