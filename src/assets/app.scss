@@ -1,5 +1,6 @@
 body {
     font-family: Roboto, sans-serif;
+    @apply font-light;
     @apply bg-blue-darkest;
     @apply text-grey-light;
 }
@@ -11,4 +12,17 @@ a {
     &:hover {
         @apply text-green-light;
     }
+}
+
+input {
+  @apply p-1;
+  @apply text-grey;
+  @apply bg-blue-darkest;
+  @apply border;
+  @apply border-blue-dark;
+
+  &.search {
+    @apply max-w-sm;
+    @apply p-4;
+  }
 }
