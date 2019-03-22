@@ -4,7 +4,7 @@ import _groupBy from 'lodash.groupby';
 import _toPairs from 'lodash.topairs';
 
 const recurse = (com, qt = 1) => {
-  const obj = items[com];
+  const obj = items[com].m;
 
   // Key doesn't exist
   if (typeof obj === 'undefined') {

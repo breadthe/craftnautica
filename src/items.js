@@ -1,162 +1,243 @@
 export default {
   // ============= Mats.Minerals
-  Copper_Ore: null,
-  Cave_Sulfur: null,
-  Diamond: null,
-  Gas_Pod: null,
-  Gold: null,
-  Kyanite: null,
-  Lead: null,
-  Lithium: null,
-  Magnetite: null,
-  Metal_Salvage: null,
-  Nickel_Ore: null,
-  Quartz: null,
-  Ruby: null,
-  Salt_Deposit: null,
-  Titanium: null,
-  Alien_Feces: null,
-  Silver_Ore: null,
-  Stalker_Teeth: null,
-  Crystalline_Sulfur: null,
-  Uraninite_Crystal: null,
-  Ion_Cube: null,
+  Copper_Ore: { t: 'Raw_Materials.Minerals', m: null },
+  Cave_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
+  Diamond: { t: 'Raw_Materials.Minerals', m: null },
+  Gas_Pod: { t: 'Raw_Materials.Minerals', m: null },
+  Gold: { t: 'Raw_Materials.Minerals', m: null },
+  Kyanite: { t: 'Raw_Materials.Minerals', m: null },
+  Lead: { t: 'Raw_Materials.Minerals', m: null },
+  Lithium: { t: 'Raw_Materials.Minerals', m: null },
+  Magnetite: { t: 'Raw_Materials.Minerals', m: null },
+  Metal_Salvage: { t: 'Raw_Materials.Minerals', m: null },
+  Nickel_Ore: { t: 'Raw_Materials.Minerals', m: null },
+  Quartz: { t: 'Raw_Materials.Minerals', m: null },
+  Ruby: { t: 'Raw_Materials.Minerals', m: null },
+  Salt_Deposit: { t: 'Raw_Materials.Minerals', m: null },
+  Titanium: { t: 'Raw_Materials.Minerals', m: null },
+  Alien_Feces: { t: 'Raw_Materials.Minerals', m: null },
+  Silver_Ore: { t: 'Raw_Materials.Minerals', m: null },
+  Stalker_Teeth: { t: 'Raw_Materials.Minerals', m: null },
+  Crystalline_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
+  Uraninite_Crystal: { t: 'Raw_Materials.Minerals', m: null },
+  Ion_Cube: { t: 'Raw_Materials.Minerals', m: null },
 
   // ============= Mats.Corals
-  Coral_Tube_Sample: null,
-  Fungal_Sample: null,
-  Brain_Coral_Sample: null,
-  Table_Coral_Sample: null,
+  Coral_Tube_Sample: { t: 'Raw_Materials.Corals', m: null },
+  Fungal_Sample: { t: 'Raw_Materials.Corals', m: null },
+  Brain_Coral_Sample: { t: 'Raw_Materials.Corals', m: null },
+  Table_Coral_Sample: { t: 'Raw_Materials.Corals', m: null },
 
   // ============= Mats.Flora
-  Acid_Mushroom: null,
-  Deep_Shroom: null,
-  Gel_Sack: null,
+  Acid_Mushroom: { t: 'Raw_Materials.Flora', m: null },
+  Deep_Shroom: { t: 'Raw_Materials.Flora', m: null },
+  Gel_Sack: { t: 'Raw_Materials.Flora', m: null },
 
   // ============= Mats.Seeds_Spores
-  Blood_Oil: null,
-  Creepvine_Sample: null,
-  Creepvine_Seed_Cluster: null,
+  Blood_Oil: { t: 'Raw_Materials.Seeds&Spores', m: null },
+  Creepvine_Sample: { t: 'Raw_Materials.Seeds&Spores', m: null },
+  Creepvine_Seed_Cluster: { t: 'Raw_Materials.Seeds&Spores', m: null },
 
   // ============= Recipes.Fabricator.Basic_Materials
-  Titanium_Ingot: [
-    { c: 'Titanium', q: 10 },
-  ],
-  Fiber_Mesh: [
-    { c: 'Creepvine_Sample', q: 2 },
-  ],
-  Silicone_Rubber: [
-    { c: 'Creepvine_Seed_Cluster', q: 0.5 }, // TODO: figure out a way to indicate that 2 Silicone Rubber are produced from 1 component
-  ],
-  Glass: [
-    { c: 'Quartz', q: 2 },
-  ],
-  Bleach: [
-    { c: 'Salt_Deposit', q: 1 },
-    { c: 'Coral_Tube_Sample', q: 1 },
-  ],
-  Enameled_Glass: [
-    { c: 'Glass', q: 1 },
-    { c: 'Stalker_Teeth', q: 1 },
-  ],
-  Plasteel_Ingot: [
-    { c: 'Titanium_Ingot', q: 1 },
-    { c: 'Lithium', q: 2 },
-  ],
+  Titanium_Ingot: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Titanium', q: 10 },
+    ],
+  },
+  Fiber_Mesh: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Creepvine_Sample', q: 2 },
+    ],
+  },
+  Silicone_Rubber: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Creepvine_Seed_Cluster', q: 0.5 }, // TODO: figure out a way to indicate that 2 Silicone Rubber are produced from 1 component
+    ],
+  },
+  Glass: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Quartz', q: 2 },
+    ],
+  },
+  Bleach: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Salt_Deposit', q: 1 },
+      { c: 'Coral_Tube_Sample', q: 1 },
+    ],
+  },
+  Enameled_Glass: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Glass', q: 1 },
+      { c: 'Stalker_Teeth', q: 1 },
+    ],
+  },
+  Plasteel_Ingot: {
+    t: 'Recipes.Fabricator.Basic_Materials',
+    m: [
+      { c: 'Titanium_Ingot', q: 1 },
+      { c: 'Lithium', q: 2 },
+    ],
+  },
 
   // ============= Recipes.Fabricator.Advanced_Materials
-  Hydrochloric_Acid: [
-    { c: 'Deep_Shroom', q: 3 },
-    { c: 'Salt_Deposit', q: 1 },
-  ],
-  Benzene: [
-    { c: 'Blood_Oil', q: 3 },
-  ],
-  Synthetic_Fibers: [
-    { c: 'Benzene', q: 1 },
-    { c: 'Fiber_Mesh', q: 1 },
-  ],
-  Aerogel: [
-    { c: 'Gel_Sack', q: 1 },
-    { c: 'Ruby', q: 1 },
-  ],
-  Polyaniline: [
-    { c: 'Gold', q: 1 },
-    { c: 'Hydrochloric_Acid', q: 1 },
-  ],
+  Hydrochloric_Acid: {
+    t: 'Recipes.Fabricator.Advanced_Materials',
+    m: [
+      { c: 'Deep_Shroom', q: 3 },
+      { c: 'Salt_Deposit', q: 1 },
+    ],
+  },
+  Benzene: {
+    t: 'Recipes.Fabricator.Advanced_Materials',
+    m: [
+      { c: 'Blood_Oil', q: 3 },
+    ],
+  },
+  Synthetic_Fibers: {
+    t: 'Recipes.Fabricator.Advanced_Materials',
+    m: [
+      { c: 'Benzene', q: 1 },
+      { c: 'Fiber_Mesh', q: 1 },
+    ],
+  },
+  Aerogel: {
+    t: 'Recipes.Fabricator.Advanced_Materials',
+    m: [
+      { c: 'Gel_Sack', q: 1 },
+      { c: 'Ruby', q: 1 },
+    ],
+  },
+  Polyaniline: {
+    t: 'Recipes.Fabricator.Advanced_Materials',
+    m: [
+      { c: 'Gold', q: 1 },
+      { c: 'Hydrochloric_Acid', q: 1 },
+    ],
+  },
 
   // ============= Recipes.Fabricator.Electronics
-  Copper_Wire: [
-    { c: 'Copper_Ore', q: 2 },
-  ],
-  Battery: [
-    { c: 'Copper_Ore', q: 1 },
-    { c: 'Acid_Mushroom', q: 2 },
-  ],
-  Power_Cell: [
-    { c: 'Battery', q: 2 },
-    { c: 'Silicone_Rubber', q: 1 },
-  ],
-  Computer_Chip: [
-    { c: 'Table_Coral_Sample', q: 2 },
-    { c: 'Gold', q: 1 },
-    { c: 'Copper_Wire', q: 1 },
-  ],
-  Wiring_Kit: [
-    { c: 'Silver_Ore', q: 2 },
-  ],
-  Advanced_Wiring_Kit: [
-    { c: 'Wiring_Kit', q: 1 },
-    { c: 'Gold', q: 2 },
-    { c: 'Computer_Chip', q: 1 },
-  ],
-  Reactor_Rod: [
-    { c: 'Uraninite_Crystal', q: 3 },
-    { c: 'Lead', q: 1 },
-    { c: 'Titanium', q: 1 },
-    { c: 'Glass', q: 1 },
-  ],
-  Ion_Battery: [
-    { c: 'Ion_Cube', q: 1 },
-    { c: 'Gold', q: 1 },
-    { c: 'Silver_Ore', q: 1 },
-  ],
-  Ion_Power_Cell: [
-    { c: 'Ion_Battery', q: 2 },
-    { c: 'Silicone_Rubber', q: 1 },
-  ],
+  Copper_Wire: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Copper_Ore', q: 2 },
+    ],
+  },
+  Battery: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Acid_Mushroom', q: 2 },
+    ],
+  },
+  Power_Cell: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Battery', q: 2 },
+      { c: 'Silicone_Rubber', q: 1 },
+    ],
+  },
+  Computer_Chip: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Table_Coral_Sample', q: 2 },
+      { c: 'Gold', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+    ],
+  },
+  Wiring_Kit: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Silver_Ore', q: 2 },
+    ],
+  },
+  Advanced_Wiring_Kit: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Wiring_Kit', q: 1 },
+      { c: 'Gold', q: 2 },
+      { c: 'Computer_Chip', q: 1 },
+    ],
+  },
+  Reactor_Rod: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Uraninite_Crystal', q: 3 },
+      { c: 'Lead', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Glass', q: 1 },
+    ],
+  },
+  Ion_Battery: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Ion_Cube', q: 1 },
+      { c: 'Gold', q: 1 },
+      { c: 'Silver_Ore', q: 1 },
+    ],
+  },
+  Ion_Power_Cell: {
+    t: 'Recipes.Fabricator.Electronics',
+    m: [
+      { c: 'Ion_Battery', q: 2 },
+      { c: 'Silicone_Rubber', q: 1 },
+    ],
+  },
 
   // ============= Recipes.Fabricator.Deployables
-  Beacon: [
-    { c: 'Copper_Ore', q: 1 },
-    { c: 'Titanium', q: 1 },
-  ],
-  Gravsphere: [
-    { c: 'Copper_Ore', q: 1 },
-    { c: 'Titanium', q: 1 },
-    { c: 'Battery', q: 1 },
-  ],
+  Beacon: {
+    t: 'Recipes.Habitat_Builder',
+    m: [
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Gravsphere: {
+    t: 'Recipes.Habitat_Builder',
+    m: [
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Battery', q: 1 },
+    ],
+  },
 
   // ============= Recipes.Habitat_Builder
-  Scanner_Room: [
-    { c: 'Copper_Ore', q: 2 },
-    { c: 'Gold', q: 1 },
-    { c: 'Table_Coral_Sample', q: 1 },
-    { c: 'Titanium', q: 5 },
-  ],
-  Solar_Panel: [
-    { c: 'Quartz', q: 2 },
-    { c: 'Copper_Ore', q: 1 },
-    { c: 'Titanium', q: 2 },
-  ],
-  Radio: [
-    { c: 'Copper_Ore', q: 1 },
-    { c: 'Titanium', q: 1 },
-  ],
+  Scanner_Room: {
+    t: 'Recipes.Habitat_Builder',
+    m: [
+      { c: 'Copper_Ore', q: 2 },
+      { c: 'Gold', q: 1 },
+      { c: 'Table_Coral_Sample', q: 1 },
+      { c: 'Titanium', q: 5 },
+    ],
+  },
+  Solar_Panel: {
+    t: 'Recipes.Habitat_Builder',
+    m: [
+      { c: 'Quartz', q: 2 },
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Radio: {
+    t: 'Recipes.Habitat_Builder',
+    m: [
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
 
   // ============= Recipes.Scanner_Room
-  Scanner_Room_Range_Upgrade: [
-    { c: 'Copper_Ore', q: 1 },
-    { c: 'Magnetite', q: 1 },
-  ],
+  Scanner_Room_Range_Upgrade: {
+    t: 'Recipes.Habitat_Builder',
+    m: [
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Magnetite', q: 1 },
+    ],
+  },
 };
