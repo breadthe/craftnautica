@@ -1,4 +1,7 @@
-import algo from '@/algo';
+import itemsBz from '@/items-bz';
+import Algo from '@/algo';
+
+const algo = new Algo(itemsBz);
 
 describe('Test recipes', () => {
   /* Raw Materials */
