@@ -1,45 +1,33 @@
 export default {
-  // ============= Mats.Fauna
-  Bladderfish: { t: 'Raw_Materials.Fauna', m: null },
-
-  // ============= Mats.Minerals
+  // ============= Raw_Materials.Minerals
   Copper_Ore: { t: 'Raw_Materials.Minerals', m: null },
-  Cave_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
+  Crystalline_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
   Diamond: { t: 'Raw_Materials.Minerals', m: null },
-  Gas_Pod: { t: 'Raw_Materials.Minerals', m: null },
   Gold: { t: 'Raw_Materials.Minerals', m: null },
-  Kyanite: { t: 'Raw_Materials.Minerals', m: null },
   Lead: { t: 'Raw_Materials.Minerals', m: null },
   Lithium: { t: 'Raw_Materials.Minerals', m: null },
   Magnetite: { t: 'Raw_Materials.Minerals', m: null },
-  Metal_Salvage: { t: 'Raw_Materials.Minerals', m: null },
   Nickel_Ore: { t: 'Raw_Materials.Minerals', m: null },
   Quartz: { t: 'Raw_Materials.Minerals', m: null },
   Ruby: { t: 'Raw_Materials.Minerals', m: null },
   Salt_Deposit: { t: 'Raw_Materials.Minerals', m: null },
-  Titanium: { t: 'Raw_Materials.Minerals', m: null },
-  Alien_Feces: { t: 'Raw_Materials.Minerals', m: null },
   Silver_Ore: { t: 'Raw_Materials.Minerals', m: null },
-  Stalker_Teeth: { t: 'Raw_Materials.Minerals', m: null },
-  Crystalline_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
+  Titanium: { t: 'Raw_Materials.Minerals', m: null },
   Uraninite_Crystal: { t: 'Raw_Materials.Minerals', m: null },
   Ion_Cube: { t: 'Raw_Materials.Minerals', m: null },
 
-  // ============= Mats.Corals
-  Coral_Tube_Sample: { t: 'Raw_Materials.Corals', m: null },
-  Fungal_Sample: { t: 'Raw_Materials.Corals', m: null },
-  Brain_Coral_Sample: { t: 'Raw_Materials.Corals', m: null },
-  Table_Coral_Sample: { t: 'Raw_Materials.Corals', m: null },
+  // ============= Raw_Materials.Plants_Corals
+  Blood_Oil: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Coral_Tube_Sample: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Creepvine_Sample: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Creepvine_Seed_Cluster: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Deep_Shroom: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Gel_Sack: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Ribbon_Plant: { t: 'Raw_Materials.Plants_Corals', m: null },
+  Table_Coral_Sample: { t: 'Raw_Materials.Plants_Corals', m: null },
 
-  // ============= Mats.Flora
-  Acid_Mushroom: { t: 'Raw_Materials.Flora', m: null },
-  Deep_Shroom: { t: 'Raw_Materials.Flora', m: null },
-  Gel_Sack: { t: 'Raw_Materials.Flora', m: null },
-
-  // ============= Mats.Seeds_Spores
-  Blood_Oil: { t: 'Raw_Materials.Seeds&Spores', m: null },
-  Creepvine_Sample: { t: 'Raw_Materials.Seeds&Spores', m: null },
-  Creepvine_Seed_Cluster: { t: 'Raw_Materials.Seeds&Spores', m: null },
+  // ============= Raw_Materials.Fauna
+  Bladderfish: { t: 'Raw_Materials.Fauna', m: null },
 
   // ============= Recipes.Fabricator.Basic_Materials
   Titanium_Ingot: {
@@ -83,7 +71,8 @@ export default {
     t: 'Recipes.Fabricator.Basic_Materials',
     m: [
       { c: 'Glass', q: 1 },
-      { c: 'Stalker_Teeth', q: 1 },
+      { c: 'Diamond', q: 1 },
+      { c: 'Lead', q: 1 },
     ],
   },
   Plasteel_Ingot: {
@@ -141,7 +130,7 @@ export default {
     t: 'Recipes.Fabricator.Electronics',
     m: [
       { c: 'Copper_Ore', q: 1 },
-      { c: 'Acid_Mushroom', q: 2 },
+      { c: 'Ribbon_Plant', q: 2 },
     ],
   },
   Power_Cell: {
@@ -234,19 +223,21 @@ export default {
       { c: 'Battery', q: 1 },
     ],
   },
+  // TODO: remaining Deployables
 
   // ============= Recipes.Fabricator.Personal.Equipment
   'Standard_O₂_Tank': { // TODO: Figure out if non-ASCII subscript works for linking & stuff
     t: 'Recipes.Fabricator.Personal.Equipment',
     m: [
-      { c: 'Titanium', q: 3 },
+      { c: 'Titanium', q: 2 },
+      { c: 'Fiber_Mesh', q: 1 },
     ],
   },
   /**
    * TODO: This could get weird, Standard O2 Tank is not calculated as a basic mat, even though it is.
    * It may require a special flag to indicate that it should be treated as a raw material,
    * to prevent adding the components that were already used when constructing the original item.
-  */
+   */
   'High_Capacity_O₂_Tank': {
     t: 'Recipes.Fabricator.Personal.Equipment',
     m: [
@@ -262,6 +253,7 @@ export default {
       { c: 'Silicone_Rubber', q: 2 },
     ],
   },
+  // TODO: remaining Personal.Equipment
 
   // ============= Recipes.Habitat_Builder
   Scanner_Room: {

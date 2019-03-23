@@ -234,6 +234,7 @@ export default {
       { c: 'Battery', q: 1 },
     ],
   },
+  // TODO: remaining Deployables
 
   // ============= Recipes.Fabricator.Personal.Equipment
   'Standard_O₂_Tank': { // TODO: Figure out if non-ASCII subscript works for linking & stuff
@@ -262,6 +263,7 @@ export default {
       { c: 'Silicone_Rubber', q: 2 },
     ],
   },
+  // TODO: remaining Personal.Equipment
 
   // ============= Recipes.Habitat_Builder
   Scanner_Room: {
