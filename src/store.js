@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import itemsSn from '@/items-sn';
-import itemsBz from '@/items-bz';
+import items_sn from '@/items-sn';
+import items_bz from '@/items-bz';
 
 Vue.use(Vuex);
 
@@ -14,8 +14,8 @@ export default new Vuex.Store({
       state.search = srcStr;
     },
     SET_ITEMS(state) {
-      state.itemsSn = itemsSn;
-      state.itemsBz = itemsBz;
+      state.items_sn = items_sn;
+      state.items_bz = items_bz;
     },
   },
   actions: {

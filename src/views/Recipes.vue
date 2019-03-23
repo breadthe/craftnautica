@@ -6,36 +6,36 @@
       <search></search>
     </div>
 
-    <!--<div v-for="type in types" :key="type" class="-mx-2">
+    <div v-for="type in types" :key="type" class="-mx-2">
       <type :type="type" :types="filterByType(type)"></type>
-    </div>-->
+    </div>
 
   </section>
 </template>
 
 <script>
-// import items from '@/items';
 import util from '@/util';
-// import Type from '@/components/Type.vue';
+import Type from '@/components/Type.vue';
 import Search from '@/components/Search.vue';
 
 export default {
-  name: 'Dashboard',
+  name: 'Recipes',
   components: {
-    // Type,
+    Type,
     Search,
   },
   data: () => ({
-    // items,
-    // types: util.types(items),
   }),
   computed: {
     domain: vm => vm.$route.path.replace(/\//, ''),
     fullDomainName: vm => util.fullDomainName(vm.domain),
-    items: vm => () => import('@/items-' + vm.domain),
+    items: vm => vm.$store.state['items_' + vm.domain],
+    types: vm => util.types(vm.items),
   },
   methods: {
-    // filterByType: type => util.filterByType(items, type),
+    filterByType: function (type) {
+      return util.filterByType(this.items, type);
+    },
   },
 };
 </script>

@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import items from '@/items';
-import algo from '@/algo';
+import store from '@/store';
+import Algo from '@/algo';
 import util from '@/util';
 
 export default {
@@ -47,7 +47,9 @@ export default {
     components: null,
   }),
   computed: {
-    type: vm => items[vm.id].t,
+    domain: vm => vm.$route.path.replace(/\//, ''),
+    items: vm => vm.$store.state['items_' + vm.domain],
+    type: vm => vm.items[vm.id].t,
     rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
   },
   methods: {
@@ -56,7 +58,16 @@ export default {
     },
   },
   beforeRouteEnter(to, from, next) {
-    const components = algo.listOfMaterials(to.params.id);
+    let items = null;
+    switch (to.name) {
+      case 'sn': items = store.state.items_sn; break;
+      case 'bz': items = store.state.items_bz; break;
+      default:
+        next(vm => vm.$router.push({ path: '/404' }));
+        break;
+    }
+
+    const components = (new Algo(items)).listOfMaterials(to.params.id);
     if (components.length) {
       next(vm => vm.setData(components));
     } else {
@@ -64,7 +75,7 @@ export default {
     }
   },
   beforeRouteUpdate(to, from, next) {
-    const components = algo.listOfMaterials(to.params.id);
+    const components = (new Algo(this.$store.state.items_sn)).listOfMaterials(to.params.id); // TODO: revisit this, must be domain-specific
     if (components.length) {
       this.setData(components);
     } else {
