@@ -12,6 +12,8 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'linebreak-style': 'off',
     'max-len': ['error', { 'code': 120 }],
+    'func-names': ['error', 'as-needed'],
+    'object-shorthand': 'off',
     // 'comma-dangle': ['error', 'always']
   },
   parserOptions: {
