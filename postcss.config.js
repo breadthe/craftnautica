@@ -13,6 +13,7 @@ module.exports = {
               }
             },
             extensions: ['vue', 'html'],
+            whitelist: ['w-6', 'h-6'],
           },
         ],
       })
