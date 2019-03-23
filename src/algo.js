@@ -1,10 +1,10 @@
-import items from '@/items';
+import itemsSn from '@/items-sn';
 import _flattenDeep from 'lodash.flattendeep';
 import _groupBy from 'lodash.groupby';
 import _toPairs from 'lodash.topairs';
 
 const recurse = (com, qt = 1) => {
-  const obj = items[com].m;
+  const obj = itemsSn[com].m;
 
   // Key doesn't exist
   if (typeof obj === 'undefined') {
