@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import itemsSn from '@/items-sn';
+import itemsBz from '@/items-bz';
 
 Vue.use(Vuex);
 
@@ -8,13 +10,17 @@ export default new Vuex.Store({
     search: '',
   },
   mutations: {
-    UPDATE(state, srcStr) {
+    SET_SRC_STR(state, srcStr) {
       state.search = srcStr;
+    },
+    SET_ITEMS(state) {
+      state.itemsSn = itemsSn;
+      state.itemsBz = itemsBz;
     },
   },
   actions: {
-    update({ commit }, srcStr) {
-      commit('UPDATE', srcStr);
+    setSrcStr({ commit }, srcStr) {
+      commit('SET_SRC_STR', srcStr);
     },
   },
 });

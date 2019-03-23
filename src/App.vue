@@ -13,6 +13,9 @@ export default {
   components: {
     NavMain,
   },
+  created: function () {
+    this.$store.commit('SET_ITEMS');
+  },
 };
 </script>
 

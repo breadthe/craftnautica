@@ -1,5 +1,5 @@
 <template>
-  <section class="flex justify-center w-full">
+  <section class="flex justify-center w-full mt-4">
     <input type="text" v-model="search" class="search flex-grow" placeholder="Search...">
   </section>
 </template>
@@ -13,7 +13,7 @@ export default {
   }),
   computed: {
     search: {
-      set(srcStr) { this.$store.dispatch('update', srcStr); },
+      set(srcStr) { this.$store.dispatch('setSrcStr', srcStr); },
       get() { return this.$store.state.search; },
     },
   },
