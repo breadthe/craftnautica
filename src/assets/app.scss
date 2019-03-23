@@ -20,6 +20,7 @@ input {
   @apply bg-blue-darkest;
   @apply border;
   @apply border-blue-dark;
+  @apply rounded;
 
   &.search {
     @apply max-w-sm;
@@ -34,6 +35,7 @@ input {
   @apply p-2;
   @apply border;
   @apply border-grey-darkest;
+  @apply rounded;
   @apply text-lg;
   @apply font-light;
   &:hover {
