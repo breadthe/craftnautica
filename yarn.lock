@@ -592,6 +592,12 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@fullhuman/postcss-purgecss@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@fullhuman/postcss-purgecss/-/postcss-purgecss-1.1.0.tgz#fa423630e01b09604de42637f89eac72471b8961"
+  dependencies:
+    purgecss "^1.0.0"
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@intervolga/optimize-cssnano-plugin/-/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"
@@ -6992,7 +6998,7 @@ punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
-purgecss@^1.1.0:
+purgecss@^1.0.0, purgecss@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/purgecss/-/purgecss-1.1.0.tgz#0d27c18bb4070d246a845ea22697271eabb59ffe"
   dependencies:

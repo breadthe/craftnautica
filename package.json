@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.1.0",
     "lodash.flattendeep": "^4.4.0",
     "lodash.groupby": "^4.6.0",
     "lodash.topairs": "^4.3.0",
