@@ -7,9 +7,23 @@
 
       <!-- Left side -->
       <div class="flex-1 flex items-center">
-        <router-link to="/" class="flex items-center justify-center w-12 h-12 p-2 mr-8 rounded-full bg-grey-darkest text-sm hover:text-white mr-2">Home</router-link>
-        <router-link to="/sn" class="text-grey-light hover:text-white mr-4">Subnautica</router-link>
-        <router-link to="/bz" class="text-grey-light hover:text-white mr-4">Below Zero</router-link>
+        <router-link
+          to="/"
+          class="flex items-center justify-center w-12 h-12 p-2 mr-8 rounded-full bg-grey-darkest text-sm hover:text-white mr-2"
+        >Home</router-link>
+
+        <router-link
+          to="/sn"
+          class="border-b-4 border-black pb-1 mt-2 mr-4 text-grey-light hover:text-white"
+          :class="domain === 'sn' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
+        >Subnautica</router-link>
+
+        <router-link
+          to="/bz"
+          class="border-b-4 border-black pb-1 mt-2 mr-4 text-grey-light hover:text-white"
+          :class="domain === 'bz' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
+        >Below Zero</router-link>
+
         <!--<router-link to="/recipes" class="text-grey-light hover:text-white mr-2">Recipes</router-link>-->
         <!--<router-link to="/about" class="text-grey-light hover:text-white mr-2">About</router-link>-->
       </div>
@@ -27,7 +41,7 @@ export default {
   components: {
   },
   computed: {
-    selectedDomain: () => '',
+    domain: vm => vm.$route.path.replace(/\//, ''),
   },
 };
 </script>
