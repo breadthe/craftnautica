@@ -5,8 +5,10 @@ export default {
   search: (items, srcStr) => Object.fromEntries(Object.entries(items).filter(i => i[0].match(new RegExp(srcStr, 'ig')))),
   fullDomainName: (domain) => {
     switch (domain) {
-      case 'sn': return 'Subnautica';
-      case 'bz': return 'Below Zero';
+      case 'sn':
+      case 'subnautica': return 'Subnautica';
+      case 'bz':
+      case 'belowzero': return 'Below Zero';
       default: return 'Subnautica';
     }
   },

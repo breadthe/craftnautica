@@ -1,12 +1,12 @@
 <template>
-  <section class="container mx-auto max-w-lg mt-4">
-    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
+  <section class="container mx-auto mt-4">
+    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between max-w-lg xs:mx-auto mx-4">
       <h1>{{ fullDomainName }}</h1>
 
       <search></search>
     </div>
 
-    <div v-for="type in types" :key="type" class="-mx-2">
+    <div v-for="type in types" :key="type" class="">
       <type :type="type" :types="filterByType(type)"></type>
     </div>
 
