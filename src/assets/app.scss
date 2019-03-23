@@ -7,10 +7,10 @@ body {
 
 a {
     @apply no-underline;
-    @apply text-green;
+    @apply text-blue;
 
     &:hover {
-        @apply text-green-light;
+        @apply text-blue-light;
     }
 }
 
@@ -32,9 +32,10 @@ input {
   @apply flex;
   @apply items-center;
   @apply m-2;
-  @apply p-2;
+  @apply py-2;
+  @apply px-3;
   @apply border;
-  @apply border-grey-darkest;
+  @apply border-blue-dark;
   @apply rounded;
   @apply text-lg;
   @apply font-light;
