@@ -3,7 +3,7 @@
       <router-link
         v-for="(data, id) in items"
         :key="id"
-        :to="{name: 'details', params: { id }}"
+        :to="{name: domain + 'details', params: { id }}"
         class="item-frame"
       >
         <div class="item-icon"></div>
@@ -27,6 +27,9 @@ export default {
   data: () => ({
     pretty: util.pretty,
   }),
+  computed: {
+    domain: vm => vm.$route.path.replace(/\//, ''),
+  },
 };
 </script>
 

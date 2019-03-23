@@ -44,15 +44,17 @@ export default new Router({
     },
     {
       path: '/sn/i/:id', // Subnautica Classic
-      name: 'details',
+      name: 'sndetails',
+      parent: '/sn',
       component: () => import(/* webpackChunkName: "about" */ './components/Details.vue'),
       props: true,
     },
     {
       path: '/bz/i/:id', // Below Zero
-      name: 'bdetails',
-      parent: '/bis',
+      name: 'bzdetails',
+      parent: '/bz',
       component: () => import(/* webpackChunkName: "about" */ './components/Details.vue'),
       props: true,
-    },  ],
+    },
+  ],
 });
