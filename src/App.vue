@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div v-if="unsupported" class="flex justify-center w-full border border-pink-darkest bg-red">
+      <div class="max-w-lg p-8 text-xl">
+        You are using an unsupported browser. Please use Firefox 63+ or Chrome 73+.
+      </div>
+    </div>
+
     <nav-main></nav-main>
 
     <router-view/>
@@ -12,6 +18,9 @@ import NavMain from '@/components/NavMain.vue';
 export default {
   components: {
     NavMain,
+  },
+  computed: {
+    unsupported: () => typeof Object.fromEntries === 'undefined',
   },
   created: function () {
     this.$store.commit('SET_ITEMS');
