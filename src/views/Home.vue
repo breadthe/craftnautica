@@ -1,31 +1,49 @@
 <template>
   <section class="container mx-auto p-4">
-    <div class="flex justify-center">
+
+    <div class="max-w-lg mx-auto mt-4 text-xl leading-normal">
+      <p>
+        Welcome to <span class="font-bold">Craftnautica</span>! After crashing-landing on 4546B you've had your work cut out for you, so why not enjoy a respite with our crafting helper?
+      </p>
+      <p class="mt-4">
+        <ul>
+          <li>Quickly search a raw material or crafted item</li>
+          <li>See at a glance the total amount of base components required to craft it</li>
+          <li><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Create "shopping lists" of crafted items and see a grand total of all the raw materials required! 🔥 Useful when building a new base!</li>
+          <li><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Gold do I have in my Lifepod?".</li>
+          <li>And more...</li>
+        </ul>
+      </p>
+      <p class="mt-4">
+        Pick a game to get started!
+      </p>
+    </div>
+
+    <div class="flex flex-col justify-center max-w-sm mx-auto">
       <!--<Dashboard/>-->
       <router-link
           to="/sn"
-          class="p-8 m-8 text-2xl border border-blue-darker hover:border-blue-dark"
+          class="flex flex-col text-center p-8 m-8 border border-blue-dark rounded hover:border-blue-dark hover:bg-blue-darker hover:text-blue-light"
       >
-        Subnautica
+        <h1 class="font-light text-3xl">Subnautica</h1>
+        <span class="mt-2 text-blue-dark">The original game</span>
       </router-link>
       <router-link
           to="/bz"
-          class="p-8 m-8 text-2xl border border-blue-darker hover:border-blue-dark"
+          class="flex flex-col text-center p-8 m-8 border border-blue-dark rounded hover:border-blue-dark hover:bg-blue-darker hover:text-blue-light"
       >
-        Below Zero
+        <h1 class="font-light text-3xl">Below Zero</h1>
+        <span class="mt-2 text-blue-dark">The upcoming expansion</span>
       </router-link>
     </div>
+
   </section>
 </template>
 
 <script>
-// @ is an alias to /src
-// import Dashboard from '@/components/Dashboard.vue';
-
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    // Dashboard,
   },
 };
 </script>
