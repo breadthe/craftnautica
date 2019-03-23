@@ -23,7 +23,7 @@
       <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
         <div class="flex items-center">
           <div class="item-icon"></div>
-          <div class="ml-4">{{ pretty(comp.c) }}</div>
+          <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
         </div>
         <div>{{ comp.q }}</div>
       </div>
