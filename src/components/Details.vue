@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto max-w-lg">
     <div class="flex justify-between my-4">
-      <router-link :to="{name: 'home'}">&laquo; Back</router-link>
+      <router-link :to="`/${domain}`">&laquo; Back</router-link>
       <div>{{ type }}</div>
     </div>
 
