@@ -19,11 +19,13 @@
 </template>
 
 <script>
+import VExternalLink from '@/components/reusable/icons/VExternalLink.vue';
 import VHome from '@/components/reusable/icons/VHome.vue';
 import VX from '@/components/reusable/icons/VX.vue';
 
 export default {
   components: {
+    VExternalLink,
     VHome,
     VX,
   },
