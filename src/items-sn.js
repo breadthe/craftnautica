@@ -37,9 +37,9 @@ export default {
   Bladderfish: { t: 'Raw_Materials.Fauna', m: null },
 
   // ============= Raw_Materials.Seeds_Spores
-  Blood_Oil: { t: 'Raw_Materials.Seeds&Spores', m: null },
-  Creepvine_Sample: { t: 'Raw_Materials.Seeds&Spores', m: null },
-  Creepvine_Seed_Cluster: { t: 'Raw_Materials.Seeds&Spores', m: null },
+  Blood_Oil: { t: 'Raw_Materials.Seeds_Spores', m: null },
+  Creepvine_Sample: { t: 'Raw_Materials.Seeds_Spores', m: null },
+  Creepvine_Seed_Cluster: { t: 'Raw_Materials.Seeds_Spores', m: null },
 
   // ============= Recipes.Fabricator.Basic_Materials
   Titanium_Ingot: {

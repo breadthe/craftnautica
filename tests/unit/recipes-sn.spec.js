@@ -4,8 +4,8 @@ import Algo from '@/algo';
 const algo = new Algo(itemsSn);
 
 describe('Test recipes', () => {
-  /* Raw Materials */
-  test('it returns the correct raw materials', () => {
+  /* Raw_Materials.Minerals */
+  test('it returns the correct Raw_Materials.Minerals', () => {
     expect(algo.listOfMaterials('Copper_Ore')).toEqual([{ c: 'Copper_Ore', q: 1 }]);
     expect(algo.listOfMaterials('Cave_Sulfur')).toEqual([{ c: 'Cave_Sulfur', q: 1 }]);
     expect(algo.listOfMaterials('Diamond')).toEqual([{ c: 'Diamond', q: 1 }]);
@@ -27,6 +27,33 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Crystalline_Sulfur')).toEqual([{ c: 'Crystalline_Sulfur', q: 1 }]);
     expect(algo.listOfMaterials('Uraninite_Crystal')).toEqual([{ c: 'Uraninite_Crystal', q: 1 }]);
     expect(algo.listOfMaterials('Ion_Cube')).toEqual([{ c: 'Ion_Cube', q: 1 }]);
+  });
+
+  /* Raw_Materials.Corals */
+  test('it returns the correct Raw_Materials.Corals', () => {
+    expect(algo.listOfMaterials('Coral_Tube_Sample')).toEqual([{ c: 'Coral_Tube_Sample', q: 1 }]);
+    expect(algo.listOfMaterials('Fungal_Sample')).toEqual([{ c: 'Fungal_Sample', q: 1 }]);
+    expect(algo.listOfMaterials('Brain_Coral_Sample')).toEqual([{ c: 'Brain_Coral_Sample', q: 1 }]);
+    expect(algo.listOfMaterials('Table_Coral_Sample')).toEqual([{ c: 'Table_Coral_Sample', q: 1 }]);
+  });
+
+  /* Raw_Materials.Flora */
+  test('it returns the correct Raw_Materials.Flora', () => {
+    expect(algo.listOfMaterials('Acid_Mushroom')).toEqual([{ c: 'Acid_Mushroom', q: 1 }]);
+    expect(algo.listOfMaterials('Deep_Shroom')).toEqual([{ c: 'Deep_Shroom', q: 1 }]);
+    expect(algo.listOfMaterials('Gel_Sack')).toEqual([{ c: 'Gel_Sack', q: 1 }]);
+  });
+
+  /* Raw_Materials.Fauna */
+  test('it returns the correct Raw_Materials.Fauna', () => {
+    expect(algo.listOfMaterials('Bladderfish')).toEqual([{ c: 'Bladderfish', q: 1 }]);
+  });
+
+  /* Raw_Materials.Seeds_Spores */
+  test('it returns the correct Raw_Materials.Seeds_Spores', () => {
+    expect(algo.listOfMaterials('Blood_Oil')).toEqual([{ c: 'Blood_Oil', q: 1 }]);
+    expect(algo.listOfMaterials('Creepvine_Sample')).toEqual([{ c: 'Creepvine_Sample', q: 1 }]);
+    expect(algo.listOfMaterials('Creepvine_Seed_Cluster')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 1 }]);
   });
 
   /* Recipes.Fabricator.Basic_Materials */
