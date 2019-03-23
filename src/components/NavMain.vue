@@ -9,18 +9,20 @@
       <div class="flex-1 flex items-center">
         <router-link
           to="/"
-          class="flex items-center justify-center w-12 h-12 p-2 mr-8 rounded-full bg-grey-darkest text-sm hover:text-white mr-2"
-        >Home</router-link>
+          class="flex items-center justify-center p-2 mr-4 mr-2"
+        >
+          <v-icon icon="home" color="blue-dark"></v-icon>
+        </router-link>
 
         <router-link
           to="/sn"
-          class="border-b-4 border-black pb-1 mt-2 mr-4 text-grey-light hover:text-white"
+          class="border-b-4 border-black pb-1 mt-3 mr-4 text-grey-light hover:text-white"
           :class="domain === 'sn' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
         >Subnautica</router-link>
 
         <router-link
           to="/bz"
-          class="border-b-4 border-black pb-1 mt-2 mr-4 text-grey-light hover:text-white"
+          class="border-b-4 border-black pb-1 mt-3 mr-4 text-grey-light hover:text-white"
           :class="domain === 'bz' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
         >Below Zero</router-link>
 
@@ -36,9 +38,12 @@
 </template>
 
 <script>
+import VIcon from '@/components/reusable/VIcon.vue';
+
 export default {
   name: 'NavMain',
   components: {
+    VIcon,
   },
   computed: {
     domain: vm => vm.$route.path.split(/\//)[1],
