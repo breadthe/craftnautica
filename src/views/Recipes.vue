@@ -1,8 +1,10 @@
 <template>
   <section class="container mx-auto max-w-lg mt-4">
-    <h1>{{ fullDomainName }}</h1>
+    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between">
+      <h1>{{ fullDomainName }}</h1>
 
-    <search></search>
+      <search></search>
+    </div>
 
     <!--<div v-for="type in types" :key="type" class="-mx-2">
       <type :type="type" :types="filterByType(type)"></type>

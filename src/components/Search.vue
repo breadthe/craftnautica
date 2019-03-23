@@ -1,7 +1,5 @@
 <template>
-  <section class="flex justify-center w-full mt-4">
-    <input type="text" v-model="search" class="search flex-grow" placeholder="Search...">
-  </section>
+  <input type="text" v-model="search" class="search flex-1 w-4/5 sm:w-full mt-4 sm:mt-0" placeholder="Search...">
 </template>
 
 <script>
