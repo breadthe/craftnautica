@@ -1,8 +1,5 @@
 export default {
-  // ============= Mats.Fauna
-  Bladderfish: { t: 'Raw_Materials.Fauna', m: null },
-
-  // ============= Mats.Minerals
+  // ============= Raw_Materials.Minerals
   Copper_Ore: { t: 'Raw_Materials.Minerals', m: null },
   Cave_Sulfur: { t: 'Raw_Materials.Minerals', m: null },
   Diamond: { t: 'Raw_Materials.Minerals', m: null },
@@ -25,18 +22,21 @@ export default {
   Uraninite_Crystal: { t: 'Raw_Materials.Minerals', m: null },
   Ion_Cube: { t: 'Raw_Materials.Minerals', m: null },
 
-  // ============= Mats.Corals
+  // ============= Raw_Materials.Corals
   Coral_Tube_Sample: { t: 'Raw_Materials.Corals', m: null },
   Fungal_Sample: { t: 'Raw_Materials.Corals', m: null },
   Brain_Coral_Sample: { t: 'Raw_Materials.Corals', m: null },
   Table_Coral_Sample: { t: 'Raw_Materials.Corals', m: null },
 
-  // ============= Mats.Flora
+  // ============= Raw_Materials.Flora
   Acid_Mushroom: { t: 'Raw_Materials.Flora', m: null },
   Deep_Shroom: { t: 'Raw_Materials.Flora', m: null },
   Gel_Sack: { t: 'Raw_Materials.Flora', m: null },
 
-  // ============= Mats.Seeds_Spores
+  // ============= Raw_Materials.Fauna
+  Bladderfish: { t: 'Raw_Materials.Fauna', m: null },
+
+  // ============= Raw_Materials.Seeds_Spores
   Blood_Oil: { t: 'Raw_Materials.Seeds&Spores', m: null },
   Creepvine_Sample: { t: 'Raw_Materials.Seeds&Spores', m: null },
   Creepvine_Seed_Cluster: { t: 'Raw_Materials.Seeds&Spores', m: null },
