@@ -1,7 +1,7 @@
 <template>
   <nav
     id="nav"
-    class="bg-black p-4"
+    class="bg-black"
   >
     <div class="flex items-center justify-between max-w-lg mx-auto">
 
@@ -9,25 +9,23 @@
       <div class="flex-1 flex items-center">
         <router-link
           to="/"
-          class="flex items-center justify-center p-2 mr-4 mr-2"
+          class="flex items-center justify-center mr-4 mr-2"
         >
           <v-icon icon="home" color="blue-dark"></v-icon>
         </router-link>
 
         <router-link
           to="/sn"
-          class="border-b-4 border-black pb-1 mt-3 mr-4 text-grey-light hover:text-white"
+          class="border-b-4 border-black pb-2 mt-3 mr-4 text-grey-light hover:text-white"
           :class="domain === 'sn' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
         >Subnautica</router-link>
 
         <router-link
           to="/bz"
-          class="border-b-4 border-black pb-1 mt-3 mr-4 text-grey-light hover:text-white"
+          class="border-b-4 border-black pb-2 mt-3 mr-4 text-grey-light hover:text-white"
           :class="domain === 'bz' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
         >Below Zero</router-link>
 
-        <!--<router-link to="/recipes" class="text-grey-light hover:text-white mr-2">Recipes</router-link>-->
-        <!--<router-link to="/about" class="text-grey-light hover:text-white mr-2">About</router-link>-->
       </div>
 
       <!-- Right side -->
