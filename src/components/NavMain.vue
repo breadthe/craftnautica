@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import VIcon from '@/components/reusable/VIcon.vue';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'NavMain',
