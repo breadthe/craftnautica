@@ -47,7 +47,7 @@ export default {
     components: null,
   }),
   computed: {
-    domain: vm => vm.$route.path.replace(/\//, ''),
+    domain: vm => vm.$route.name.replace(/details/, ''), // strip out "details" from "sndetails"
     items: vm => vm.$store.state['items_' + vm.domain],
     type: vm => vm.items[vm.id].t,
     rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
@@ -60,8 +60,8 @@ export default {
   beforeRouteEnter(to, from, next) {
     let items = null;
     switch (to.name) {
-      case 'sn': items = store.state.items_sn; break;
-      case 'bz': items = store.state.items_bz; break;
+      case 'sndetails': items = store.state.items_sn; break;
+      case 'bzdetails': items = store.state.items_bz; break;
       default:
         next(vm => vm.$router.push({ path: '/404' }));
         break;
@@ -73,15 +73,6 @@ export default {
     } else {
       next(vm => vm.$router.push({ path: '/404' }));
     }
-  },
-  beforeRouteUpdate(to, from, next) {
-    const components = (new Algo(this.$store.state.items_sn)).listOfMaterials(to.params.id); // TODO: revisit this, must be domain-specific
-    if (components.length) {
-      this.setData(components);
-    } else {
-      this.$router.push({ path: '/404' });
-    }
-    next();
   },
 };
 </script>
