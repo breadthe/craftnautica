@@ -41,7 +41,7 @@ export default {
   components: {
   },
   computed: {
-    domain: vm => vm.$route.path.replace(/\//, ''),
+    domain: vm => vm.$route.path.split(/\//)[1],
   },
 };
 </script>

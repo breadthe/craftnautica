@@ -16,6 +16,7 @@
 import NavMain from '@/components/NavMain.vue';
 
 export default {
+  name: 'App',
   components: {
     NavMain,
   },
