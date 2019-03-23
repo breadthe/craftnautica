@@ -1,40 +1,36 @@
 <template>
-  <div class="container mx-auto p-4">
-    <h1>Mats</h1>
+  <section class="container mx-auto max-w-lg">
+    <h1>{{ fullDomainName }}</h1>
 
-    <section v-for="(recipe, i) in recipes" :key="i" class="mt-4">
-      <div v-for="(mats, name) in recipe" :key="name" class="flex items start py-2 border-b border-blue-darker">
-        <div class="w-1/4 font-light text-2xl">
-          {{ name }}
-        </div>
-        <div class="w-3/4">
-          <!-- {{ showMats(mats) }} -->
-          <!-- <div v-for="(qty, label) in mats" :key="label">{{ label }}: {{ qty }}</div> -->
-          <div v-for="mat in mats" :key="mat.comp">{{ mat.comp }}: {{ mat.qty }}</div>
-        </div>
-      </div>
-    </section>
+    <!--<div v-for="type in types" :key="type" class="-mx-2">
+      <type :type="type" :types="filterByType(type)"></type>
+    </div>-->
 
-  </div>
+  </section>
 </template>
 
 <script>
-import fabricator from '@/fabricator';
+// import items from '@/items';
+import util from '@/util';
+// import Type from '@/components/Type.vue';
 
 export default {
-  name: 'recipes',
-  components: {
-  },
+  name: 'Dashboard',
+  // components: { Type },
   data: () => ({
-    recipes: fabricator.recipes,
+    // items,
+    // types: util.types(items),
   }),
+  computed: {
+    domain: vm => vm.$route.path.replace(/\//, ''),
+    fullDomainName: vm => util.fullDomainName(vm.domain),
+  },
   methods: {
-    showMats: (mats) => {
-      console.log(mats);
-      // console.log(Object.keys(mats));
-      // console.log(Object.values(mats));
-      // return Object.keys(mats) + Object.values(mats);
-    },
+    // filterByType: type => util.filterByType(items, type),
   },
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+</style>

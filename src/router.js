@@ -33,10 +33,26 @@ export default new Router({
       component: () => import(/* webpackChunkName: "recipes" */ './views/Recipes.vue'),
     },
     {
-      path: '/i/:id',
+      path: '/sn',
+      name: 'subnautica',
+      component: () => import(/* webpackChunkName: "about" */ './views/Recipes.vue'),
+    },
+    {
+      path: '/bz',
+      name: 'belowzero',
+      component: () => import(/* webpackChunkName: "about" */ './views/Recipes.vue'),
+    },
+    {
+      path: '/sn/i/:id', // Subnautica Classic
       name: 'details',
       component: () => import(/* webpackChunkName: "about" */ './components/Details.vue'),
       props: true,
     },
-  ],
+    {
+      path: '/bz/i/:id', // Below Zero
+      name: 'bdetails',
+      parent: '/bis',
+      component: () => import(/* webpackChunkName: "about" */ './components/Details.vue'),
+      props: true,
+    },  ],
 });
