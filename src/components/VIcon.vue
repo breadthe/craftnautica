@@ -21,6 +21,7 @@
 <script>
 import VExternalLink from '@/components/icons/VExternalLink.vue';
 import VHome from '@/components/icons/VHome.vue';
+import VSearch from '@/components/icons/VSearch.vue';
 import VShoppingCart from '@/components/icons/VShoppingCart.vue';
 import VX from '@/components/icons/VX.vue';
 
@@ -28,6 +29,7 @@ export default {
   components: {
     VExternalLink,
     VHome,
+    VSearch,
     VShoppingCart,
     VX,
   },
