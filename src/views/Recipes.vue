@@ -1,6 +1,6 @@
 <template>
   <section class="container mx-auto mt-4">
-    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between max-w-lg xs:mx-auto mx-4">
+    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mx-4">
       <h1>{{ fullDomainName }}</h1>
 
       <search></search>

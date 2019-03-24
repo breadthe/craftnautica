@@ -2,16 +2,20 @@
   <input
       type="text"
       v-model="search"
-      class="search flex-1 w-4/5 sm:w-full mt-4 sm:mt-0 ml-0 sm:ml-4"
+      class="search flex-1 w-full sm:w-4/5 mt-4 sm:mt-0 ml-0 sm:ml-4"
       :placeholder="`Search ${fullDomainName}...`"
   >
 </template>
 
 <script>
 import util from '@/util';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Search',
+  components: {
+    VIcon,
+  },
   props: {
   },
   data: () => ({
