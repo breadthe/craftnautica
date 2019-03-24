@@ -1,8 +1,9 @@
 <template>
   <section class="container mx-auto max-w-lg">
-    <div class="flex justify-between my-4">
-      <router-link :to="`/${domain}`">&laquo; Back</router-link>
-      <div>{{ type }}</div>
+    <div class="flex justify-start my-4">
+      <router-link :to="`/${domain}`">{{ fullDomainName }}</router-link>
+      &nbsp;&raquo;&nbsp;
+      {{ type }}
     </div>
 
     <div class="flex justify-between items-center my-8 text-lg font-light">
@@ -67,6 +68,7 @@ export default {
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/details/, ''), // strip out "details" from "sndetails"
+    fullDomainName: vm => util.fullDomainName(vm.domain),
     items: vm => vm.$store.state['items_' + vm.domain],
     type: vm => vm.items[vm.id].t,
     rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
