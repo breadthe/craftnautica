@@ -35,25 +35,35 @@ export default new Router({
     {
       path: '/sn',
       name: 'subnautica',
-      component: () => import(/* webpackChunkName: "about" */ './views/Recipes.vue'),
+      component: () => import(/* webpackChunkName: "recipes" */ './views/Recipes.vue'),
     },
     {
       path: '/bz',
       name: 'belowzero',
-      component: () => import(/* webpackChunkName: "about" */ './views/Recipes.vue'),
+      component: () => import(/* webpackChunkName: "recipes" */ './views/Recipes.vue'),
+    },
+    {
+      path: '/sn/cart',
+      name: 'sncart',
+      component: () => import(/* webpackChunkName: "cart" */ './views/Cart.vue'),
+    },
+    {
+      path: '/bz/cart',
+      name: 'bzcart',
+      component: () => import(/* webpackChunkName: "cart" */ './views/Cart.vue'),
     },
     {
       path: '/sn/i/:id', // Subnautica Classic
       name: 'sndetails',
       parent: '/sn',
-      component: () => import(/* webpackChunkName: "about" */ './components/Details.vue'),
+      component: () => import(/* webpackChunkName: "details" */ './components/Details.vue'),
       props: true,
     },
     {
       path: '/bz/i/:id', // Below Zero
       name: 'bzdetails',
       parent: '/bz',
-      component: () => import(/* webpackChunkName: "about" */ './components/Details.vue'),
+      component: () => import(/* webpackChunkName: "details" */ './components/Details.vue'),
       props: true,
     },
   ],

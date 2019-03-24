@@ -29,7 +29,16 @@
       </div>
 
       <!-- Right side -->
-      <div class="">&nbsp;</div>
+      <div class="flex items-center">
+        <router-link
+          v-if="showCart"
+          :to="`/${domain}/cart`"
+          class="flex items-center"
+        >
+          <v-icon icon="shopping-cart" color="blue-dark"></v-icon>
+          <span v-if="cartCount" class="ml-2">{{ cartCount }} items</span>
+        </router-link>
+      </div>
 
     </div>
   </nav>
@@ -45,6 +54,8 @@ export default {
   },
   computed: {
     domain: vm => vm.$route.path.split(/\//)[1],
+    showCart: vm => ['sn', 'bz'].indexOf(vm.domain) > -1,
+    cartCount: vm => vm.$store.state.cart[vm.domain].length,
   },
 };
 </script>
