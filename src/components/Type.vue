@@ -2,7 +2,14 @@
   <section v-if="render" class="mx-4 xs:mx-0">
     <h3 class="mt-8 mb-4">{{ type }}</h3>
 
-    <item :items="filteredItems"></item>
+    <div class="flex flex-wrap justify-start -mx-2">
+      <item
+        v-for="(item, id) in filteredItems"
+        :key="id"
+        :id="id"
+        :item="item"
+      ></item>
+    </div>
 
   </section>
 </template>
