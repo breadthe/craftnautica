@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import Cart from '@/storage';
 import items_sn from '@/items-sn';
 import items_bz from '@/items-bz';
 import _findIndex from 'lodash.findindex';
@@ -20,11 +21,13 @@ export default new Vuex.Store({
       state.items_bz = items_bz;
     },
     INIT_CART(state) {
-      const localStorageCart = JSON.parse(window.localStorage.getItem('cart'));
-      if (localStorageCart) {
-        state.cart = localStorageCart;
+      const cart = new Cart();
+
+      const storedCart = cart.get();
+      if (storedCart) {
+        state.cart = storedCart;
       } else {
-        window.localStorage.setItem('cart', JSON.stringify({}));
+        cart.reset();
       }
     },
     ADD_TO_CART(state, obj) {
@@ -32,19 +35,21 @@ export default new Vuex.Store({
       const id = obj.id;
       const qty = obj.qty;
 
-      let cart = state.cart;
-      let domainCart = cart[domain] || []; // cart.sn | cart.bz
+      let tmpcart = state.cart;
+      let domainCart = tmpcart[domain] || []; // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
       if (ix > -1) {
-        domainCart[ix][id] += qty;
+        domainCart[ix][id] += qty; // items is in cart, increment qty
       } else {
-        domainCart.push({ [id]: qty });
+        domainCart.push({ [id]: qty }); // item is not in cart, add it
       }
 
-      cart[domain] = domainCart;
+      tmpcart[domain] = domainCart;
 
-      window.localStorage.setItem('cart', JSON.stringify(state.cart));
+      state.cart = tmpcart;
+
+      (new Cart()).set(state.cart);
     },
   },
   actions: {
