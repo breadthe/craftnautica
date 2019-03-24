@@ -5,9 +5,19 @@
       <span v-if="cart.length">{{ cart.length }} items</span>
     </div>
 
-    <!--<div v-for="type in types" :key="type" class="">
-      <type :type="type" :types="filterByType(type)"></type>
-    </div>-->
+    <div class="" v-if="cart.length">
+      <div v-for="(item, ix) in cart" :key="ix" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+        <div class="flex items-center">
+          <div class="item-icon"></div>
+          <router-link :to="`/${domain}/i/${id(item)}`" class="ml-4">{{ pretty(id(item)) }}</router-link>
+        </div>
+        <div>{{ qty(item) }}</div>
+      </div>
+    </div>
+
+    <div class="flex flex-col" v-else>
+      Your cart is empty.
+    </div>
 
   </section>
 </template>
@@ -20,13 +30,16 @@ export default {
   components: {
   },
   data: () => ({
+    pretty: util.pretty,
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/cart/, ''), // strip out "cart" from "sncart"
     fullDomainName: vm => util.fullDomainName(vm.domain),
-    cart: vm => vm.$store.state.cart[vm.domain],
+    cart: vm => vm.$store.state.cart[vm.domain] || [],
   },
   methods: {
+    id: item => Object.keys(item)[0],
+    qty: item => item[Object.keys(item)[0]],
   },
 };
 </script>
