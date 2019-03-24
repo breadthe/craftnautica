@@ -1,7 +1,10 @@
 <template>
   <section class="container mx-auto mt-4">
-    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mx-4">
-      <h1>{{ fullDomainName }} Cart</h1>
+    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-8">
+      <h1 class="flex items-center">
+        <v-icon icon="shopping-cart" :size=10 color="blue-dark" class="mr-4"></v-icon>
+        {{ fullDomainName }}
+      </h1>
       <span v-if="cart.length">{{ cart.length }} items</span>
     </div>
 
@@ -24,10 +27,12 @@
 
 <script>
 import util from '@/util';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Cart',
   components: {
+    VIcon,
   },
   data: () => ({
     pretty: util.pretty,
