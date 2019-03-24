@@ -23,11 +23,20 @@ input {
   @apply rounded;
 
   &.search {
+    @apply flex-1;
+    @apply w-full;
     @apply max-w-sm;
+    @apply mt-4;
+    @apply ml-0;
     @apply p-4;
-    @apply pr-8;
+    @apply px-12;
     @apply border-blue-darker;
     @apply bg-blue-darker;
+    @screen sm {
+      @apply w-4/5;
+      @apply mt-0;
+      @apply ml-4;
+    }
   }
 }
 

@@ -1,16 +1,21 @@
 <template>
   <div class="flex items-center relative w-full max-w-sm">
+    <v-icon
+      icon="search"
+      color="grey-darker"
+      class="absolute pin-l ml-8 border-0 bg-transparent p-0"
+    ></v-icon>
     <input
         type="text"
         ref="searchBar"
         v-model="search"
-        class="search flex-1 w-full sm:w-4/5 mt-4 sm:mt-0 ml-0 sm:ml-4"
+        class="search"
         :placeholder="placeholder"
     >
     <button
       v-if="search"
       @click="search = ''"
-      class="absolute pin-r mr-2 border-0 bg-transparent p-0 text-blue-darker"
+      class="absolute pin-r mr-4 border-0 bg-transparent p-0 text-blue-darker"
     >
       <v-icon icon="x" color="blue-dark"></v-icon>
     </button>
