@@ -23,7 +23,7 @@ export default {
   computed: {
     unsupported: () => typeof Object.fromEntries === 'undefined',
   },
-  created: function () {
+  created() {
     this.$store.commit('SET_ITEMS');
   },
 };
