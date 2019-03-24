@@ -11,11 +11,17 @@
       <div
         v-if="menu"
         class="flex items-center justify-end absolute p-2 border border-blue-dark rounded rounded-t-none bg-blue-dark pin-b pin-x -mb-12 z-10"
-        style="bottom: 4px; margin-left: -1px; margin-right: -1px;"
+        style="bottom: 7px; margin-left: -1px; margin-right: -1px;"
       >
-        <button @click.stop.prevent="addToCart">
-          <v-icon icon="shopping-cart" color="blue-darkest"></v-icon>
-        </button>
+        <div v-if="adding" class="pt-1 text-blue-darkest">
+          Added to cart
+        </div>
+
+        <div v-else>
+          <button @click.stop.prevent="addToCart" class="flex items-center text-blue-darkest">
+            +&nbsp;<v-icon icon="shopping-cart" color="blue-darkest"></v-icon>
+          </button>
+        </div>
       </div>
     </router-link>
 </template>
@@ -45,6 +51,7 @@ export default {
     return {
       menu: false,
       pretty: util.pretty,
+      adding: false,
     };
   },
   computed: {
@@ -52,7 +59,9 @@ export default {
   },
   methods: {
     addToCart: function() {
+      this.adding = true;
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
+      setTimeout(() => { this.adding = false; }, 750);
     },
   },
 };
