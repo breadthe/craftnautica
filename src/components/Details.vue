@@ -10,6 +10,20 @@
         <div class="item-icon"></div>
         <h2 class="ml-4 text-blue">{{ pretty(id) }}</h2>
       </div>
+
+      <div v-if="adding">
+        Added to cart
+      </div>
+      <div v-else>
+        <button
+            @click.stop.prevent="addToCart"
+            class="flex items-center text-grey border border-blue-dark rounded p-2 text-2xl hover:bg-blue hover:text-white"
+        >
+          +&nbsp;
+          <v-icon icon="shopping-cart" color="blue-dark"></v-icon>
+        </button>
+      </div>
+
     </div>
 
 
@@ -36,15 +50,20 @@
 import store from '@/store';
 import Algo from '@/algo';
 import util from '@/util';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Details',
+  components: {
+    VIcon,
+  },
   props: {
     id: String,
   },
   data: () => ({
     pretty: util.pretty,
     components: null,
+    adding: false,
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/details/, ''), // strip out "details" from "sndetails"
@@ -55,6 +74,11 @@ export default {
   methods: {
     setData: function(components) {
       this.components = components;
+    },
+    addToCart: function() {
+      this.adding = true;
+      this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
+      setTimeout(() => { this.adding = false; }, 750);
     },
   },
   beforeRouteEnter(to, from, next) {
