@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     addToCart: function() {
-      console.log('addToCart', this.id);
+      this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
     },
   },
 };

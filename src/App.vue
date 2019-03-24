@@ -24,7 +24,8 @@ export default {
     unsupported: () => typeof Object.fromEntries === 'undefined',
   },
   created() {
-    this.$store.commit('SET_ITEMS');
+    this.$store.commit('INIT_ITEMS');
+    this.$store.commit('INIT_CART');
   },
 };
 </script>
