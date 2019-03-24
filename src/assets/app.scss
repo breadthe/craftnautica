@@ -54,3 +54,33 @@ input {
   @apply border;
   @apply border-grey-darker;
 }
+
+ul {
+  &.features {
+    @apply list-reset;
+    @apply mx-12;
+    @apply leading-loose;
+  }
+
+  li {
+    &::before {
+      @apply -ml-8;
+    }
+
+    &.f1::before {
+      content: '🔎 ';
+    }
+    &.f2::before {
+      content: '📃 ';
+    }
+    &.f3::before {
+      content: '🛒 ';
+    }
+    &.f4::before {
+      content: '📦 ';
+    }
+    &.f5::before {
+      content: '🦄 ';
+    }
+  }
+}

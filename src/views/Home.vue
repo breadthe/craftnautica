@@ -6,12 +6,12 @@
         Welcome to <span class="font-bold">Craftnautica</span>! After crashing-landing on 4546B you've had your work cut out for you, so why not enjoy a respite with our crafting helper?
       </p>
       <p class="mt-4">
-        <ul>
-          <li>Quickly search a raw material or crafted item</li>
-          <li>See at a glance the total amount of base components required to craft it</li>
-          <li><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Create "shopping lists" of crafted items and see a grand total of all the raw materials required! 🔥 Useful when building a new base!</li>
-          <li><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Gold do I have in my Lifepod?".</li>
-          <li>And more...</li>
+        <ul class="features">
+          <li class="f1">Quickly search a raw material or crafted item.</li>
+          <li class="f2">See at a glance the total amount of base components required to craft it.</li class="f2">
+          <li class="f3"><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Create "shopping lists" of crafted items and see a grand total of all the raw materials required! 🔥 Useful when building a new base!</li>
+          <li class="f4"><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Gold do I have in my Lifepod?".</li>
+          <li class="f5">And more...</li>
         </ul>
       </p>
       <p class="mt-4">
