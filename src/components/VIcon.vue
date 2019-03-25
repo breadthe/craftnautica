@@ -25,6 +25,7 @@ import VMinusCircle from '@/components/icons/VMinusCircle.vue';
 import VPlusCircle from '@/components/icons/VPlusCircle.vue';
 import VSearch from '@/components/icons/VSearch.vue';
 import VShoppingCart from '@/components/icons/VShoppingCart.vue';
+import VTrash2 from '@/components/icons/VTrash2.vue';
 import VX from '@/components/icons/VX.vue';
 import VXCircle from '@/components/icons/VXCircle.vue';
 
@@ -36,6 +37,7 @@ export default {
     VPlusCircle,
     VSearch,
     VShoppingCart,
+    VTrash2,
     VX,
     VXCircle,
   },
