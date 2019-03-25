@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto max-w-lg">
+  <main class="container mx-auto max-w-lg">
     <div class="flex justify-start my-4">
       <router-link :to="`/${domain}`">{{ fullDomainName }}</router-link>
       &nbsp;&raquo;&nbsp;
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-  </section>
+  </main>
 </template>
 
 <script>
@@ -74,10 +74,10 @@ export default {
     rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
   },
   methods: {
-    setData: function(components) {
+    setData: function (components) {
       this.components = components;
     },
-    addToCart: function() {
+    addToCart: function () {
       this.adding = true;
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
       setTimeout(() => { this.adding = false; }, 750);
