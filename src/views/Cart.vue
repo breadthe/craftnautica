@@ -9,13 +9,34 @@
     </div>
 
     <div class="" v-if="cart.length">
-      <div v-for="(item, ix) in cart" :key="ix" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+      <div
+        v-for="(item, ix) in cart"
+        :key="ix"
+        class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
+      >
         <div class="flex items-center">
           <div class="item-icon"></div>
           <router-link :to="`/${domain}/i/${id(item)}`" class="ml-4">{{ pretty(id(item)) }}</router-link>
         </div>
         <div>{{ qty(item) }}</div>
       </div>
+
+      <div class="flex flex-col mt-4">
+        <h3 class="border-b border-grey-darkest py-2">Shopping List</h3>
+
+        <div
+          v-for="comp in cartComponents"
+          :key="comp.c"
+          class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
+        >
+          <div class="flex items-center">
+            <div class="item-icon"></div>
+            <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
+          </div>
+          <div>{{ comp.q }}</div>
+        </div>
+      </div>
+
     </div>
 
     <div class="flex flex-col" v-else>
@@ -27,7 +48,10 @@
 
 <script>
 import util from '@/util';
+import Algo from '@/algo';
 import VIcon from '@/components/VIcon.vue';
+import _groupBy from 'lodash.groupby';
+import _toPairs from 'lodash.topairs';
 
 export default {
   name: 'Cart',
@@ -41,6 +65,24 @@ export default {
     domain: vm => vm.$route.name.replace(/cart/, ''), // strip out "cart" from "sncart"
     fullDomainName: vm => util.fullDomainName(vm.domain),
     cart: vm => vm.$store.state.cart[vm.domain] || [],
+    items: vm => vm.$store.state['items_' + vm.domain],
+
+    // TODO: refactor this ugly thing
+    cartComponents: function () {
+      const algo = (new Algo(this.items));
+      let components = this.cart.map((item) => {
+        const id = Object.keys(item)[0];
+        return algo.listOfMaterials(id);
+      }).flat();
+
+      components = _groupBy(components, 'c');
+
+      components = _toPairs(components);
+
+      components = components.map(ar => ({ c: ar[0], q: ar[1].reduce((sum, { q }) => sum + q, 0) }));
+
+      return components;
+    },
   },
   methods: {
     id: item => Object.keys(item)[0],
