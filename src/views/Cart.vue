@@ -15,12 +15,22 @@
         :key="ix"
         class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
       >
-        <div class="flex items-center">
+        <div class="flex items-center w-1/2">
           <div class="item-icon"></div>
           <router-link :to="`/${domain}/i/${id(item)}`" class="ml-4">{{ pretty(id(item)) }}</router-link>
         </div>
-        <div class="flex items-center">
+
+        <div class="flex items-center justify-end w-1/4">
+          <button @click="decrementQty(id(item))" class="flex mr-4">
+            <v-icon icon="minus-circle" color="blue-dark" class="" v-if="qty(item) > 1"></v-icon>
+          </button>
           {{ qty(item) }}
+          <button @click="incrementQty(id(item))" class="flex ml-4">
+            <v-icon icon="plus-circle" color="blue-dark" class=""></v-icon>
+          </button>
+        </div>
+
+        <div class="flex items-center">
           <button @click="deleteItem(id(item))" class="flex ml-4">
             <v-icon icon="x-circle" color="blue-dark" class=""></v-icon>
           </button>
@@ -95,8 +105,16 @@ export default {
   methods: {
     id: item => Object.keys(item)[0],
     qty: item => item[Object.keys(item)[0]],
+
+    // TODO: refactor the following cart methods into 1 with an additional action param
     deleteItem: function (id) {
       this.$store.dispatch('deleteItem', { domain: this.domain, id: id });
+    },
+    incrementQty: function (id) {
+      this.$store.dispatch('incrementQty', { domain: this.domain, id: id });
+    },
+    decrementQty: function (id) {
+      this.$store.dispatch('decrementQty', { domain: this.domain, id: id });
     },
   },
 };

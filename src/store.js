@@ -71,6 +71,46 @@ export default new Vuex.Store({
 
       state.cart = storedCart;
     },
+    INCREMENT_QTY(state, obj) {
+      const domain = obj.domain;
+      const id = obj.id;
+
+      const storedCart = new Cart();
+      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
+
+      const ix = _findIndex(domainCart, id);
+
+      if (ix > -1) {
+        domainCart[ix][id] ++; // items is in cart, increment qty
+      }
+
+      storedCart[domain] = domainCart;
+
+      storedCart.set(storedCart);
+
+      state.cart = storedCart;
+    },
+    DECREMENT_QTY(state, obj) {
+      const domain = obj.domain;
+      const id = obj.id;
+
+      const storedCart = new Cart();
+      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
+
+      const ix = _findIndex(domainCart, id);
+
+      if (ix > -1) {
+        if (domainCart[ix][id] > 1) {
+          domainCart[ix][id] --; // items is in cart, decrement qty, make sure it doesn't go to 0
+        }
+      }
+
+      storedCart[domain] = domainCart;
+
+      storedCart.set(storedCart);
+
+      state.cart = storedCart;
+    },
   },
   actions: {
     setSrcStr({ commit }, srcStr) {
@@ -81,6 +121,12 @@ export default new Vuex.Store({
     },
     deleteItem({ commit }, obj) {
       commit('DELETE_ITEM', obj);
+    },
+    incrementQty({ commit }, obj) {
+      commit('INCREMENT_QTY', obj);
+    },
+    decrementQty({ commit }, obj) {
+      commit('DECREMENT_QTY', obj);
     },
   },
 });
