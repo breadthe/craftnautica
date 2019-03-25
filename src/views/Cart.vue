@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto mt-4">
+  <main class="container mx-auto mt-4">
     <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-8">
       <h1 class="flex items-center">
         <v-icon icon="shopping-cart" :size=10 color="blue-dark" class="mr-4"></v-icon>
@@ -22,7 +22,7 @@
       Your cart is empty.
     </div>
 
-  </section>
+  </main>
 </template>
 
 <script>

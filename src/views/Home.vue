@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto p-4">
+  <main class="container mx-auto p-4">
 
     <div class="max-w-lg mx-auto mt-4 text-xl leading-normal">
       <p>
@@ -37,7 +37,7 @@
       </router-link>
     </div>
 
-  </section>
+  </main>
 </template>
 
 <script>

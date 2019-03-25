@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto mt-4">
+  <main class="container mx-auto mt-4">
     <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mx-4">
       <h1>{{ fullDomainName }}</h1>
 
@@ -10,7 +10,7 @@
       <type :type="type" :types="filterByType(type)"></type>
     </div>
 
-  </section>
+  </main>
 </template>
 
 <script>
