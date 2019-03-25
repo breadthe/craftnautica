@@ -21,17 +21,23 @@
 <script>
 import VExternalLink from '@/components/icons/VExternalLink.vue';
 import VHome from '@/components/icons/VHome.vue';
+import VMinusCircle from '@/components/icons/VMinusCircle.vue';
+import VPlusCircle from '@/components/icons/VPlusCircle.vue';
 import VSearch from '@/components/icons/VSearch.vue';
 import VShoppingCart from '@/components/icons/VShoppingCart.vue';
 import VX from '@/components/icons/VX.vue';
+import VXCircle from '@/components/icons/VXCircle.vue';
 
 export default {
   components: {
     VExternalLink,
     VHome,
+    VMinusCircle,
+    VPlusCircle,
     VSearch,
     VShoppingCart,
     VX,
+    VXCircle,
   },
   props: {
     icon: {
