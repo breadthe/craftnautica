@@ -35,8 +35,10 @@ export default new Vuex.Store({
       const id = obj.id;
       const qty = obj.qty;
 
-      const storedCart = new Cart();
-      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
+      const cart = new Cart();
+      const storedCart = cart.get();
+
+      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
 
@@ -48,16 +50,18 @@ export default new Vuex.Store({
 
       storedCart[domain] = domainCart;
 
-      storedCart.set(storedCart);
-
       state.cart = storedCart;
+
+      cart.set(state.cart);
     },
     DELETE_ITEM(state, obj) {
       const domain = obj.domain;
       const id = obj.id;
 
-      const storedCart = new Cart();
-      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
+      const cart = new Cart();
+      const storedCart = cart.get();
+
+      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
 
@@ -67,16 +71,18 @@ export default new Vuex.Store({
 
       storedCart[domain] = domainCart;
 
-      storedCart.set(storedCart);
-
       state.cart = storedCart;
+
+      cart.set(state.cart);
     },
     INCREMENT_QTY(state, obj) {
       const domain = obj.domain;
       const id = obj.id;
 
-      const storedCart = new Cart();
-      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
+      const cart = new Cart();
+      const storedCart = cart.get();
+
+      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
 
@@ -86,16 +92,18 @@ export default new Vuex.Store({
 
       storedCart[domain] = domainCart;
 
-      storedCart.set(storedCart);
-
       state.cart = storedCart;
+
+      cart.set(state.cart);
     },
     DECREMENT_QTY(state, obj) {
       const domain = obj.domain;
       const id = obj.id;
 
-      const storedCart = new Cart();
-      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
+      const cart = new Cart();
+      const storedCart = cart.get();
+
+      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
 
@@ -107,20 +115,21 @@ export default new Vuex.Store({
 
       storedCart[domain] = domainCart;
 
-      storedCart.set(storedCart);
-
       state.cart = storedCart;
+
+      cart.set(state.cart);
     },
     EMPTY_CART(state, obj) {
       const domain = obj.domain;
 
-      const storedCart = new Cart();
+      const cart = new Cart();
+      const storedCart = cart.get();
 
       storedCart[domain] = [];
 
-      storedCart.set(storedCart);
-
       state.cart = storedCart;
+
+      cart.set(state.cart);
     },
   },
   actions: {
