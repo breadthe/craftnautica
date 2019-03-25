@@ -5,7 +5,7 @@ module.exports = {
     ...process.env.NODE_ENV === 'production' ? [
       require('@fullhuman/postcss-purgecss')({
         content: ['./src/**/*.vue', './public/**/*.html'],
-        whitelist: ['w-6', 'h-6'],
+        whitelist: ['w-6', 'h-6', 'grey-darker'],
         extractors: [
           {
             extractor: class {
