@@ -8,6 +8,7 @@
       <span v-if="cart.length">{{ cart.length }} items</span>
     </div>
 
+    <!-- ============= Cart ============= -->
     <div class="" v-if="cart.length">
       <div
         v-for="(item, ix) in cart"
@@ -18,9 +19,15 @@
           <div class="item-icon"></div>
           <router-link :to="`/${domain}/i/${id(item)}`" class="ml-4">{{ pretty(id(item)) }}</router-link>
         </div>
-        <div>{{ qty(item) }}</div>
+        <div class="flex items-center">
+          {{ qty(item) }}
+          <button @click="deleteItem(id(item))" class="flex ml-4">
+            <v-icon icon="x-circle" color="blue-dark" class=""></v-icon>
+          </button>
+        </div>
       </div>
 
+      <!-- ============= Shopping List ============= -->
       <div class="flex flex-col mt-4">
         <h3 class="border-b border-grey-darkest py-2">Shopping List</h3>
 
@@ -31,7 +38,7 @@
         >
           <div class="flex items-center">
             <div class="item-icon"></div>
-            <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
+            <router-link :to="`/${domain}/i/${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
           </div>
           <div>{{ comp.q }}</div>
         </div>
@@ -87,6 +94,9 @@ export default {
   methods: {
     id: item => Object.keys(item)[0],
     qty: item => item[Object.keys(item)[0]],
+    deleteItem: function (id) {
+      this.$store.dispatch('deleteItem', { domain: this.domain, id: id });
+    },
   },
 };
 </script>

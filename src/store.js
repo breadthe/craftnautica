@@ -35,8 +35,10 @@ export default new Vuex.Store({
       const id = obj.id;
       const qty = obj.qty;
 
-      let tmpcart = state.cart;
-      let domainCart = tmpcart[domain] || []; // cart.sn | cart.bz
+      const cart = new Cart();
+      const storedCart = cart.get();
+
+      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
       if (ix > -1) {
@@ -45,11 +47,32 @@ export default new Vuex.Store({
         domainCart.push({ [id]: qty }); // item is not in cart, add it
       }
 
-      tmpcart[domain] = domainCart;
+      storedCart[domain] = domainCart;
 
-      state.cart = tmpcart;
+      state.cart = storedCart;
 
-      (new Cart()).set(state.cart);
+      cart.set(state.cart);
+    },
+    DELETE_ITEM(state, obj) {
+      const domain = obj.domain;
+      const id = obj.id;
+
+      const cart = new Cart();
+      const storedCart = cart.get();
+
+      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
+
+      const ix = _findIndex(domainCart, id);
+
+      if (ix > -1) {
+        domainCart.splice(ix, 1);
+      }
+
+      storedCart[domain] = domainCart;
+
+      state.cart = storedCart;
+
+      cart.set(state.cart);
     },
   },
   actions: {
@@ -58,6 +81,9 @@ export default new Vuex.Store({
     },
     addToCart({ commit }, obj) {
       commit('ADD_TO_CART', obj);
+    },
+    deleteItem({ commit }, obj) {
+      commit('DELETE_ITEM', obj);
     },
   },
 });
