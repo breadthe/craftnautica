@@ -35,12 +35,11 @@ export default new Vuex.Store({
       const id = obj.id;
       const qty = obj.qty;
 
-      const cart = new Cart();
-      const storedCart = cart.get();
-
-      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
+      const storedCart = new Cart();
+      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
+
       if (ix > -1) {
         domainCart[ix][id] += qty; // items is in cart, increment qty
       } else {
@@ -49,18 +48,16 @@ export default new Vuex.Store({
 
       storedCart[domain] = domainCart;
 
-      state.cart = storedCart;
+      storedCart.set(storedCart);
 
-      cart.set(state.cart);
+      state.cart = storedCart;
     },
     DELETE_ITEM(state, obj) {
       const domain = obj.domain;
       const id = obj.id;
 
-      const cart = new Cart();
-      const storedCart = cart.get();
-
-      const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
+      const storedCart = new Cart();
+      const domainCart = storedCart.get(domain); // cart.sn | cart.bz
 
       const ix = _findIndex(domainCart, id);
 
@@ -70,9 +67,9 @@ export default new Vuex.Store({
 
       storedCart[domain] = domainCart;
 
-      state.cart = storedCart;
+      storedCart.set(storedCart);
 
-      cart.set(state.cart);
+      state.cart = storedCart;
     },
   },
   actions: {

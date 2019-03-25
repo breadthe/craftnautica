@@ -5,8 +5,12 @@ class Cart {
     }
   }
 
-  get() {
-    return JSON.parse(window.localStorage.getItem('cart')) || {};
+  get(domain = null) {
+    const cart = JSON.parse(window.localStorage.getItem('cart')) || {};
+    if (domain) {
+      return cart[domain] || [];
+    }
+    return cart || {};
   }
 
   // Reset the entire cart, or pass the domain (sn, bz) to reset only the specific cart
