@@ -1,8 +1,12 @@
 body {
-    font-family: Roboto, sans-serif;
-    @apply font-light;
-    @apply bg-blue-darkest;
-    @apply text-grey-light;
+  font-family: Roboto, sans-serif;
+  @apply font-light;
+  @apply bg-blue-darkest;
+  @apply text-grey-light;
+}
+
+main {
+  @apply min-h-screen;
 }
 
 a {
