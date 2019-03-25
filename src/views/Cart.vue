@@ -79,7 +79,8 @@ export default {
       const algo = (new Algo(this.items));
       let components = this.cart.map((item) => {
         const id = Object.keys(item)[0];
-        return algo.listOfMaterials(id);
+        const qty = Object.values(item)[0];
+        return algo.listOfMaterials(id, qty);
       }).flat();
 
       components = _groupBy(components, 'c');

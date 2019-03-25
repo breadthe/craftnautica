@@ -7,7 +7,7 @@ class Algo {
     this.items = items;
   }
 
-  recurse(com, qt = 1) {
+  recurse(com, qty = 1) {
     const obj = this.items[com].m;
 
     // Key doesn't exist
@@ -17,15 +17,15 @@ class Algo {
 
     // Leaf element
     if (obj === null) {
-      return [{ c: com, q: qt }];
+      return [{ c: com, q: qty }];
     }
 
     // Parent element
-    return Object.values(obj).map(i => this.recurse(i.c, i.q * qt));
+    return Object.values(obj).map(i => this.recurse(i.c, i.q * qty));
   }
 
-  listOfMaterials(com) {
-    let arr = _flattenDeep(this.recurse(com));
+  listOfMaterials(com, qty = 1) {
+    let arr = _flattenDeep(this.recurse(com, qty));
 
     if (arr.length === 1) {
       return arr;
