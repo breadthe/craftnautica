@@ -111,6 +111,17 @@ export default new Vuex.Store({
 
       state.cart = storedCart;
     },
+    EMPTY_CART(state, obj) {
+      const domain = obj.domain;
+
+      const storedCart = new Cart();
+
+      storedCart[domain] = [];
+
+      storedCart.set(storedCart);
+
+      state.cart = storedCart;
+    },
   },
   actions: {
     setSrcStr({ commit }, srcStr) {
@@ -127,6 +138,9 @@ export default new Vuex.Store({
     },
     decrementQty({ commit }, obj) {
       commit('DECREMENT_QTY', obj);
+    },
+    emptyCart({ commit }, obj) {
+      commit('EMPTY_CART', obj);
     },
   },
 });
