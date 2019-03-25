@@ -22,7 +22,7 @@ class Algo {
 
     // Parent element
     return Object.values(obj).map(i => this.recurse(i.c, i.q * qt));
-  };
+  }
 
   listOfMaterials(com) {
     let arr = _flattenDeep(this.recurse(com));
@@ -38,7 +38,7 @@ class Algo {
     arr = arr.map(ar => ({ c: ar[0], q: ar[1].reduce((sum, { q }) => sum + q, 0) }));
 
     return arr;
-  };
+  }
 }
 
 export default Algo;
