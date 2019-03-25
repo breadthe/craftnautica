@@ -9,17 +9,24 @@
     <nav-main></nav-main>
 
     <router-view/>
+
+    <app-footer :version="version"></app-footer>
   </div>
 </template>
 
 <script>
 import NavMain from '@/components/NavMain.vue';
+import AppFooter from '@/components/AppFooter.vue';
 
 export default {
   name: 'App',
   components: {
     NavMain,
+    AppFooter,
   },
+  data: () => ({
+    version: require('../package.json').version,
+  }),
   computed: {
     unsupported: () => typeof Object.fromEntries === 'undefined',
   },
