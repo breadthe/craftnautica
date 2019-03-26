@@ -1177,7 +1177,20 @@ export default {
       { c: 'Aerogel', q: 1 },
     ],
   },
-  // TODO: the remaining recipes for Torpedoes
+  Seamoth_Vortex_Torpedo: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Torpedoes',
+    m: [
+      { c: 'Titanium', q: 0.5 }, // TODO: figure out a way to indicate that 5 Flare are produced from 1 component
+      { c: 'Magnetite', q: 0.5 },
+    ],
+  },
+  Seamoth_Gas_Torpedo: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Torpedoes',
+    m: [
+      { c: 'Titanium', q: 0.5 }, // TODO: figure out a way to indicate that 5 Flare are produced from 1 component
+      { c: 'Gas_Pod', q: 0.5 },
+    ],
+  },
 
   // ============= Recipes.Cyclops_Upgrade_Fabricator
   Cyclops_Depth_Module_MK1: {

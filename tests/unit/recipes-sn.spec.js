@@ -273,6 +273,10 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Prawn_Suit_Grappling_Arm')).toEqual([{ c: 'Silver_Ore', q: 2 }, { c: 'Gold', q: 3 }, { c: 'Table_Coral_Sample', q: 2 }, { c: 'Copper_Ore', q: 2 }, { c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Blood_Oil', q: 3 }]);
     expect(algo.listOfMaterials('Prawn_Suit_Drill_Arm')).toEqual([{ c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Diamond', q: 4 }]);
     expect(algo.listOfMaterials('Prawn_Suit_Torpedo_Arm')).toEqual([{ c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Gel_Sack', q: 1 }, { c: 'Ruby', q: 1 }]);
+
+    /* Torpedoes */
+    expect(algo.listOfMaterials('Seamoth_Vortex_Torpedo')).toEqual([{ c: 'Titanium', q: 0.5 }, { c: 'Magnetite', q: 0.5 }]);
+    expect(algo.listOfMaterials('Seamoth_Gas_Torpedo')).toEqual([{ c: 'Titanium', q: 0.5 }, { c: 'Gas_Pod', q: 0.5 }]);
   });
 
   /* Recipes.Cyclops_Upgrade_Fabricator */
