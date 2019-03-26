@@ -1060,15 +1060,37 @@ export default {
   },
 
   // ============= Recipes.Vehicle_Upgrade_Console
+  Hull_Reinforcement: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Common_Modules',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Lithium', q: 1 },
+      { c: 'Diamond', q: 4 },
+    ],
+  },
+  Energy_Efficiency_Module: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Common_Modules',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Polyaniline', q: 1 },
+    ],
+  },
+  Storage_Module: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Common_Modules',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Lithium', q: 1 },
+    ],
+  },
   Seamoth_Depth_Module_MK1: {
-    t: 'Recipes.Vehicle_Upgrade_Console',
+    t: 'Recipes.Vehicle_Upgrade_Console.Seamoth_Modules',
     m: [
       { c: 'Titanium_Ingot', q: 1 },
       { c: 'Glass', q: 2 },
     ],
   },
   Prawn_Suit_Depth_Module_MK1: {
-    t: 'Recipes.Vehicle_Upgrade_Console',
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
     m: [
       { c: 'Plasteel_Ingot', q: 1 },
       { c: 'Nickel_Ore', q: 3 },

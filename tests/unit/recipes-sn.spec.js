@@ -253,6 +253,9 @@ describe('Test recipes', () => {
 
   /* Recipes.Vehicle_Upgrade_Console */
   test('it returns the correct list of base materials for Recipes.Vehicle_Upgrade_Console', () => {
+    expect(algo.listOfMaterials('Hull_Reinforcement')).toEqual([{ c: 'Titanium', q: 3 }, { c: 'Lithium', q: 1 }, { c: 'Diamond', q: 4 }]);
+    expect(algo.listOfMaterials('Energy_Efficiency_Module')).toEqual([{ c: 'Table_Coral_Sample', q: 2 }, { c: 'Gold', q: 2 }, { c: 'Copper_Ore', q: 2 }, { c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }]);
+    expect(algo.listOfMaterials('Storage_Module')).toEqual([{ c: 'Titanium', q: 3 }, { c: 'Lithium', q: 1 }]);
     expect(algo.listOfMaterials('Seamoth_Depth_Module_MK1')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Quartz', q: 4 }]);
     expect(algo.listOfMaterials('Prawn_Suit_Depth_Module_MK2')).toEqual([{ c: 'Titanium', q: 15 }, { c: 'Lithium', q: 4 }, { c: 'Nickel_Ore', q: 3 }, { c: 'Ruby', q: 2 }, { c: 'Kyanite', q: 3 }]);
   });
