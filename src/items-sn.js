@@ -219,11 +219,34 @@ export default {
   // TODO
 
   // ============= Recipes.Fabricator.Deployables
+  Seaglide: {
+    t: 'Recipes.Fabricator.Deployables',
+    m: [
+      { c: 'Battery', q: 1 },
+      { c: 'Lubricant', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Mobile_Vehicle_Bay: {
+    t: 'Recipes.Fabricator.Deployables',
+    m: [
+      { c: 'Titanium', q: 10 },
+      { c: 'Lubricant', q: 1 },
+      { c: 'Power_Cell', q: 1 },
+    ],
+  },
   Beacon: {
     t: 'Recipes.Fabricator.Deployables',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 1 },
+    ],
+  },
+  Waterproof_Locker: {
+    t: 'Recipes.Fabricator.Deployables',
+    m: [
+      { c: 'Titanium', q: 4 },
     ],
   },
   Gravsphere: {
@@ -234,7 +257,13 @@ export default {
       { c: 'Battery', q: 1 },
     ],
   },
-  // TODO: remaining Deployables
+  Creature_Decoy: {
+    t: 'Recipes.Fabricator.Deployables',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
 
   // ============= Recipes.Fabricator.Personal.Equipment
   'Standard_O₂_Tank': { // TODO: Figure out if non-ASCII subscript works for linking & stuff
@@ -263,11 +292,241 @@ export default {
       { c: 'Silicone_Rubber', q: 2 },
     ],
   },
-  // TODO: remaining Personal.Equipment
+  Radiation_Suit: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Fiber_Mesh', q: 2 },
+      { c: 'Lead', q: 2 },
+    ],
+  },
+  Reinforced_Dive_Suit: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Synthetic_Fibers', q: 1 },
+      { c: 'Diamond', q: 2 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Stillsuit: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Synthetic_Fibers', q: 1 },
+      { c: 'Aerogel', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+    ],
+  },
+  First_Aid_Kit: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Fiber_Mesh', q: 1 },
+    ],
+  },
+  Fire_Extinguisher: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Titanium', q: 3 },
+    ],
+  },
+  Rebreather: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Wiring_Kit', q: 1 },
+      { c: 'Fiber_Mesh', q: 1 },
+    ],
+  },
+  Compass: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
+  Pipe: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Titanium', q: 2 }, // TODO: figure out a way to indicate that 5 Pipe are produced from 1 component
+    ],
+  },
+  Pipe_Surface_Floater: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Purple_Tablet: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Ion_Cube', q: 1 },
+      { c: 'Diamond', q: 2 },
+    ],
+  },
+  Blue_Tablet: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Ion_Cube', q: 1 },
+      { c: 'Kyanite', q: 2 },
+    ],
+  },
+  Orange_Tablet: {
+    t: 'Recipes.Fabricator.Personal.Equipment',
+    m: [
+      { c: 'Ion_Cube', q: 1 },
+      { c: 'Nickel_Ore', q: 2 },
+    ],
+  },
 
-  // ============= Recipes.Habitat_Builder
+  // ============= Recipes.Fabricator.Personal.Tools
+  Scanner: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Battery', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Repair_Tool: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Silicone_Rubber', q: 1 },
+      { c: 'Cave_Sulfur', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Flashlight: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Battery', q: 1 },
+      { c: 'Glass', q: 1 },
+    ],
+  },
+  Survival_Knife: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Silicone_Rubber', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Dive_Reel: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Creepvine_Seed_Cluster', q: 2 },
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Air_Bladder: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Creepvine_Seed_Cluster', q: 0.5 },
+      { c: 'Bladderfish', q: 1 },
+    ],
+  },
+  Flare: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Cave_Sulfur', q: 1 }, // TODO: figure out a way to indicate that 5 Flare are produced from 1 component
+    ],
+  },
+  Habitat_Builder: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Wiring_Kit', q: 1 },
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Battery', q: 1 },
+    ],
+  },
+  Laser_Cutter: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Diamond', q: 2 },
+      { c: 'Battery', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Cave_Sulfur', q: 1 },
+    ],
+  },
+  Stasis_Rifle: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Battery', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Magnetite', q: 2 },
+    ],
+  },
+  Propulsion_Cannon: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Wiring_Kit', q: 1 },
+      { c: 'Battery', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Light_Stick: {
+    t: 'Recipes.Fabricator.Personal.Tools',
+    m: [
+      { c: 'Battery', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Glass', q: 1 },
+    ],
+  },
+
+  // ============= Recipes.Habitat_Builder.Base_Pieces
+  Foundation: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 2 },
+      { c: 'Lead', q: 2 },
+    ],
+  },
+  Corridor: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  L_Corridor: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  T_Corridor: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 3 },
+    ],
+  },
+  X_Corridor: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 3 },
+    ],
+  },
+  I_Corridor_Glass: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Glass', q: 2 },
+    ],
+  },
+  L_Corridor_Glass: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Glass', q: 2 },
+    ],
+  },
+  Vertical_Connector: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Multipurpose_Room: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium', q: 6 },
+    ],
+  },
   Scanner_Room: {
-    t: 'Recipes.Habitat_Builder',
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
     m: [
       { c: 'Copper_Ore', q: 2 },
       { c: 'Gold', q: 1 },
@@ -275,23 +534,393 @@ export default {
       { c: 'Titanium', q: 5 },
     ],
   },
+  Moon_Pool: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Titanium_Ingot', q: 2 },
+      { c: 'Lubricant', q: 1 },
+      { c: 'Lead', q: 2 },
+    ],
+  },
+  Observatory: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Enameled_Glass', q: 2 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Hatch: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Quartz', q: 1 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Window: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Quartz', q: 2 },
+    ],
+  },
+  Reinforcement: {
+    t: 'Recipes.Habitat_Builder.Base_Pieces',
+    m: [
+      { c: 'Lithium', q: 1 },
+      { c: 'Titanium', q: 3 },
+    ],
+  },
+
+  // ============= Recipes.Habitat_Builder.Exterior_Modules
   Solar_Panel: {
-    t: 'Recipes.Habitat_Builder',
+    t: 'Recipes.Habitat_Builder.Exterior_Module',
     m: [
       { c: 'Quartz', q: 2 },
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 2 },
     ],
   },
+  Thermal_Plant: {
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
+    m: [
+      { c: 'Titanium', q: 5 },
+      { c: 'Magnetite', q: 2 },
+      { c: 'Aerogel', q: 1 },
+    ],
+  },
+  Power_Transmitter: {
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
+    m: [
+      { c: 'Gold', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Floodlight: {
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
+    m: [
+      { c: 'Glass', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Spotlight: {
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
+    m: [
+      { c: 'Glass', q: 1 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Exterior_Growbed: {
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Base_Pipe_Connector: {
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+
+  // ============= Recipes.Habitat_Builder.Interior_Pieces
+  Ladder: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Water_Filtration_Machine: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Aerogel', q: 1 },
+    ],
+  },
+  Bulkhead: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Silicone_Rubber', q: 1 },
+    ],
+  },
+  Vehicle_Upgrade_Console: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+    ],
+  },
+  Bioreactor: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Wiring_Kit', q: 1 },
+      { c: 'Lubricant', q: 1 },
+    ],
+  },
+  Nuclear_Reactor: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Advanced_Wiring_Kit', q: 1 },
+      { c: 'Lead', q: 3 },
+    ],
+  },
+  Alien_Containment: {
+    t: 'Recipes.Habitat_Builder.Interior_Pieces',
+    m: [
+      { c: 'Glass', q: 5 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+
+  // ============= Recipes.Habitat_Builder.Interior_Modules
+  Fabricator: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Copper_Ore', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Table_Coral_Sample', q: 1 },
+    ],
+  },
   Radio: {
-    t: 'Recipes.Habitat_Builder',
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
     m: [
       { c: 'Copper_Ore', q: 1 },
       { c: 'Titanium', q: 1 },
     ],
   },
+  Medical_Kit_Fabricator: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Fiber_Mesh', q: 1 },
+      { c: 'Silver_Ore', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Wall_Locker: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Locker: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Quartz', q: 1 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Battery_Charger: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Wiring_Kit', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Power_Cell_Charger: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Advanced_Wiring_Kit', q: 1 },
+      { c: 'Ruby', q: 2 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Aquarium: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Glass', q: 2 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Modification_Station: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Diamond', q: 1 },
+      { c: 'Lead', q: 1 },
+    ],
+  },
+  Basic_Plant_Pot: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Composite_Plant_Pot: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Chic_Plant_Pot: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Indoor_Growbed: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Titanium', q: 4 },
+    ],
+  },
+  Plant_Shelf: {
+    t: 'Recipes.Habitat_Builder.Interior_Modules',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+
+  // ============= Recipes.Habitat_Builder.Miscellaneous
+  Bench: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Bed: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+      { c: 'Fiber_Mesh', q: 1 },
+    ],
+  },
+  Bed_2: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+      { c: 'Fiber_Mesh', q: 1 },
+    ],
+  },
+  Narrow_Bed: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+      { c: 'Fiber_Mesh', q: 1 },
+    ],
+  },
+  Desk: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Chair: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Chair_2: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Chair_3: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Sign: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Copper_Wire', q: 1 },
+    ],
+  },
+  Picture_Frame: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Copper_Wire', q: 1 },
+    ],
+  },
+  Bar_Table: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Glass', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Trash_Can: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Nuclear_Waste_Disposal: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Vending_Machine: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Glass', q: 1 },
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Coffee_Vending_Machine: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Lab_Counter: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Wall_Planter: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Single_Wall_Shelf: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 1 },
+    ],
+  },
+  Wall_Shelves: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Titanium', q: 2 },
+    ],
+  },
+  Markiplier_Doll: {
+    t: 'Recipes.Habitat_Builder.Miscellaneous',
+    m: [
+      { c: 'Glass', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
 
   // ============= Recipes.Scanner_Room
+  Scanner_Room_HUD_Chip: {
+    t: 'Recipes.Scanner_Room',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Magnetite', q: 1 },
+    ],
+  },
+  Camera_Drone: {
+    t: 'Recipes.Scanner_Room',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Battery', q: 1 },
+      { c: 'Glass', q: 1 },
+      { c: 'Titanium', q: 1 },
+    ],
+  },
   Scanner_Room_Range_Upgrade: {
     t: 'Recipes.Scanner_Room',
     m: [
@@ -299,4 +928,163 @@ export default {
       { c: 'Magnetite', q: 1 },
     ],
   },
+  Scanner_Room_Speed_Upgrade: {
+    t: 'Recipes.Scanner_Room',
+    m: [
+      { c: 'Silver_Ore', q: 1 },
+      { c: 'Gold', q: 1 },
+    ],
+  },
+
+  // ============= Recipes.Mobile_Vehicle_Bay
+  Seamoth: {
+    t: 'Recipes.Mobile_Vehicle_Bay',
+    m: [
+      { c: 'Titanium_Ingot', q: 1 },
+      { c: 'Power_Cell', q: 1 },
+      { c: 'Glass', q: 2 },
+      { c: 'Lubricant', q: 1 },
+      { c: 'Lead', q: 1 },
+    ],
+  },
+  Cyclops: {
+    t: 'Recipes.Mobile_Vehicle_Bay',
+    m: [
+      { c: 'Plasteel_Ingot', q: 3 },
+      { c: 'Enameled_Glass', q: 3 },
+      { c: 'Lubricant', q: 1 },
+      { c: 'Advanced_Wiring_Kit', q: 1 },
+      { c: 'Lead', q: 3 },
+    ],
+  },
+  Prawn_Suit: {
+    t: 'Recipes.Mobile_Vehicle_Bay',
+    m: [
+      { c: 'Plasteel_Ingot', q: 2 },
+      { c: 'Aerogel', q: 2 },
+      { c: 'Enameled_Glass', q: 1 },
+      { c: 'Diamond', q: 2 },
+      { c: 'Lead', q: 2 },
+    ],
+  },
+
+
+  // ============= Recipes.Modification_Station
+  Thermoblade: {
+    t: 'Recipes.Modification_Station.Survival_Knife',
+    m: [
+      { c: 'Survival_Knife', q: 1 },
+      { c: 'Battery', q: 1 },
+    ],
+  },
+  Lightweight_High_Capacity_Tank: {
+    t: 'Recipes.Modification_Station.High_Capacity_O₂_Tank',
+    m: [
+      { c: 'High_Capacity_O₂_Tank', q: 1 },
+      { c: 'Plasteel_Ingot', q: 1 },
+    ],
+  },
+  Ultra_High_Capacity_Tank: {
+    t: 'Recipes.Modification_Station.High_Capacity_O₂_Tank',
+    m: [
+      { c: 'High_Capacity_O₂_Tank', q: 1 },
+      { c: 'Lithium', q: 4 },
+    ],
+  },
+  Ultra_Glide_Fins: {
+    t: 'Recipes.Modification_Station.Fins',
+    m: [
+      { c: 'Fins', q: 1 },
+      { c: 'Silicone_Rubber', q: 2 },
+      { c: 'Titanium', q: 1 },
+      { c: 'Lithium', q: 1 },
+    ],
+  },
+  Swim_Charge_Fins: {
+    t: 'Recipes.Modification_Station.Fins',
+    m: [
+      { c: 'Fins', q: 1 },
+      { c: 'Polyaniline', q: 1 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
+  Repulsion_Cannon: {
+    t: 'Recipes.Modification_Station.Propulsion_Cannon',
+    m: [
+      { c: 'Propulsion_Cannon', q: 1 },
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Magnetite', q: 2 },
+    ],
+  },
+  Cyclops_Depth_Module_MK2: {
+    t: 'Recipes.Modification_Station.Cyclops_Upgrades',
+    m: [
+      { c: 'Cyclops_Depth_Module_MK1', q: 1 },
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Nickel_Ore', q: 3 },
+    ],
+  },
+  Cyclops_Depth_Module_MK3: {
+    t: 'Recipes.Modification_Station.Cyclops_Upgrades',
+    m: [
+      { c: 'Cyclops_Depth_Module_MK2', q: 1 },
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Kyanite', q: 3 },
+    ],
+  },
+  Prawn_Suit_Depth_Module_MK2: {
+    t: 'Recipes.Modification_Station.Prawn_Suit_Upgrades',
+    m: [
+      { c: 'Prawn_Suit_Depth_Module_MK1', q: 1 },
+      { c: 'Titanium', q: 5 },
+      { c: 'Lithium', q: 2 },
+      { c: 'Kyanite', q: 3 },
+    ],
+  },
+  Seamoth_Depth_Module_MK2: {
+    t: 'Recipes.Modification_Station.Seamoth_Upgrades',
+    m: [
+      { c: 'Seamoth_Depth_Module_MK1', q: 1 },
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Magnetite', q: 2 },
+      { c: 'Enameled_Glass', q: 1 },
+    ],
+  },
+  Seamoth_Depth_Module_MK3: {
+    t: 'Recipes.Modification_Station.Seamoth_Upgrades',
+    m: [
+      { c: 'Seamoth_Depth_Module_MK2', q: 1 },
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Ruby', q: 3 },
+    ],
+  },
+
+  // ============= Recipes.Vehicle_Upgrade_Console
+  Seamoth_Depth_Module_MK1: {
+    t: 'Recipes.Vehicle_Upgrade_Console',
+    m: [
+      { c: 'Titanium_Ingot', q: 1 },
+      { c: 'Glass', q: 2 },
+    ],
+  },
+  Prawn_Suit_Depth_Module_MK1: {
+    t: 'Recipes.Vehicle_Upgrade_Console',
+    m: [
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Nickel_Ore', q: 3 },
+      { c: 'Ruby', q: 2 },
+    ],
+  },
+  // TODO: the remaining recipes for Vehicle_Upgrade_Console
+
+  // ============= Recipes.Cyclops_Upgrade_Fabricator
+  Cyclops_Depth_Module_MK1: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Ruby', q: 3 },
+    ],
+  },
+  // TODO: the remaining recipes for Cyclops_Upgrade_Fabricator
+
 };
