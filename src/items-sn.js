@@ -1126,7 +1126,58 @@ export default {
       { c: 'Ruby', q: 2 },
     ],
   },
-  // TODO: the remaining recipes for Vehicle_Upgrade_Console
+  Prawn_Suit_Thermal_Reactor: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
+    m: [
+      { c: 'Kyanite', q: 2 },
+      { c: 'Polyaniline', q: 2 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
+  Prawn_Suit_Jump_Jet_Upgrade: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
+    m: [
+      { c: 'Nickel_Ore', q: 2 },
+      { c: 'Crystalline_Sulfur', q: 3 },
+      { c: 'Titanium', q: 5 },
+      { c: 'Lithium', q: 1 },
+    ],
+  },
+  Prawn_Suit_Propulsion_Cannon: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Titanium', q: 5 },
+      { c: 'Lithium', q: 1 },
+      { c: 'Magnetite', q: 1 },
+    ],
+  },
+  Prawn_Suit_Grappling_Arm: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
+    m: [
+      { c: 'Advanced_Wiring_Kit', q: 1 },
+      { c: 'Titanium', q: 5 },
+      { c: 'Lithium', q: 1 },
+      { c: 'Benzene', q: 1 },
+    ],
+  },
+  Prawn_Suit_Drill_Arm: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
+    m: [
+      { c: 'Titanium', q: 5 },
+      { c: 'Lithium', q: 1 },
+      { c: 'Diamond', q: 4 },
+    ],
+  },
+  Prawn_Suit_Torpedo_Arm: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
+    m: [
+      { c: 'Titanium', q: 5 },
+      { c: 'Lithium', q: 1 },
+      { c: 'Aerogel', q: 1 },
+    ],
+  },
+  // TODO: the remaining recipes for Torpedoes
 
   // ============= Recipes.Cyclops_Upgrade_Fabricator
   Cyclops_Depth_Module_MK1: {

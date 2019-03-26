@@ -267,6 +267,12 @@ describe('Test recipes', () => {
 
     /* Prawn_Suit_Modules */
     expect(algo.listOfMaterials('Prawn_Suit_Depth_Module_MK2')).toEqual([{ c: 'Titanium', q: 15 }, { c: 'Lithium', q: 4 }, { c: 'Nickel_Ore', q: 3 }, { c: 'Ruby', q: 2 }, { c: 'Kyanite', q: 3 }]);
+    expect(algo.listOfMaterials('Prawn_Suit_Thermal_Reactor')).toEqual([{ c: 'Kyanite', q: 2 }, { c: 'Gold', q: 2 }, { c: 'Deep_Shroom', q: 6 }, { c: 'Salt_Deposit', q: 2 }, { c: 'Silver_Ore', q: 2 }]);
+    expect(algo.listOfMaterials('Prawn_Suit_Jump_Jet_Upgrade')).toEqual([{ c: 'Nickel_Ore', q: 2 }, { c: 'Crystalline_Sulfur', q: 3 }, { c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }]);
+    expect(algo.listOfMaterials('Prawn_Suit_Propulsion_Cannon')).toEqual([{ c: 'Table_Coral_Sample', q: 2 }, { c: 'Gold', q: 1 }, { c: 'Copper_Ore', q: 2 }, { c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Magnetite', q: 1 }]);
+    expect(algo.listOfMaterials('Prawn_Suit_Grappling_Arm')).toEqual([{ c: 'Silver_Ore', q: 2 }, { c: 'Gold', q: 3 }, { c: 'Table_Coral_Sample', q: 2 }, { c: 'Copper_Ore', q: 2 }, { c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Blood_Oil', q: 3 }]);
+    expect(algo.listOfMaterials('Prawn_Suit_Drill_Arm')).toEqual([{ c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Diamond', q: 4 }]);
+    expect(algo.listOfMaterials('Prawn_Suit_Torpedo_Arm')).toEqual([{ c: 'Titanium', q: 5 }, { c: 'Lithium', q: 1 }, { c: 'Gel_Sack', q: 1 }, { c: 'Ruby', q: 1 }]);
   });
 
   /* Recipes.Cyclops_Upgrade_Fabricator */
