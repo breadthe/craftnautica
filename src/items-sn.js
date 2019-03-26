@@ -1089,6 +1089,35 @@ export default {
       { c: 'Glass', q: 2 },
     ],
   },
+  Seamoth_Solar_Charger: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Seamoth_Modules',
+    m: [
+      { c: 'Advanced_Wiring_Kit', q: 1 },
+      { c: 'Enameled_Glass', q: 1 },
+    ],
+  },
+  Seamoth_Perimeter_Defense_System: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Seamoth_Modules',
+    m: [
+      { c: 'Polyaniline', q: 1 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
+  Seamoth_Torpedo_System: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Seamoth_Modules',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Lithium', q: 1 },
+      { c: 'Aerogel', q: 1 },
+    ],
+  },
+  Seamoth_Sonar: {
+    t: 'Recipes.Vehicle_Upgrade_Console.Seamoth_Modules',
+    m: [
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Magnetite', q: 2 },
+    ],
+  },
   Prawn_Suit_Depth_Module_MK1: {
     t: 'Recipes.Vehicle_Upgrade_Console.Prawn_Suit_Modules',
     m: [
