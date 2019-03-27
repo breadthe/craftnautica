@@ -3,7 +3,7 @@
     id="nav"
     class="bg-black"
   >
-    <div class="flex items-center justify-between max-w-lg mx-auto">
+    <div class="flex items-center justify-between max-w-lg mx-4 sm:mx-auto">
 
       <!-- Left side -->
       <div class="flex-1 flex items-center">
@@ -11,7 +11,7 @@
           to="/"
           class="flex items-center justify-center mr-4 mr-2"
         >
-          <v-icon icon="home" color="blue-dark"></v-icon>
+          <span class="logo">Craftnautica</span>
         </router-link>
 
         <router-link
@@ -68,5 +68,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+.logo {
+  font-family: 'Luckiest Guy', sans-serif;
+  @apply h-4;
+  @apply text-white;
+  @apply tracking-wide;
+  &:hover {
+    @apply text-blue;
+  }
+}
 </style>
