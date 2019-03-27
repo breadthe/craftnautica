@@ -1200,6 +1200,58 @@ export default {
       { c: 'Ruby', q: 3 },
     ],
   },
-  // TODO: the remaining recipes for Cyclops_Upgrade_Fabricator
+  Cyclops_Energy_Efficiency_Module: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Benzene', q: 1 },
+      { c: 'Polyaniline', q: 1 },
+    ],
+  },
+  Cyclops_Thermal_Reactor_Module: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Polyaniline', q: 2 },
+      { c: 'Kyanite', q: 4 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
+  Cyclops_Sonar_Module: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Computer_Chip', q: 1 },
+      { c: 'Magnetite', q: 3 },
+    ],
+  },
+  Cyclops_Fire_Suppression_System: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Aerogel', q: 2 },
+      { c: 'Crystalline_Sulfur', q: 2 },
+    ],
+  },
+  Cyclops_Docking_Bay_Repair_Module: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Repair_Tool', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+    ],
+  },
+  Cyclops_Decoy_Tube_Upgrade: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Titanium', q: 3 },
+      { c: 'Lithium', q: 2 },
+      { c: 'Aerogel', q: 1 },
+    ],
+  },
+  Cyclops_Shield_Generator: {
+    t: 'Recipes.Cyclops_Upgrade_Fabricator',
+    m: [
+      { c: 'Advanced_Wiring_Kit', q: 1 },
+      { c: 'Polyaniline', q: 1 },
+      { c: 'Power_Cell', q: 1 },
+    ],
+  },
 
 };

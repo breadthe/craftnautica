@@ -282,6 +282,13 @@ describe('Test recipes', () => {
   /* Recipes.Cyclops_Upgrade_Fabricator */
   test('it returns the correct list of base materials for Recipes.Cyclops_Upgrade_Fabricator', () => {
     expect(algo.listOfMaterials('Cyclops_Depth_Module_MK1')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }, { c: 'Ruby', q: 3 }]);
+    expect(algo.listOfMaterials('Cyclops_Energy_Efficiency_Module')).toEqual([{ c: 'Table_Coral_Sample', q: 2 }, { c: 'Gold', q: 2 }, { c: 'Copper_Ore', q: 2 }, { c: 'Blood_Oil', q: 3 }, { c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }]);
+    expect(algo.listOfMaterials('Cyclops_Thermal_Reactor_Module')).toEqual([{ c: 'Gold', q: 2 }, { c: 'Deep_Shroom', q: 6 }, { c: 'Salt_Deposit', q: 2 }, { c: 'Kyanite', q: 4 }, { c: 'Silver_Ore', q: 2 }]);
+    expect(algo.listOfMaterials('Cyclops_Sonar_Module')).toEqual([{ c: 'Table_Coral_Sample', q: 2 }, { c: 'Gold', q: 1 }, { c: 'Copper_Ore', q: 2 }, { c: 'Magnetite', q: 3 }]);
+    expect(algo.listOfMaterials('Cyclops_Fire_Suppression_System')).toEqual([{ c: 'Gel_Sack', q: 2 }, { c: 'Ruby', q: 2 }, { c: 'Crystalline_Sulfur', q: 2 }]);
+    expect(algo.listOfMaterials('Cyclops_Docking_Bay_Repair_Module')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 0.5 }, { c: 'Cave_Sulfur', q: 1 }, { c: 'Titanium', q: 1 }, { c: 'Copper_Ore', q: 2 }]);
+    expect(algo.listOfMaterials('Cyclops_Decoy_Tube_Upgrade')).toEqual([{ c: 'Titanium', q: 3 }, { c: 'Lithium', q: 2 }, { c: 'Gel_Sack', q: 1 }, { c: 'Ruby', q: 1 }]);
+    expect(algo.listOfMaterials('Cyclops_Shield_Generator')).toEqual([{ c: 'Silver_Ore', q: 2 }, { c: 'Gold', q: 4 }, { c: 'Table_Coral_Sample', q: 2 }, { c: 'Copper_Ore', q: 4 }, { c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }, { c: 'Acid_Mushroom', q: 4 }, { c: 'Creepvine_Seed_Cluster', q: 0.5 }]);
   });
 
 });
