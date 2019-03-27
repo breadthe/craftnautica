@@ -11,8 +11,9 @@
       <p class="mt-4">
         <ul class="features">
           <li class="f1">Quickly search a raw material or crafted item.</li>
-          <li class="f2">See at a glance the total amount of base components required to craft it.</li class="f2">
+          <li class="f2">See at a glance the total amount of base components required to craft it.</li>
           <li class="f3">Create a shopping list of crafted items and see a grand total of all the raw materials required! 🔥 Useful when building a new base!</li>
+          <li class="f6">Individual shopping lists for Subnautica and Below Zero.</li>
           <li class="f4"><small class="text-xs border border-blue-dark rounded p-1">SOON</small> Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Gold do I have in my Lifepod?".</li>
           <li class="f5">And more...</li>
         </ul>
