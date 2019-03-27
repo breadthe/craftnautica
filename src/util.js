@@ -26,4 +26,6 @@ export default {
     }
   },
 
+  formatType: type => type.split('.').join(' > ').split('_').join(' '),
+
 };

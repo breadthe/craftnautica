@@ -7,7 +7,7 @@
     </div>
 
     <div v-for="type in types" :key="type" class="">
-      <type :type="type" :types="filterByType(type)"></type>
+      <type :type="formatType(type)" :types="filterByType(type)"></type>
     </div>
 
   </main>
@@ -35,6 +35,9 @@ export default {
   methods: {
     filterByType: function (type) {
       return util.filterByType(this.items, type);
+    },
+    formatType: function (type) {
+      return util.formatType(type);
     },
   },
 };
