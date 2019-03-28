@@ -73,32 +73,42 @@ input {
 ul {
   &.features {
     @apply list-reset;
-    @apply mx-12;
-    @apply leading-loose;
-  }
+    @apply m-8;
+    @apply leading-normal;
 
-  li {
-    &::before {
-      @apply -ml-8;
-    }
+    li {
+      @apply p-0;
+      @apply mb-4;
+      @apply flex;
+      @apply items-start;
 
-    &.f1::before {
-      content: '🔎 ';
-    }
-    &.f2::before {
-      content: '📃 ';
-    }
-    &.f3::before {
-      content: '🛒 ';
-    }
-    &.f4::before {
-      content: '📦 ';
-    }
-    &.f5::before {
-      content: '🦄 ';
-    }
-    &.f6::before {
-      content: '✌️ ';
+      &::before {
+        @apply -ml-8;
+        @apply text-4xl;
+        @apply mr-4;
+      }
+
+      &.f1::before {
+        content: '🔎 ';
+      }
+      &.f2::before {
+        content: '📃 ';
+      }
+      &.f3::before {
+        content: '🛒 ';
+      }
+      &.f4::before {
+        content: '📦 ';
+      }
+      &.f5::before {
+        content: '🦄 ';
+      }
+      &.f6::before {
+        content: '✌️ ';
+      }
+      &.f7::before {
+        content: '💾 ';
+      }
     }
   }
 }

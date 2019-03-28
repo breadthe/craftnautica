@@ -3,7 +3,7 @@
     id="nav"
     class="bg-black"
   >
-    <div class="flex items-center justify-between max-w-lg mx-4 sm:mx-auto">
+    <div class="flex items-center justify-between max-w-xl mx-4 sm:mx-auto">
 
       <!-- Left side -->
       <div class="flex-1 flex items-center">
