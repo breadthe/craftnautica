@@ -8,6 +8,14 @@
       <span v-if="cart.length">{{ cart.length }} items</span>
     </div>
 
+    <button
+        type="button"
+        @click="showAllRecipes = !showAllRecipes"
+        class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue mb-4"
+        v-html="(showAllRecipes ? 'Hide ' : 'Show ') + 'All Recipes'"
+    >
+    </button>
+
     <!-- ============= Cart Items ============= -->
     <div class="" v-if="cart.length">
       <div
@@ -17,6 +25,7 @@
       >
         <cart-item
             :item="item"
+            :data-show-recipe="showAllRecipes"
             :components="components(id(item))"
         ></cart-item>
       </div>
@@ -91,6 +100,7 @@ export default {
   data: () => ({
     pretty: util.pretty,
     confirmEmptyCart: false,
+    showAllRecipes: false,
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/cart/, ''), // strip out "cart" from "sncart"

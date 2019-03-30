@@ -40,15 +40,20 @@
 
     <!-- ============= Recipe ============= -->
     <div
-        v-if="showingRecipe"
-        class="flex p-2 -mt-2 -mx-2 mb-4 z-10 bg-blue-darker flex-wrap shadow-sm"
+      v-if="showingRecipe"
+      class="flex p-2 -mt-2 -mx-2 mb-6 z-10 bg-blue-darker flex-wrap shadow-sm"
     >
         <span
-            v-for="(component, ix) in components"
-            :key="ix"
-            class="mx-2"
+          v-for="(component, ix) in components"
+          :key="ix"
+          class="mx-2 flex items-center"
         >
-          {{ component.c }}: {{ component.q }}
+          <span
+            class="flex items-center justify-center w-6 h-6 rounded-full bg-grey-darkest text-sm mr-1"
+          >
+            {{ component.q }}
+          </span>
+          {{ pretty(component.c) }}
         </span>
     </div>
 </section>
@@ -69,18 +74,34 @@ export default {
       required: true,
       default: () => {},
     },
+    dataShowRecipe: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     components: {
       type: Array,
       required: true,
       default: () => [],
     },
   },
-  data: () => ({
-    pretty: util.pretty,
-    showingRecipe: false,
-  }),
+  data: function () {
+    return {
+      pretty: util.pretty,
+      showRecipe: false,
+    };
+  },
   computed: {
     domain: vm => vm.$route.name.replace(/cart/, ''), // strip out "cart" from "sncart"
+    showingRecipe: {
+      get: function () { return this.showRecipe; },
+      set: function (data) { this.showRecipe = data; },
+    },
+  },
+  watch: {
+    dataShowRecipe: function () {
+      this.showingRecipe = this.dataShowRecipe;
+    },
   },
   methods: {
     id: item => util.id(item),
