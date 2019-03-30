@@ -1,14 +1,27 @@
 <template>
   <footer>
-    <div class="beta">beta</div>
-    {{ version }}
+    <div class="flex items-center">
+      <div class="beta">beta</div>
+      {{ version }}
+    </div>
+    <div class="flex items-center">
+      <a href="https://github.com/breadthe/craftnautica" target="_blank">
+        <v-icon icon="github" color="blue-dark" class="mr-4"></v-icon>
+      </a>
+    </div>
+    <div class="flex items-center">
+      <router-link to="/privacy">Privacy Policy</router-link>
+    </div>
   </footer>
 </template>
 
 <script>
+import VIcon from '@/components/VIcon.vue';
+
 export default {
   name: 'AppFooter',
   components: {
+    VIcon,
   },
   props: {
     version: {
@@ -32,6 +45,10 @@ footer {
   @apply bg-black;
   @apply flex;
   @apply items-center;
+
+  div {
+    @apply mr-8;
+  }
 }
 .beta {
   @apply border;

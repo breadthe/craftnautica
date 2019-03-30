@@ -28,6 +28,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
     },
     {
+      path: '/privacy',
+      name: 'privacy',
+      component: () => import(/* webpackChunkName: "privacy" */ './views/Privacy.vue'),
+    },
+    {
       path: '/recipes',
       name: 'recipes',
       component: () => import(/* webpackChunkName: "recipes" */ './views/Recipes.vue'),
