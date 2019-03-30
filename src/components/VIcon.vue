@@ -21,6 +21,7 @@
 <script>
 import VExternalLink from '@/components/icons/VExternalLink.vue';
 import VHome from '@/components/icons/VHome.vue';
+import VGithub from '@/components/icons/VGithub.vue';
 import VMinusCircle from '@/components/icons/VMinusCircle.vue';
 import VPlusCircle from '@/components/icons/VPlusCircle.vue';
 import VSearch from '@/components/icons/VSearch.vue';
@@ -33,6 +34,7 @@ export default {
   components: {
     VExternalLink,
     VHome,
+    VGithub,
     VMinusCircle,
     VPlusCircle,
     VSearch,
