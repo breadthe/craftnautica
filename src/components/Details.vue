@@ -33,7 +33,7 @@
     </div>
 
     <div class="flex flex-col" v-else>
-      <h3 class="border-b border-grey-darkest py-2">Components</h3>
+      <h3 class="border-b border-grey-darkest py-2">Recipe</h3>
 
       <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
         <div class="flex items-center">
