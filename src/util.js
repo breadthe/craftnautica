@@ -1,3 +1,5 @@
+const id = item => Object.keys(item)[0]; // {'Copper_Ore': 2} -> Copper_Ore
+
 const pretty = n => n.split('_')
   .join(' ');
 
@@ -27,5 +29,5 @@ const fullDomainName = (domain) => {
 };
 
 export default {
-  pretty, types, filterByType, search, fullDomainName, formatType,
+  id, pretty, types, filterByType, search, fullDomainName, formatType,
 };
