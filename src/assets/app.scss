@@ -62,8 +62,12 @@ input {
 }
 
 .item-icon {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
   @apply w-12;
   @apply h-12;
+  @apply p-6;
   @apply rounded-full;
   @apply bg-grey-darkest;
   @apply border;

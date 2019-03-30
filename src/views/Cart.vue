@@ -11,13 +11,13 @@
     <button
         type="button"
         @click="showAllRecipes = !showAllRecipes"
-        class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue mb-4"
+        class="mx-4 flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue mb-4"
         v-html="(showAllRecipes ? 'Hide ' : 'Show ') + 'All Recipes'"
     >
     </button>
 
     <!-- ============= Cart Items ============= -->
-    <div class="" v-if="cart.length">
+    <div class="mx-4" v-if="cart.length">
       <div
         v-for="(item, ix) in cart"
         :key="ix"

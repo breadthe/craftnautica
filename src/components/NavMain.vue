@@ -3,7 +3,7 @@
     id="nav"
     class="bg-black"
   >
-    <div class="flex items-center justify-between max-w-xl mx-4 sm:mx-auto">
+    <div class="flex items-center justify-between max-w-xl mx-4 sm:mx-8 lg:mx-auto">
 
       <!-- Left side -->
       <div class="flex-1 flex items-center">
@@ -11,7 +11,10 @@
           to="/"
           class="flex items-center justify-center mr-4 mr-2"
         >
-          <span class="logo">Craftnautica</span>
+          <span class="logo hidden sm:block">Craftnautica</span>
+          <span class="flex sm:hidden">
+            <v-icon icon="home" color="blue-dark" class="mr-4"></v-icon>
+          </span>
         </router-link>
 
         <router-link
@@ -36,7 +39,7 @@
           class="flex items-center"
         >
           <v-icon icon="shopping-cart" color="blue-dark"></v-icon>
-          <span v-if="cartCount" class="ml-2">{{ cartCount }} items</span>
+          <span v-if="cartCount" class="ml-2">{{ cartCount }}<span class="hidden lg:block"> items</span></span>
         </router-link>
       </div>
 
