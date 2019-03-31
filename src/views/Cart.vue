@@ -9,6 +9,7 @@
     </div>
 
     <button
+        v-if="cart.length"
         type="button"
         @click="showAllRecipes = !showAllRecipes"
         class="mx-4 flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue mb-4"
