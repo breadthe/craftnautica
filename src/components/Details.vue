@@ -32,16 +32,33 @@
       This item is a raw material or base component.
     </div>
 
-    <div class="flex flex-col" v-else>
-      <h3 class="border-b border-grey-darkest py-2">Recipe</h3>
+    <div class="" v-else>
+      <!-- ============= Recipe ============= -->
+      <div class="flex flex-col">
+        <h3 class="border-b border-grey-darkest py-2">Recipe</h3>
 
-      <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
-        <div class="flex items-center">
-          <div class="item-icon"></div>
-          <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
+        <div v-for="item in recipe(id)" :key="item.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+          <div class="flex items-center">
+            <div class="item-icon"></div>
+            <router-link :to="`${item.c}`" class="ml-4">{{ pretty(item.c) }}</router-link>
+          </div>
+          <div>{{ item.q }}</div>
         </div>
-        <div>{{ comp.q }}</div>
       </div>
+
+      <!-- ============= Base Components ============= -->
+      <div class="flex flex-col mt-8">
+        <h3 class="border-b border-grey-darkest py-2">Base Components</h3>
+
+        <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+          <div class="flex items-center">
+            <div class="item-icon"></div>
+            <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
+          </div>
+          <div>{{ comp.q }}</div>
+        </div>
+      </div>
+
     </div>
 
   </main>
@@ -81,6 +98,9 @@ export default {
       this.adding = true;
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
       setTimeout(() => { this.adding = false; }, 750);
+    },
+    recipe: function (item) {
+      return util.recipe(item, this.items);
     },
   },
   beforeRouteEnter(to, from, next) {
