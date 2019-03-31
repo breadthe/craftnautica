@@ -44,16 +44,16 @@
       class="flex p-2 -mt-2 -mx-2 mb-6 z-10 bg-blue-darker flex-wrap shadow-sm"
     >
         <span
-          v-for="(component, ix) in components"
+          v-for="(item, ix) in recipe"
           :key="ix"
           class="mx-2 flex items-center"
         >
           <span
             class="flex items-center justify-center w-6 h-6 rounded-full bg-grey-darkest text-sm mr-1"
           >
-            {{ component.q }}
+            {{ item.q }}
           </span>
-          {{ pretty(component.c) }}
+          {{ pretty(item.c) }}
         </span>
     </div>
 </section>
@@ -79,7 +79,7 @@ export default {
       required: false,
       default: false,
     },
-    components: {
+    recipe: {
       type: Array,
       required: true,
       default: () => [],

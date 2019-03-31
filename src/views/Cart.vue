@@ -27,7 +27,7 @@
         <cart-item
             :item="item"
             :data-show-recipe="showAllRecipes"
-            :components="components(id(item))"
+            :recipe="recipe(id(item), items)"
         ></cart-item>
       </div>
 
@@ -101,6 +101,7 @@ export default {
   },
   data: () => ({
     pretty: util.pretty,
+    recipe: util.recipe,
     confirmEmptyCart: false,
     showAllRecipes: false,
   }),
