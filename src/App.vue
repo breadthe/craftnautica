@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <div v-if="unsupported" class="flex justify-center w-full border border-pink-darkest bg-red">
+    <!--<div v-if="unsupported" class="flex justify-center w-full border border-pink-darkest bg-red">
       <div class="max-w-lg p-8 text-xl">
         You are using an unsupported browser. Please use Firefox 63+ or Chrome 73+.
       </div>
-    </div>
+    </div>-->
 
     <nav-main></nav-main>
 
@@ -28,7 +28,7 @@ export default {
     version: require('../package.json').version,
   }),
   computed: {
-    unsupported: () => typeof Object.fromEntries === 'undefined',
+    // unsupported: () => typeof Object.fromEntries === 'undefined',
   },
   created() {
     this.$store.commit('INIT_ITEMS');
