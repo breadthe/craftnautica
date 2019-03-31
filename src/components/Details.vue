@@ -2,8 +2,8 @@
   <main class="container mx-auto max-w-lg">
     <div class="flex justify-start my-4">
       <router-link :to="`/${domain}`">{{ fullDomainName }}</router-link>
-      &nbsp;&raquo;&nbsp;
-      {{ type }}
+      &nbsp;&gt;
+      {{ formatType(type) }}
     </div>
 
     <div class="flex justify-between items-center my-8 text-lg font-light">
@@ -99,6 +99,7 @@ export default {
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
       setTimeout(() => { this.adding = false; }, 750);
     },
+    formatType: type => util.formatType(type),
     recipe: function (item) {
       return util.recipe(item, this.items);
     },

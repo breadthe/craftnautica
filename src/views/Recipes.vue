@@ -36,9 +36,7 @@ export default {
     filterByType: function (type) {
       return util.filterByType(this.items, type);
     },
-    formatType: function (type) {
-      return util.formatType(type);
-    },
+    formatType: type => util.formatType(type),
   },
 };
 </script>
