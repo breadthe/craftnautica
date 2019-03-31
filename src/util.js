@@ -14,6 +14,8 @@ const filterByType = (items, type) => fromEntries(Object.entries(items)
 
 const formatType = type => type.split('.').join(' > ').split('_').join(' ');
 
+const recipe = (item, items) => items[item].m;
+
 const search = (items, srcStr) => fromEntries(Object.entries(items)
   .filter(i => formatType(i[0]).match(new RegExp(srcStr, 'ig')) || formatType(i[1].t).match(new RegExp(srcStr, 'ig'))));
 
@@ -31,5 +33,5 @@ const fullDomainName = (domain) => {
 };
 
 export default {
-  id, pretty, types, filterByType, search, fullDomainName, formatType,
+  id, pretty, types, filterByType, search, fullDomainName, formatType, recipe,
 };
