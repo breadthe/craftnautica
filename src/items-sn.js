@@ -967,6 +967,14 @@ export default {
       { c: 'Lead', q: 2 },
     ],
   },
+  Neptune_Launch_Platform: {
+    t: 'Recipes.Mobile_Vehicle_Bay',
+    m: [
+      { c: 'Lead', q: 4 },
+      { c: 'Titanium_Ingot', q: 2 },
+      { c: 'Computer_Chip', q: 1 },
+    ],
+  },
 
 
   // ============= Recipes.Modification_Station
@@ -1251,6 +1259,43 @@ export default {
       { c: 'Advanced_Wiring_Kit', q: 1 },
       { c: 'Polyaniline', q: 1 },
       { c: 'Power_Cell', q: 1 },
+    ],
+  },
+
+  // ============= Recipes.Neptune_Launch_Platform
+  Neptune_Gantry: {
+    t: 'Recipes.Neptune_Launch_Platform',
+    m: [
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Copper_Wire', q: 1 },
+      { c: 'Lubricant', q: 1 },
+    ],
+  },
+  Neptune_Boosters: {
+    t: 'Recipes.Neptune_Launch_Platform',
+    m: [
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Nickel_Ore', q: 3 },
+      { c: 'Aerogel', q: 2 },
+      { c: 'Wiring_Kit', q: 1 },
+    ],
+  },
+  Neptune_Fuel_Reserve: {
+    t: 'Recipes.Neptune_Launch_Platform',
+    m: [
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Crystalline_Sulfur', q: 4 },
+      { c: 'Kyanite', q: 4 },
+      { c: 'Ion_Power_Cell', q: 2 },
+    ],
+  },
+  Neptune_Cockpit: {
+    t: 'Recipes.Neptune_Launch_Platform',
+    m: [
+      { c: 'Cyclops_Shield_Generator', q: 1 },
+      { c: 'Plasteel_Ingot', q: 1 },
+      { c: 'Enameled_Glass', q: 1 },
+      { c: 'Computer_Chip', q: 1 },
     ],
   },
 

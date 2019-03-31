@@ -234,6 +234,7 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Seamoth')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Copper_Ore', q: 2 }, { c: 'Acid_Mushroom', q: 4 }, { c: 'Creepvine_Seed_Cluster', q: 1.5 }, { c: 'Quartz', q: 4 }, { c: 'Lead', q: 1 }]);
     expect(algo.listOfMaterials('Cyclops')).toEqual([{ c: 'Titanium', q: 30 }, { c: 'Lithium', q: 6 }, { c: 'Quartz', q: 6 }, { c: 'Stalker_Teeth', q: 3 }, { c: 'Creepvine_Seed_Cluster', q: 1 }, { c: 'Silver_Ore', q: 2 }, { c: 'Gold', q: 3 }, { c: 'Table_Coral_Sample', q: 2 }, { c: 'Copper_Ore', q: 2 }, { c: 'Lead', q: 3 }]);
     expect(algo.listOfMaterials('Prawn_Suit')).toEqual([{ c: 'Titanium', q: 20 }, { c: 'Lithium', q: 4 }, { c: 'Gel_Sack', q: 2 }, { c: 'Ruby', q: 2 }, { c: 'Quartz', q: 2 }, { c: 'Stalker_Teeth', q: 1 }, { c: 'Diamond', q: 2 }, { c: 'Lead', q: 2 }]);
+    expect(algo.listOfMaterials('Neptune_Launch_Platform')).toEqual([{ c: 'Lead', q: 4 }, { c: 'Titanium', q: 20 }, { c: 'Table_Coral_Sample', q: 2 }, { c: 'Gold', q: 1 }, { c: 'Copper_Ore', q: 2 }]);
   });
 
   /* Recipes.Modification_Station */
@@ -289,6 +290,14 @@ describe('Test recipes', () => {
     expect(algo.listOfMaterials('Cyclops_Docking_Bay_Repair_Module')).toEqual([{ c: 'Creepvine_Seed_Cluster', q: 0.5 }, { c: 'Cave_Sulfur', q: 1 }, { c: 'Titanium', q: 1 }, { c: 'Copper_Ore', q: 2 }]);
     expect(algo.listOfMaterials('Cyclops_Decoy_Tube_Upgrade')).toEqual([{ c: 'Titanium', q: 3 }, { c: 'Lithium', q: 2 }, { c: 'Gel_Sack', q: 1 }, { c: 'Ruby', q: 1 }]);
     expect(algo.listOfMaterials('Cyclops_Shield_Generator')).toEqual([{ c: 'Silver_Ore', q: 2 }, { c: 'Gold', q: 4 }, { c: 'Table_Coral_Sample', q: 2 }, { c: 'Copper_Ore', q: 4 }, { c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }, { c: 'Acid_Mushroom', q: 4 }, { c: 'Creepvine_Seed_Cluster', q: 0.5 }]);
+  });
+
+  /* Recipes.Neptune_Gantry */
+  test('it returns the correct list of base materials for Recipes.Neptune_Gantry', () => {
+    expect(algo.listOfMaterials('Neptune_Gantry')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }, { c: 'Copper_Ore', q: 2 }, { c: 'Creepvine_Seed_Cluster', q: 1 }]);
+    expect(algo.listOfMaterials('Neptune_Boosters')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }, { c: 'Nickel_Ore', q: 3 }, { c: 'Gel_Sack', q: 2 }, { c: 'Ruby', q: 2 }, { c: 'Silver_Ore', q: 2 }]);
+    expect(algo.listOfMaterials('Neptune_Fuel_Reserve')).toEqual([{ c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }, { c: 'Crystalline_Sulfur', q: 4 }, { c: 'Kyanite', q: 4 }, { c: 'Ion_Cube', q: 4 }, { c: 'Gold', q: 4 }, { c: 'Silver_Ore', q: 4 }, { c: 'Creepvine_Seed_Cluster', q: 1 }]);
+    expect(algo.listOfMaterials('Neptune_Cockpit')).toEqual([{ c: 'Silver_Ore', q: 2 }, { c: 'Gold', q: 5 }, { c: 'Table_Coral_Sample', q: 4 }, { c: 'Copper_Ore', q: 6 }, { c: 'Deep_Shroom', q: 3 }, { c: 'Salt_Deposit', q: 1 }, { c: 'Acid_Mushroom', q: 4 }, { c: 'Creepvine_Seed_Cluster', q: 0.5 }, { c: 'Titanium', q: 10 }, { c: 'Lithium', q: 2 }, { c: 'Quartz', q: 2 }, { c: 'Stalker_Teeth', q: 1 }]);
   });
 
 });
