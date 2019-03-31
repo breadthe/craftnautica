@@ -85,6 +85,7 @@
 </template>
 
 <script>
+import 'array-flat-polyfill';
 import util from '@/util';
 import Algo from '@/algo';
 import CartItem from '@/components/CartItem.vue';
