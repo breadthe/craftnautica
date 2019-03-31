@@ -3,7 +3,7 @@
     <v-icon
       icon="search"
       color="grey-darker"
-      class="absolute pin-l ml-8 border-0 bg-transparent p-0"
+      class="absolute pin-l ml-4 sm:ml-8 mt-2 sm:mt-0 border-0 bg-transparent p-0"
     ></v-icon>
     <input
         type="text"
@@ -17,7 +17,7 @@
       @click="search = ''"
       class="absolute pin-r mr-4 border-0 bg-transparent p-0 text-blue-darker"
     >
-      <v-icon icon="x" color="blue-dark"></v-icon>
+      <v-icon icon="x" color="blue-dark" class="mt-4 sm:mt-0"></v-icon>
     </button>
   </div>
 </template>
@@ -42,7 +42,7 @@ export default {
       set(srcStr) { this.$store.dispatch('setSrcStr', srcStr); },
       get() { return this.$store.state.search; },
     },
-    placeholder: (vm) => `Search ${vm.fullDomainName}... (Hit "/" to focus)`,
+    placeholder: vm => `Search ${vm.fullDomainName}... (Hit "/" to focus)`,
   },
   methods: {
     handleKeyPress: function (e) {
@@ -61,10 +61,10 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('keydown', this.handleKeyPress);
+    window.addEventListener('keyup', this.handleKeyPress);
   },
   beforeDestroy() {
-    window.removeEventListener('keydown', this.handleKeyPress);
+    window.removeEventListener('keyup', this.handleKeyPress);
   },
 };
 </script>
