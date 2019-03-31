@@ -85,7 +85,6 @@
 </template>
 
 <script>
-import flatten from 'flat';
 import util from '@/util';
 import Algo from '@/algo';
 import CartItem from '@/components/CartItem.vue';
@@ -113,11 +112,11 @@ export default {
     // TODO: refactor this ugly thing
     cartComponents: function () {
       const algo = (new Algo(this.items));
-      let components = flatten(this.cart.map((item) => {
+      let components = this.cart.map((item) => {
         const id = Object.keys(item)[0];
         const qty = Object.values(item)[0];
         return algo.listOfMaterials(id, qty);
-      }));
+      }).flat();
 
       components = _groupBy(components, 'c');
 
