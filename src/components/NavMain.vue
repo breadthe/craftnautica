@@ -38,8 +38,14 @@
           :to="`/${domain}/cart`"
           class="flex items-center"
         >
-          <v-icon icon="shopping-cart" color="blue-dark"></v-icon>
-          <span v-if="cartCount" class="ml-2">{{ cartCount }}<span class="hidden lg:block"> items</span></span>
+          <v-icon icon="shopping-cart" color="blue-dark" title="Shopping cart"></v-icon>
+          <span
+            v-if="cartCount"
+            class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
+            :title="`${cartCount} items in cart`"
+          >
+            {{ cartCount }}
+          </span>
         </router-link>
       </div>
 
