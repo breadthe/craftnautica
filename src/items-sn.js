@@ -572,7 +572,7 @@ export default {
 
   // ============= Recipes.Habitat_Builder.Exterior_Modules
   Solar_Panel: {
-    t: 'Recipes.Habitat_Builder.Exterior_Module',
+    t: 'Recipes.Habitat_Builder.Exterior_Modules',
     m: [
       { c: 'Quartz', q: 2 },
       { c: 'Copper_Ore', q: 1 },
@@ -1208,7 +1208,7 @@ export default {
       { c: 'Ruby', q: 3 },
     ],
   },
-  Cyclops_Energy_Efficiency_Module: {
+  Cyclops_Engine_Efficiency_Module: {
     t: 'Recipes.Cyclops_Upgrade_Fabricator',
     m: [
       { c: 'Computer_Chip', q: 1 },
