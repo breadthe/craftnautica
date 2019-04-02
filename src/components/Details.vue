@@ -9,7 +9,16 @@
     <div class="flex justify-between items-center my-8 text-lg font-light">
       <div class="flex items-center">
         <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
-        <h2 class="ml-4 text-blue">{{ pretty(id) }}</h2>
+
+        <div class="flex flex-col ml-4">
+          <h2 class="">{{ pretty(id) }}</h2>
+
+          <a :href="wikiLink(id)" target="_blank" class="flex items-center">
+            wiki&nbsp;
+            <v-icon icon="external-link" :size=4 color="blue-dark"></v-icon>
+          </a>
+        </div>
+
       </div>
 
       <div v-if="adding">
@@ -103,6 +112,11 @@ export default {
     formatType: type => util.formatType(type),
     recipe: function (item) {
       return util.recipe(item, this.items);
+    },
+    wikiLink: function (item) {
+      return this.domain === 'sn'
+        ? `https://subnautica.fandom.com/wiki/${item}`
+        : `https://subnautica-belowzero.fandom.com/wiki/${item}`;
     },
   },
   beforeRouteEnter(to, from, next) {
