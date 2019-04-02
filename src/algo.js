@@ -39,6 +39,22 @@ class Algo {
 
     return arr;
   }
+
+  shoppingList(cart) {
+    let arr = _flattenDeep(cart.map((item) => {
+      const id = Object.keys(item)[0];
+      const qty = Object.values(item)[0];
+      return this.listOfMaterials(id, qty);
+    }));
+
+    arr = _groupBy(arr, 'c');
+
+    arr = _toPairs(arr);
+
+    arr = arr.map(ar => ({ c: ar[0], q: ar[1].reduce((sum, { q }) => sum + q, 0) }));
+
+    return arr;
+  }
 }
 
 export default Algo;
