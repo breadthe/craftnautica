@@ -1,17 +1,21 @@
 <template>
   <footer>
-    <div class="flex items-center">
-      <div class="beta">beta</div>
-      {{ version }}
+    <div class="flex justify-between w-full max-w-lg">
+      <div class="flex items-center">
+        <div class="beta">beta</div>
+        {{ version }}
+      </div>
+      <div class="flex items-center">
+        <a href="https://github.com/breadthe/craftnautica" target="_blank">
+          <v-icon icon="github" color="blue-dark" class="mr-4"></v-icon>
+        </a>
+      </div>
+      <div class="flex items-center">
+        <router-link to="/privacy">Privacy Policy</router-link>
+      </div>
     </div>
-    <div class="flex items-center">
-      <a href="https://github.com/breadthe/craftnautica" target="_blank">
-        <v-icon icon="github" color="blue-dark" class="mr-4"></v-icon>
-      </a>
-    </div>
-    <div class="flex items-center">
-      <router-link to="/privacy">Privacy Policy</router-link>
-    </div>
+
+    <div class="mt-4 text-xs">All images and icons are copyright to their respective owners.</div>
   </footer>
 </template>
 
@@ -41,13 +45,14 @@ footer {
   @apply static;
   @apply pin-b;
   @apply mt-8;
-  @apply p-8;
+  @apply p-4;
   @apply bg-black;
   @apply flex;
+  @apply flex-col;
   @apply items-center;
 
-  div {
-    @apply mr-8;
+  @screen sm {
+    @apply p-8;
   }
 }
 .beta {
@@ -56,6 +61,7 @@ footer {
   @apply bg-blue-dark;
   @apply rounded;
   @apply text-black;
+  @apply text-xs;
   @apply p-1;
   @apply mr-2;
 }
