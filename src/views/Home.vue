@@ -46,9 +46,7 @@
       <h3>Known Issues</h3>
       <ul class="text-lg">
         <li>Most <strong>Below Zero</strong> items are missing. Not my main focus at the moment as the expansion is in flux, but I will continue to add them slowly, time permitting.</li>
-        <li>Icons are missing. I'm aware how important they are but short of grabbing them from the wiki, I don't know an easy and ethical way to get a hold of them.</li>
-        <li>Only supported in Firefox 63+ or Chrome 73+. I'm really not interested in supporting other browsers so if you're a huge fan of IE, Edge or Safari, you'll have to wait until those browsers bring support for modern APIs or just use the two I mentioned.</li>
-        <li>Not very mobile-friendly. The main intent is to run the app in a desktop browser while playing the game, so there are broken/ugly things on mobile which are very low on my priority list. Eventually I do plan on making it work well on small screens.</li>
+        <li>Only fully supported in Firefox 63+ or Chrome 73+. The latest version of Safari seems to work. It's not my main priority to support Edge or IE11. These two browsers still don't have support for certain APIs that I use. I will eventually get around to patching in Edge/IE11 support but until then you have alternatives.</li>
         <li>All items appear on one page. Currently brainstorming better ways to organize them but in the meantime the search works great. <strong>Tip:</strong> press "/" to focus the searchbar and start typing quickly.</li>
         <li>Upgrade recipes requiring an existing piece of equipment or module (such as vehicle depth modules, or oxygen tanks) will break down the components all the way down to the raw materials instead of showing the item that is upgraded as a component. Not a huge deal. Worst case is that you will have some extra raw mats left. It's on my to-do list but not a major priority.</li>
       </ul>
