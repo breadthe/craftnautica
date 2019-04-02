@@ -2,6 +2,8 @@ import fromEntries from 'object.fromentries';
 
 const id = item => Object.keys(item)[0]; // {'Copper_Ore': 2} -> Copper_Ore
 
+const icon = item => `/img/items/${item}.png`;
+
 const pretty = n => n.split('_')
   .join(' ');
 
@@ -33,5 +35,5 @@ const fullDomainName = (domain) => {
 };
 
 export default {
-  id, pretty, types, filterByType, search, fullDomainName, formatType, recipe,
+  id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe,
 };
