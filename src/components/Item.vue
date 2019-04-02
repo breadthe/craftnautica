@@ -5,7 +5,8 @@
       @mouseenter.native="menu = true"
       @mouseleave.native="menu = false"
     >
-      <div class="item-icon"></div>
+      <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
+
       <span class="ml-2">{{ pretty(id) }}</span>
 
       <div
@@ -50,6 +51,7 @@ export default {
   data: function() {
     return {
       menu: false,
+      icon: util.icon,
       pretty: util.pretty,
       adding: false,
     };

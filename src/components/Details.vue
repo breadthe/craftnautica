@@ -8,7 +8,7 @@
 
     <div class="flex justify-between items-center my-8 text-lg font-light">
       <div class="flex items-center">
-        <div class="item-icon"></div>
+        <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
         <h2 class="ml-4 text-blue">{{ pretty(id) }}</h2>
       </div>
 
@@ -39,7 +39,7 @@
 
         <div v-for="item in recipe(id)" :key="item.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
           <div class="flex items-center">
-            <div class="item-icon"></div>
+            <div class="item-icon" :style="'background-image: url(' + icon(item.c) + ')'"></div>
             <router-link :to="`${item.c}`" class="ml-4">{{ pretty(item.c) }}</router-link>
           </div>
           <div>{{ item.q }}</div>
@@ -52,7 +52,7 @@
 
         <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
           <div class="flex items-center">
-            <div class="item-icon"></div>
+            <div class="item-icon" :style="'background-image: url(' + icon(comp.c) + ')'"></div>
             <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
           </div>
           <div>{{ comp.q }}</div>
@@ -80,6 +80,7 @@ export default {
   },
   data: () => ({
     pretty: util.pretty,
+    icon: util.icon,
     components: null,
     adding: false,
   }),

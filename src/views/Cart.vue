@@ -32,7 +32,7 @@
       </div>
 
       <!-- ============= Empty Cart ============= -->
-      <div v-if="confirmEmptyCart" class="flex items-center justify-end">
+      <div v-if="confirmEmptyCart" class="flex items-center justify-end mt-4">
         <span class="mr-2">Are you sure?</span>
         <button
           @click="confirmEmptyCart = false"
@@ -48,7 +48,7 @@
           &nbsp;Yes, Empty the Cart
         </button>
       </div>
-      <div v-else class="flex justify-end">
+      <div v-else class="flex justify-end mt-4">
         <button
           @click="confirmEmptyCart = true"
           class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
@@ -68,7 +68,7 @@
           class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
         >
           <div class="flex items-center">
-            <div class="item-icon"></div>
+            <div class="item-icon" :style="'background-image: url(' + icon(comp.c) + ')'"></div>
             <router-link :to="`/${domain}/i/${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
           </div>
           <div>{{ comp.q }}</div>
@@ -101,6 +101,7 @@ export default {
   },
   data: () => ({
     pretty: util.pretty,
+    icon: util.icon,
     recipe: util.recipe,
     confirmEmptyCart: false,
     showAllRecipes: false,

@@ -1,10 +1,10 @@
 <template xmlns="http://www.w3.org/1999/html">
 <section
-    class="flex flex-col"
+    class="flex flex-col hover:bg-blue-darker -mx-4 px-4"
 >
-  <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+  <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
       <div class="flex items-center w-1/2">
-        <div class="item-icon"></div>
+        <div class="item-icon" :style="'background-image: url(' + icon(id(item)) + ')'"></div>
 
         <div class="relative flex flex-col ml-4 -my-2">
           <router-link :to="`/${domain}/i/${id(item)}`" class="my-1">{{ pretty(id(item)) }}</router-link>
@@ -41,20 +41,18 @@
     <!-- ============= Recipe ============= -->
     <div
       v-if="showingRecipe"
-      class="flex p-2 -mt-2 -mx-2 mb-6 z-10 bg-blue-darker flex-wrap shadow-sm"
+      class="flex p-1 -mt-2 -mx-2 mb-6 z-10 flex-wrap"
     >
-        <span
+        <div
           v-for="(item, ix) in recipe"
           :key="ix"
-          class="mx-2 flex items-center"
+          class="mx-2 flex items-center rounded-full bg-blue-darker pr-2"
         >
-          <span
-            class="flex items-center justify-center w-6 h-6 rounded-full bg-grey-darkest text-sm mr-1"
-          >
-            {{ item.q }}
-          </span>
+          <div class="item-icon sm mr-2" :style="'background-image: url(' + icon(item.c) + ')'"></div>
           {{ pretty(item.c) }}
-        </span>
+          &nbsp;x&nbsp;
+          {{ item.q }}
+        </div>
     </div>
 </section>
 </template>
@@ -88,6 +86,7 @@ export default {
   data: function () {
     return {
       pretty: util.pretty,
+      icon: util.icon,
       showRecipe: false,
     };
   },
