@@ -46,7 +46,6 @@
       <h3>Known Issues</h3>
       <ul class="text-lg">
         <li>Most <strong>Below Zero</strong> items are missing. Not my main focus at the moment as the expansion is in flux, but I will continue to add them slowly, time permitting.</li>
-        <li>Only fully supported in Firefox 63+ or Chrome 73+. The latest version of Safari seems to work. It's not my main priority to support Edge or IE11. These two browsers still don't have support for certain APIs that I use. I will eventually get around to patching in Edge/IE11 support but until then you have alternatives.</li>
         <li>All items appear on one page. Currently brainstorming better ways to organize them but in the meantime the search works great. <strong>Tip:</strong> press "/" to focus the searchbar and start typing quickly.</li>
         <li>Upgrade recipes requiring an existing piece of equipment or module (such as vehicle depth modules, or oxygen tanks) will break down the components all the way down to the raw materials instead of showing the item that is upgraded as a component. Not a huge deal. Worst case is that you will have some extra raw mats left. It's on my to-do list but not a major priority.</li>
       </ul>
