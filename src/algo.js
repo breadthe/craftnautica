@@ -24,30 +24,38 @@ class Algo {
     return Object.values(obj).map(i => this.recurse(i.c, i.q * qty));
   }
 
+  /**
+   * An item's Base Components
+   */
   listOfMaterials(com, qty = 1) {
-    let arr = _flattenDeep(this.recurse(com, qty));
+    const arr = _flattenDeep(this.recurse(com, qty));
 
     if (arr.length === 1) {
       return arr;
     }
 
-    arr = _groupBy(arr, 'c');
-
-    arr = _toPairs(arr);
-
-    arr = arr.map(ar => ({ c: ar[0], q: ar[1].reduce((sum, { q }) => sum + q, 0) }));
-
-    return arr;
+    return Algo.groupReduce(arr);
   }
 
+  /**
+   * Sum of all the Base Components for all the items in the cart
+   */
   shoppingList(cart) {
-    let arr = _flattenDeep(cart.map((item) => {
+    const arr = _flattenDeep(cart.map((item) => {
       const id = Object.keys(item)[0];
       const qty = Object.values(item)[0];
       return this.listOfMaterials(id, qty);
     }));
 
-    arr = _groupBy(arr, 'c');
+    return Algo.groupReduce(arr);
+  }
+
+  /**
+   * Group an array of objects by the component
+   * and reduce by the qty
+   */
+  static groupReduce(objArr) {
+    let arr = _groupBy(objArr, 'c');
 
     arr = _toPairs(arr);
 
