@@ -46,7 +46,11 @@
       <div class="flex flex-col">
         <h3 class="border-b border-grey-darkest py-2">Recipe</h3>
 
-        <div v-for="item in recipe(id)" :key="item.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+        <div
+            v-for="item in recipe(id)"
+            :key="item.c"
+            class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
+        >
           <div class="flex items-center">
             <div class="item-icon" :style="'background-image: url(' + icon(item.c) + ')'"></div>
             <router-link :to="`${item.c}`" class="ml-4">{{ pretty(item.c) }}</router-link>
@@ -59,7 +63,11 @@
       <div class="flex flex-col mt-8">
         <h3 class="border-b border-grey-darkest py-2">Base Components</h3>
 
-        <div v-for="comp in components" :key="comp.c" class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker">
+        <div
+            v-for="comp in components"
+            :key="comp.c"
+            class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
+        >
           <div class="flex items-center">
             <div class="item-icon" :style="'background-image: url(' + icon(comp.c) + ')'"></div>
             <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
