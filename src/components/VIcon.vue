@@ -24,8 +24,10 @@ import VChevronLeft from '@/components/icons/VChevronLeft.vue';
 import VChevronRight from '@/components/icons/VChevronRight.vue';
 import VChevronUp from '@/components/icons/VChevronUp.vue';
 import VExternalLink from '@/components/icons/VExternalLink.vue';
-import VHome from '@/components/icons/VHome.vue';
+import VFolderPlus from '@/components/icons/VFolderPlus.vue';
 import VGithub from '@/components/icons/VGithub.vue';
+import VHome from '@/components/icons/VHome.vue';
+import VInfo from '@/components/icons/VInfo.vue';
 import VMinusCircle from '@/components/icons/VMinusCircle.vue';
 import VPlusCircle from '@/components/icons/VPlusCircle.vue';
 import VSearch from '@/components/icons/VSearch.vue';
@@ -41,8 +43,10 @@ export default {
     VChevronRight,
     VChevronUp,
     VExternalLink,
-    VHome,
+    VFolderPlus,
     VGithub,
+    VHome,
+    VInfo,
     VMinusCircle,
     VPlusCircle,
     VSearch,
