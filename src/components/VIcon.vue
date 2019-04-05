@@ -29,6 +29,7 @@ import VGithub from '@/components/icons/VGithub.vue';
 import VHome from '@/components/icons/VHome.vue';
 import VInfo from '@/components/icons/VInfo.vue';
 import VMinusCircle from '@/components/icons/VMinusCircle.vue';
+import VPlus from '@/components/icons/VPlus.vue';
 import VPlusCircle from '@/components/icons/VPlusCircle.vue';
 import VSearch from '@/components/icons/VSearch.vue';
 import VShoppingCart from '@/components/icons/VShoppingCart.vue';
@@ -48,6 +49,7 @@ export default {
     VHome,
     VInfo,
     VMinusCircle,
+    VPlus,
     VPlusCircle,
     VSearch,
     VShoppingCart,
