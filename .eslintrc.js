@@ -14,6 +14,7 @@ module.exports = {
     'max-len': ['error', { 'code': 120 }],
     'func-names': ['error', 'as-needed'],
     'object-shorthand': 'off',
+    'no-underscore-dangle': 'off',
     // 'comma-dangle': ['error', 'always']
   },
   parserOptions: {
