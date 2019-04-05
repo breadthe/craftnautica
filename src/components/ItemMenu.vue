@@ -12,6 +12,7 @@
 
     <!-- ============= Details ============= -->
     <router-link
+        v-show="!addingToInventory"
         :to="{name: domain + 'details', params: { id }}"
         class="menu-entry"
     >
@@ -19,33 +20,37 @@
     </router-link>
 
     <!-- ============= Add to Cart ============= -->
-    <div v-show="addingToCart" class="added">
+    <div v-show="addingToCart && !addingToInventory" class="added">
       Added to cart
     </div>
 
-    <div v-show="!addingToCart" @click.stop.prevent="addToCart" class="menu-entry">
+    <div v-show="!addingToCart && !addingToInventory" @click.stop.prevent="addToCart" class="menu-entry">
       <v-icon icon="shopping-cart" color="blue-darkest" class="mr-2"></v-icon>Add to Cart
     </div>
 
     <!-- ============= Add to Inventory ============= -->
-    <div v-show="addingToInventory" class="added">
-      Added to Inventory
-    </div>
-
     <div v-show="!addingToInventory" @click.stop.prevent="addToInventory" class="menu-entry">
       <v-icon icon="folder-plus" color="blue-darkest" class="mr-2"></v-icon>Add to Inventory
     </div>
+
+    <add-to-inventory
+        v-show="addingToInventory"
+        :id="id"
+        :domain="domain"
+    ></add-to-inventory>
 
   </div>
 </template>
 
 <script>
 import util from '@/util';
+import AddToInventory from '@/components/AddToInventory.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'ItemMenu',
   components: {
+    AddToInventory,
     VIcon,
   },
   props: {
@@ -80,7 +85,7 @@ export default {
     addToInventory: function () {
       this.addingToInventory = true;
       // this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
-      setTimeout(() => { this.addingToInventory = false; this.$emit('closeMenu'); }, 750);
+      // setTimeout(() => { this.addingToInventory = false; this.$emit('closeMenu'); }, 750);
     },
   },
 };
@@ -97,7 +102,7 @@ export default {
   @apply rounded;
   @apply bg-blue-dark;
   @apply pin-x;
-  @apply w-48;
+  @apply w-64;
   @apply z-10;
   //-webkit-box-shadow: 0 2px 10px #fff;
   //-moz-box-shadow: 0 2px 10px #fff;
