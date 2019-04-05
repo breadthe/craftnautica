@@ -48,7 +48,7 @@
           :key="ix"
           class="mx-2 flex items-center rounded-full bg-blue-darker pr-2"
         >
-          <div class="item-icon sm mr-2" :style="'background-image: url(' + icon(item.c) + ')'"></div>
+          <div class="item-icon--sm mr-2" :style="'background-image: url(' + icon(item.c) + ')'"></div>
           {{ pretty(item.c) }}
           &nbsp;x&nbsp;
           {{ item.q }}
