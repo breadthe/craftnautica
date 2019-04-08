@@ -1,7 +1,7 @@
 <template>
   <div class="item-menu">
 
-    <!-- ============= Icon ============= -->
+    <!-- ============= Item Header ============= -->
     <div
       class="flex items-center justify-between bg-blue text-blue-darkest font-normal border-b border-blue-darkest p-2"
     >
@@ -16,6 +16,9 @@
         ></div>
         {{ pretty(id) }}
       </router-link>
+
+      <span v-show="addingToInventory">&nbsp;</span>
+
       <v-icon @click.native="$emit('closeMenu')" icon="x" color="blue-darkest"></v-icon>
     </div>
 
@@ -104,9 +107,6 @@ export default {
   @apply pin-x;
   @apply w-64;
   @apply z-10;
-  //-webkit-box-shadow: 0 2px 10px #fff;
-  //-moz-box-shadow: 0 2px 10px #fff;
-  //box-shadow: 0 2px 10px #fff;
   margin-left: -1px;
   margin-right: -1px;
 
@@ -120,20 +120,15 @@ export default {
     @apply cursor-pointer;
     &:hover {
       @apply bg-blue;
-      //@apply text-blue-light;
     }
   }
 
   .added {
-    //@apply flex;
-    //@apply items-center;
-    //@apply text-blue-darkest;
     @apply font-normal;
     @apply p-2;
     @apply py-4;
     @apply text-center;
     @apply text-green-light;
-    //@apply cursor-pointer;
   }
 }
 </style>

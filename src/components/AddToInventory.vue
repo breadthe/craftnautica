@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col">
+  <div class="">
     <!-- ============= Inventories ============= -->
     <div
         v-show="!creatingNewInventory && !addingToInventory"
@@ -27,7 +27,7 @@
     <!-- ============= Adding to Inventory ============= -->
     <div
         v-show="addingToInventory"
-        class="flex flex-wrap items-center bg-blue text-blue-darkest font-normal border-t border-blue-darkest p-2 py-4"
+        class="flex flex-wrap items-center bg-blue text-blue-darkest font-normal p-2 py-4"
     >
 
       <div class="flex items-center justify-between w-full">
@@ -47,6 +47,7 @@
         <button
             type="button"
             @click="addToInventory"
+            :disabled="quantity < 1"
             class="bg-blue-dark hover:bg-blue-darkest text-grey p-2 rounded"
         >Add</button>
 
