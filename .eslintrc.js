@@ -15,6 +15,7 @@ module.exports = {
     'func-names': ['error', 'as-needed'],
     'object-shorthand': 'off',
     'no-underscore-dangle': 'off',
+    'object-curly-newline': 'off',
     // 'comma-dangle': ['error', 'always']
   },
   parserOptions: {
