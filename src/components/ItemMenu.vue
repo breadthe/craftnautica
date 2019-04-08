@@ -2,22 +2,22 @@
   <div class="item-menu">
 
     <!-- ============= Icon ============= -->
-    <div class="flex items-center justify-between bg-blue text-blue-darkest font-normal border-b border-blue-darkest p-2">
-      <div class="flex items-center">
-        <div class="item-icon--sm border border-blue-light mr-2" :style="'background-image: url(' + icon(id) + ')'"></div>
+    <div
+      class="flex items-center justify-between bg-blue text-blue-darkest font-normal border-b border-blue-darkest p-2"
+    >
+      <router-link
+          v-show="!addingToInventory"
+          :to="{name: domain + 'details', params: { id }}"
+          class="flex items-center text-blue-darkest hover:text-grey-light"
+      >
+        <div
+          class="item-icon--sm border border-blue-light mr-2"
+          :style="'background-image: url(' + icon(id) + ')'"
+        ></div>
         {{ pretty(id) }}
-      </div>
+      </router-link>
       <v-icon @click.native="$emit('closeMenu')" icon="x" color="blue-darkest"></v-icon>
     </div>
-
-    <!-- ============= Details ============= -->
-    <router-link
-        v-show="!addingToInventory"
-        :to="{name: domain + 'details', params: { id }}"
-        class="menu-entry"
-    >
-      <v-icon icon="info" color="blue-darkest" class="mr-2"></v-icon>View Details
-    </router-link>
 
     <!-- ============= Add to Cart ============= -->
     <div v-show="addingToCart && !addingToInventory" class="added">
