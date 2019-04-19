@@ -95,7 +95,7 @@ export default new Vuex.Store({
       const ix = _findIndex(domainCart, id);
 
       if (ix > -1) {
-        domainCart[ix][id] ++; // items is in cart, increment qty
+        domainCart[ix][id]++; // items is in cart, increment qty
       }
 
       storedCart[domain] = domainCart;
@@ -116,7 +116,7 @@ export default new Vuex.Store({
 
       if (ix > -1) {
         if (domainCart[ix][id] > 1) {
-          domainCart[ix][id] --; // items is in cart, decrement qty, make sure it doesn't go to 0
+          domainCart[ix][id]--; // items is in cart, decrement qty, make sure it doesn't go to 0
         }
       }
 
@@ -177,5 +177,8 @@ export default new Vuex.Store({
     addToInventory({ commit }, obj) {
       commit('ADD_TO_INVENTORY', obj);
     },
+  },
+  getters: {
+    inventoriesCount: state => domain => Object.keys(state.inventories[domain]).length || 0,
   },
 });

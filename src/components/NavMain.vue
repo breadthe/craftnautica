@@ -33,10 +33,27 @@
 
       <!-- Right side -->
       <div class="flex items-center">
+        <!-- Inventories -->
+        <router-link
+            v-if="showCart"
+            :to="`/${domain}/cart`"
+            class="flex items-center ml-8"
+        >
+          <v-icon icon="box" color="blue-dark" title="Inventories"></v-icon>
+          <span
+              v-if="inventoriesCount"
+              class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
+              :title="`${inventoriesCount} inventories`"
+          >
+            {{ inventoriesCount }}
+          </span>
+        </router-link>
+
+        <!-- Cart -->
         <router-link
           v-if="showCart"
           :to="`/${domain}/cart`"
-          class="flex items-center"
+          class="flex items-center ml-8"
         >
           <v-icon icon="shopping-cart" color="blue-dark" title="Shopping cart"></v-icon>
           <span
@@ -70,6 +87,9 @@ export default {
         return cart.length;
       }
       return 0;
+    },
+    inventoriesCount: function () {
+      return this.$store.getters.inventoriesCount(this.domain);
     },
   },
 };
