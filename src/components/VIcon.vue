@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import VBox from '@/components/icons/VBox.vue';
 import VChevronDown from '@/components/icons/VChevronDown.vue';
 import VChevronLeft from '@/components/icons/VChevronLeft.vue';
 import VChevronRight from '@/components/icons/VChevronRight.vue';
@@ -39,6 +40,7 @@ import VXCircle from '@/components/icons/VXCircle.vue';
 
 export default {
   components: {
+    VBox,
     VChevronDown,
     VChevronLeft,
     VChevronRight,
