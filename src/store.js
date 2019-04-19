@@ -43,9 +43,7 @@ export default new Vuex.Store({
       }
     },
     ADD_TO_CART(state, obj) {
-      const domain = obj.domain;
-      const id = obj.id;
-      const qty = obj.qty;
+      const { domain, id, qty } = { ...obj };
 
       const cart = new Cart();
       const storedCart = cart.get();
@@ -67,8 +65,7 @@ export default new Vuex.Store({
       cart.set(state.cart);
     },
     DELETE_ITEM(state, obj) {
-      const domain = obj.domain;
-      const id = obj.id;
+      const { domain, id } = { ...obj };
 
       const cart = new Cart();
       const storedCart = cart.get();
@@ -88,8 +85,7 @@ export default new Vuex.Store({
       cart.set(state.cart);
     },
     INCREMENT_QTY(state, obj) {
-      const domain = obj.domain;
-      const id = obj.id;
+      const { domain, id } = { ...obj };
 
       const cart = new Cart();
       const storedCart = cart.get();
@@ -109,8 +105,7 @@ export default new Vuex.Store({
       cart.set(state.cart);
     },
     DECREMENT_QTY(state, obj) {
-      const domain = obj.domain;
-      const id = obj.id;
+      const { domain, id } = { ...obj };
 
       const cart = new Cart();
       const storedCart = cart.get();
@@ -132,7 +127,7 @@ export default new Vuex.Store({
       cart.set(state.cart);
     },
     EMPTY_CART(state, obj) {
-      const domain = obj.domain;
+      const { domain } = obj;
 
       const cart = new Cart();
       const storedCart = cart.get();
@@ -147,7 +142,6 @@ export default new Vuex.Store({
       const { domain, inv, id, qty } = { ...obj };
 
       const inventories = new Inventories();
-
       const domainInventories = inventories.get(domain);
 
       if (typeof domainInventories[inv] === 'undefined') {
@@ -155,6 +149,7 @@ export default new Vuex.Store({
       } else {
         domainInventories[inv][id] = parseInt(qty, 10);
       }
+
       state.inventories[domain] = { ...domainInventories };
 
       inventories.set(state.inventories);
