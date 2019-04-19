@@ -33,6 +33,7 @@ export default {
   created() {
     this.$store.commit('INIT_ITEMS');
     this.$store.commit('INIT_CART');
+    this.$store.commit('INIT_INVENTORIES');
   },
 };
 </script>

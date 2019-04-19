@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import Cart from '@/storage';
+import Cart from '@/cart';
+import Inventories from '@/inventories';
 import items_sn from '@/items-sn';
 import items_bz from '@/items-bz';
 import _findIndex from 'lodash.findindex';
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   state: {
     search: '',
     cart: {},
+    inventories: {},
   },
   mutations: {
     SET_SRC_STR(state, srcStr) {
@@ -28,6 +30,16 @@ export default new Vuex.Store({
         state.cart = storedCart;
       } else {
         cart.reset();
+      }
+    },
+    INIT_INVENTORIES(state) {
+      const inventories = new Inventories();
+
+      const storedInventories = inventories.get();
+      if (storedInventories) {
+        state.inventories = storedInventories;
+      } else {
+        inventories.reset();
       }
     },
     ADD_TO_CART(state, obj) {
@@ -131,6 +143,22 @@ export default new Vuex.Store({
 
       cart.set(state.cart);
     },
+    ADD_TO_INVENTORY(state, obj) {
+      const { domain, inv, id, qty } = { ...obj };
+
+      const inventories = new Inventories();
+
+      const domainInventories = inventories.get(domain);
+
+      if (typeof domainInventories[inv] === 'undefined') {
+        domainInventories[inv] = { [id]: parseInt(qty, 10) };
+      } else {
+        domainInventories[inv][id] = parseInt(qty, 10);
+      }
+      state.inventories[domain] = { ...domainInventories };
+
+      inventories.set(state.inventories);
+    },
   },
   actions: {
     setSrcStr({ commit }, srcStr) {
@@ -150,6 +178,9 @@ export default new Vuex.Store({
     },
     emptyCart({ commit }, obj) {
       commit('EMPTY_CART', obj);
+    },
+    addToInventory({ commit }, obj) {
+      commit('ADD_TO_INVENTORY', obj);
     },
   },
 });

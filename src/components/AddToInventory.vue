@@ -127,9 +127,6 @@ export default {
       addingToInventory: false,
     };
   },
-  computed: {
-    // domain: vm => vm.$route.path.replace(/\//, ''),
-  },
   methods: {
     openAddingToInventory: function (selectedInventory) {
       this.addingToInventory = true;
@@ -140,10 +137,12 @@ export default {
       this.selectedInventory = null;
     },
     addToInventory: function () {
-      console.log(this.domain, this.id, this.selectedInventory, this.quantity);
-      // this.addingToInventory = true;
-      // this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
-      // setTimeout(() => { this.addingToInventory = false; this.$emit('closeMenu'); }, 750);
+      this.$store.dispatch('addToInventory', {
+        domain: this.domain,
+        inv: this.selectedInventory,
+        id: this.id,
+        qty: this.quantity,
+      });
     },
   },
 };
