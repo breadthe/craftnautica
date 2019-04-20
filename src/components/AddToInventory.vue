@@ -6,7 +6,7 @@
         class="h-48 overflow-x-hidden overflow-y-scroll"
     >
       <div
-          v-for="inventory in inventories"
+          v-for="inventory in inventoriesList"
           :key="inventory"
           @click="openAddingToInventory(inventory)"
           class="menu-entry"
@@ -134,12 +134,6 @@ export default {
       icon: util.icon,
       pretty: util.pretty,
       validatedQty: util.validatedQty,
-      inventories: [
-        'Lifepod',
-        'Seamoth',
-        'Cyclops',
-        'Prawn',
-      ],
       newInventory: null,
       selectedInventory: null,
       quantity: 0, // TODO: get the actual quantity of the item in that inventory, computed
