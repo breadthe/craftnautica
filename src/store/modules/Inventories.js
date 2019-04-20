@@ -40,6 +40,7 @@ const actions = {
 };
 
 const getters = {
+  inventoriesList: state => domain => Object.keys(state.inventories[domain]) || [],
   inventoriesCount: state => domain => Object.keys(state.inventories[domain]).length || 0,
 };
 
