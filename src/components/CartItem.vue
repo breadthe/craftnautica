@@ -1,4 +1,4 @@
-<template xmlns="http://www.w3.org/1999/html">
+<template>
 <section
     class="flex flex-col hover:bg-blue-darker -mx-4 px-4"
 >
