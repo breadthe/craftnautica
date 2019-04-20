@@ -64,7 +64,7 @@
         v-show="creatingNewInventory"
         class="flex flex-wrap bg-blue text-blue-darkest font-normal border-t border-blue-darkest p-2"
     >
-        <input
+      <input
             type="text"
             name="newInventory"
             v-model="newInventory"
@@ -72,15 +72,29 @@
             class="w-full p-2"
         >
 
-        <div class="flex items-center justify-between w-full mt-2">
+      <div class="flex items-center justify-end w-full mt-4">
+        <small>quantity</small>
+      </div>
+
+      <input
+          type="number"
+          name="quantity"
+          v-model="quantity"
+          placeholder="Quantity"
+          class="w-full p-2 mt-2 text-right"
+      >
+
+      <div class="flex items-center justify-between w-full mt-2">
           <button
               type="button"
+              @click="addToNewInventory"
+              :disabled="quantity < 1"
               class="bg-blue-dark hover:bg-blue-darkest text-grey p-2 rounded"
           >Create</button>
 
           <button
               type="button"
-              @click="creatingNewInventory = false"
+              @click="cancelAddingToNewInventory"
               class="underline text-grey hover:text-blue-darkest p-2 rounded"
           >Cancel</button>
         </div>
@@ -143,6 +157,24 @@ export default {
         id: this.id,
         qty: this.quantity,
       });
+    },
+    addToNewInventory: function () {
+      // TODO: validate new inventory name, ensure it's unique in this domain
+      // if unique...
+      this.selectedInventory = this.newInventory;
+
+      this.$store.dispatch('addToInventory', {
+        domain: this.domain,
+        inv: this.selectedInventory,
+        id: this.id,
+        qty: this.quantity,
+      });
+
+      // TODO: otherwise show an error message requesting uniqueness
+    },
+    cancelAddingToNewInventory: function () {
+      this.creatingNewInventory = false;
+      this.newInventory = null;
     },
   },
 };
