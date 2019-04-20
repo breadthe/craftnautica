@@ -40,6 +40,12 @@ const actions = {
 };
 
 const getters = {
+
+  domainInventories: state => domain => state.inventories[domain],
+
+  /**
+   * List of inventories per domain
+   */
   inventoriesList: state => (domain) => {
     const defaultInventories = ['Lifepod', 'Seamoth', 'Cyclops', 'Prawn']; // Merge default inventories...
     const allInventories = Object.keys(state.inventories[domain]).sort() || []; // ... with user-created ones
@@ -48,6 +54,9 @@ const getters = {
     return Array.from(new Set([...defaultInventories, ...allInventories]));
   },
 
+  /**
+   * Total inventories per domain
+   */
   inventoriesCount: state => domain => Object.keys(state.inventories[domain]).length || 0,
 
   /**
