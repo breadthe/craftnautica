@@ -29,7 +29,7 @@ export default {
   computed: {
     domain: vm => vm.$route.path.replace(/\//, ''),
     fullDomainName: vm => util.fullDomainName(vm.domain),
-    items: vm => vm.$store.state['items_' + vm.domain],
+    items: vm => vm.$store.state.App[`items_${vm.domain}`],
     types: vm => util.types(vm.items),
   },
   methods: {

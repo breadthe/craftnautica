@@ -32,7 +32,7 @@ export default {
   }),
   computed: {
     filteredItems: function () {
-      const srcStr = this.$store.state.search;
+      const srcStr = this.$store.state.App.search;
       if (srcStr.length) {
         return util.search(this.types, srcStr);
       }

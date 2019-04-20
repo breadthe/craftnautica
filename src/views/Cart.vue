@@ -107,8 +107,8 @@ export default {
   computed: {
     domain: vm => vm.$route.name.replace(/cart/, ''), // strip out "cart" from "sncart"
     fullDomainName: vm => util.fullDomainName(vm.domain),
-    cart: vm => vm.$store.state.cart[vm.domain] || [],
-    items: vm => vm.$store.state['items_' + vm.domain],
+    cart: vm => vm.$store.state.Cart.cart[vm.domain] || [],
+    items: vm => vm.$store.state.App['items_' + vm.domain],
     shoppingList: vm => (new Algo(vm.items)).shoppingList(vm.cart),
   },
   methods: {

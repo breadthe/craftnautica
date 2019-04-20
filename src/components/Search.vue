@@ -40,7 +40,7 @@ export default {
     fullDomainName: vm => util.fullDomainName(vm.domain),
     search: {
       set(srcStr) { this.$store.dispatch('setSrcStr', srcStr); },
-      get() { return this.$store.state.search; },
+      get() { return this.$store.state.App.search; },
     },
     placeholder: vm => `Search ${vm.fullDomainName}... (Hit "/" to focus)`,
   },

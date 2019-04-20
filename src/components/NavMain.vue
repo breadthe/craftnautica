@@ -82,7 +82,7 @@ export default {
     domain: vm => vm.$route.path.split(/\//)[1],
     showCart: vm => ['sn', 'bz'].indexOf(vm.domain) > -1,
     cartCount: function () {
-      const cart = this.$store.state.cart[this.domain];
+      const cart = this.$store.state.Cart.cart[this.domain];
       if (cart) {
         return cart.length;
       }

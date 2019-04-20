@@ -104,7 +104,7 @@ export default {
   computed: {
     domain: vm => vm.$route.name.replace(/details/, ''), // strip out "details" from "sndetails"
     fullDomainName: vm => util.fullDomainName(vm.domain),
-    items: vm => vm.$store.state['items_' + vm.domain],
+    items: vm => vm.$store.state.App['items_' + vm.domain],
     type: vm => vm.items[vm.id].t,
     rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
   },
@@ -130,8 +130,8 @@ export default {
   beforeRouteEnter(to, from, next) {
     let items = null;
     switch (to.name) {
-      case 'sndetails': items = store.state.items_sn; break;
-      case 'bzdetails': items = store.state.items_bz; break;
+      case 'sndetails': items = store.state.App.items_sn; break;
+      case 'bzdetails': items = store.state.App.items_bz; break;
       default:
         next(vm => vm.$router.push({ path: '/404' }));
         break;
