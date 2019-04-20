@@ -40,6 +40,7 @@
         v-show="addingToInventory"
         :id="id"
         :domain="domain"
+        @closeMenu="$emit('closeMenu')"
     ></add-to-inventory>
 
   </div>
@@ -87,8 +88,6 @@ export default {
     },
     addToInventory: function () {
       this.addingToInventory = true;
-      // this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
-      // setTimeout(() => { this.addingToInventory = false; this.$emit('closeMenu'); }, 750);
     },
   },
 };
