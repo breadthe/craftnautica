@@ -1,5 +1,7 @@
 import fromEntries from 'object.fromentries';
 
+// TODO: test coverage
+
 const id = item => Object.keys(item)[0]; // {'Copper_Ore': 2} -> Copper_Ore
 
 const icon = item => `/img/items/${item}.png`;
@@ -34,6 +36,23 @@ const fullDomainName = (domain) => {
   }
 };
 
+/**
+ * Ensure quantity is between (0, 9999)
+ */
+const validatedQty = (quantity) => {
+  const qty = parseInt(quantity, 10);
+
+  if (qty < 0) {
+    return 0;
+  }
+
+  if (qty > 9999) {
+    return 9999;
+  }
+
+  return qty;
+};
+
 export default {
-  id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe,
+  id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe, validatedQty,
 };
