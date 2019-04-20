@@ -10,6 +10,7 @@
           <router-link :to="`/${domain}/i/${id(item)}`" class="my-1">{{ pretty(id(item)) }}</router-link>
 
           <a
+              v-if="recipe.length"
               href="#"
               @click.stop.prevent="showingRecipe = !showingRecipe"
               class="flex items-center my-1 text-sm text-grey"
