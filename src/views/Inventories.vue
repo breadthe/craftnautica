@@ -8,21 +8,28 @@
       <span v-if="inventoriesCount">{{ inventoriesCount }} inventories</span>
     </div>
 
-    <div class="max-w-lg mx-auto text-xl">This is an overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in, say, your Cyclops.</div>
-
     <!-- ============= Inventories ============= -->
     <div
         v-if="Object.keys(inventories).length"
-        v-for="(items, inventoryName) in inventories"
-        :key="inventoryName"
-        class="mx-4 my-8"
     >
-      <h2 class="text-center">{{ inventoryName }}</h2>
 
-      <div v-for="(itemQty, itemName) in items" :key="itemName">
-        <inventory-item
-            :item="{[itemName]: itemQty}"
-        ></inventory-item>
+      <div class="max-w-lg mx-auto text-xl">
+        This is an overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in, say, your Cyclops.
+      </div>
+
+      <div
+          v-for="(items, inventoryName) in inventories"
+          :key="inventoryName"
+          class="mx-4 my-8"
+      >
+        <h2 class="text-center">{{ inventoryName }}</h2>
+
+        <div v-for="(itemQty, itemName) in items" :key="itemName">
+          <inventory-item
+              :inventory="inventoryName"
+              :item="{[itemName]: itemQty}"
+          ></inventory-item>
+        </div>
       </div>
     </div>
 
@@ -34,9 +41,7 @@
 </template>
 
 <script>
-// import 'array-flat-polyfill';
 import util from '@/util';
-// import Algo from '@/algo';
 import InventoryItem from '@/components/InventoryItem.vue';
 import VIcon from '@/components/VIcon.vue';
 
@@ -47,10 +52,6 @@ export default {
   },
   data: () => ({
     pretty: util.pretty,
-    // icon: util.icon,
-    // recipe: util.recipe,
-    // confirmEmptyCart: false,
-    // showAllRecipes: false,
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/inventories/, ''), // strip out "inventories" from "sninventories"
@@ -59,18 +60,8 @@ export default {
     },
     inventoriesCount: vm => Object.keys(vm.inventories).length,
     fullDomainName: vm => util.fullDomainName(vm.domain),
-    // cart: vm => vm.$store.state.Cart.cart[vm.domain] || [],
-    // items: vm => vm.$store.state.App['items_' + vm.domain],
-    // shoppingList: vm => (new Algo(vm.items)).shoppingList(vm.cart),
   },
   methods: {
-    // id: item => util.id(item),
-    /*components: function (id) {
-      return (new Algo(this.items)).listOfMaterials(id);
-    },*/
-    /*emptyCart: function () {
-      this.$store.dispatch('emptyCart', { domain: this.domain });
-    },*/
   },
 };
 </script>

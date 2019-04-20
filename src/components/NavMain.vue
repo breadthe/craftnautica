@@ -83,10 +83,7 @@ export default {
     showCart: vm => ['sn', 'bz'].indexOf(vm.domain) > -1,
     cartCount: function () {
       const cart = this.$store.state.Cart.cart[this.domain];
-      if (cart) {
-        return cart.length;
-      }
-      return 0;
+      return cart ? cart.length : 0;
     },
     inventoriesCount: function () {
       return this.$store.getters.inventoriesCount(this.domain);

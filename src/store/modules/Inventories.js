@@ -31,38 +31,115 @@ const mutations = {
 
     inventories.set(state.inventories);
   },
+
+  /**
+   * Performs delete, increment, decrement on an inventory item
+   */
+  ITEM_ACTION(state, obj) {
+    const { action, domain, inventory, id, quantity } = { ...obj };
+
+    const inventories = new Inventories();
+    const domainInventories = inventories.get(domain);
+    const inv = domainInventories[inventory]; // get the specified inventory
+    let qty = parseInt(inv[id], 10);
+
+    switch (action) {
+      case 'delete':
+        delete inv[id];
+        break;
+      case 'increment':
+        qty += parseInt(quantity, 10);
+
+        if (qty > 9999) {
+          qty = 9999;
+        }
+
+        inv[id] = qty;
+        break;
+      case 'decrement':
+        qty -= parseInt(quantity, 10);
+
+        if (qty < 1) {
+          qty = 1;
+        }
+
+        inv[id] = qty;
+        break;
+      default:
+        break;
+    }
+
+    domainInventories[inventory] = inv; // replace the domain inventory with the modified inventory
+
+    state.inventories[domain] = { ...domainInventories };
+
+    inventories.set(state.inventories);
+  },
+  EMPTY_INVENTORY(state, obj) {
+    /*const { domain, id } = { ...obj };
+
+    const cart = new Cart();
+    const storedCart = cart.get();
+
+    const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
+
+    const ix = _findIndex(domainCart, id);
+
+    if (ix > -1) {
+      domainCart.splice(ix, 1);
+    }
+
+    storedCart[domain] = domainCart;
+
+    state.cart = storedCart;
+
+    cart.set(state.cart);*/
+  },
 };
 
 const actions = {
   addToInventory({ commit }, obj) {
     commit('ADD_TO_INVENTORY', obj);
   },
+  itemAction({ commit }, obj) {
+    commit('ITEM_ACTION', obj);
+  },
+  emptyInventory({ commit }, obj) {
+    commit('EMPTY_INVENTORY', obj);
+  },
 };
 
 const getters = {
 
-  domainInventories: state => domain => state.inventories[domain],
+  domainInventories: state => domain => state.inventories[domain] || {},
 
   /**
    * List of inventories per domain
    */
   inventoriesList: state => (domain) => {
     const defaultInventories = ['Lifepod', 'Seamoth', 'Cyclops', 'Prawn']; // Merge default inventories...
-    const allInventories = Object.keys(state.inventories[domain]).sort() || []; // ... with user-created ones
+    const allInventories = Object.keys(state.inventories[domain]);
+    const domainInventories = allInventories.length ? allInventories.sort() : []; // ... with user-created ones
 
     // Ensure default inventories are always at the top of the list
-    return Array.from(new Set([...defaultInventories, ...allInventories]));
+    return Array.from(new Set([...defaultInventories, ...domainInventories]));
   },
 
   /**
    * Total inventories per domain
    */
-  inventoriesCount: state => domain => Object.keys(state.inventories[domain]).length || 0,
+  inventoriesCount: state => domain => (typeof state.inventories[domain] !== 'undefined' ? Object.keys(state.inventories[domain]).length : 0),
 
   /**
    * Counts how much qty of an item is in a specific inventory
    */
-  itemCountInInventory: state => (domain, inventory, id) => state.inventories[domain][inventory][id] || 0,
+  itemCountInInventory: state => (domain, inventory, id) => {
+    const domainInventories = state.inventories[domain];
+    if (typeof domainInventories[inventory] === 'undefined') {
+      return 0;
+    }
+    return parseInt(domainInventories[inventory][id], 10);
+  },
 };
 
 export default {
