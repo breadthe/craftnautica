@@ -58,6 +58,16 @@ export default new Router({
       component: () => import(/* webpackChunkName: "cart" */ './views/Cart.vue'),
     },
     {
+      path: '/sn/inventories',
+      name: 'sninventories',
+      component: () => import(/* webpackChunkName: "inventories" */ './views/Inventories.vue'),
+    },
+    {
+      path: '/bz/inventories',
+      name: 'bzinventories',
+      component: () => import(/* webpackChunkName: "inventories" */ './views/Inventories.vue'),
+    },
+    {
       path: '/sn/i/:id', // Subnautica Classic
       name: 'sndetails',
       parent: '/sn',
