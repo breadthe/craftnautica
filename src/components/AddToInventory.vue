@@ -12,6 +12,7 @@
           class="menu-entry"
       >
         {{ inventory }}
+        &nbsp;<small v-html="itemCountInInventory(inventory)" class="text-blue-light font-bold"></small>
       </div>
     </div>
 
@@ -193,6 +194,11 @@ export default {
     cancelAddingToNewInventory: function () {
       this.creatingNewInventory = false;
       this.newInventory = null;
+    },
+    itemCountInInventory: function (inventory) {
+      const count = this.$store.getters.itemCountInInventory(this.domain, inventory, this.id);
+
+      return count ? `(${count})` : '';
     },
   },
 };
