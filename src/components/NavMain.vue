@@ -36,7 +36,7 @@
         <!-- Inventories -->
         <router-link
             v-if="showCart"
-            :to="`/${domain}/cart`"
+            :to="`/${domain}/inventories`"
             class="flex items-center ml-8"
         >
           <v-icon icon="box" color="blue-dark" title="Inventories"></v-icon>
