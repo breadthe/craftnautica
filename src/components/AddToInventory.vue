@@ -15,9 +15,14 @@
       </div>
     </div>
 
+    <!-- ============= Added to Inventory ============= -->
+    <div v-show="addedToInventory" class="added">
+      Added to inventory
+    </div>
+
     <!-- ============= + New Inventory ============= -->
     <div
-        v-show="!creatingNewInventory && !addingToInventory"
+        v-show="!creatingNewInventory && !addingToInventory && !addedToInventory"
         @click="creatingNewInventory = true"
         class="flex items-center bg-blue text-blue-darkest font-normal border-t border-blue-darkest p-2 py-4"
     >
@@ -26,20 +31,20 @@
 
     <!-- ============= Adding to Inventory ============= -->
     <div
-        v-show="addingToInventory"
+        v-show="addingToInventory && !addedToInventory"
         class="flex flex-wrap items-center bg-blue text-blue-darkest font-normal p-2 py-4"
     >
 
       <div class="flex items-center justify-between w-full">
         <span class="text-xl">{{ selectedInventory }}</span>
-        <small>quantity</small>
+        <small>Quantity (0-9999)</small>
       </div>
 
       <input
           type="number"
           name="quantity"
           v-model="quantity"
-          placeholder="Quantity"
+          placeholder="Quantity (1-9999)"
           class="w-full p-2 mt-2 text-right"
       >
 
@@ -47,7 +52,7 @@
         <button
             type="button"
             @click="addToInventory"
-            :disabled="quantity < 1"
+            :disabled="parseInt(quantity, 10) < 1"
             class="bg-blue-dark hover:bg-blue-darkest text-grey p-2 rounded"
         >Add</button>
 
@@ -61,7 +66,7 @@
 
     <!-- ============= Create New Inventory ============= -->
     <div
-        v-show="creatingNewInventory"
+        v-show="creatingNewInventory && !addedToInventory"
         class="flex flex-wrap bg-blue text-blue-darkest font-normal border-t border-blue-darkest p-2"
     >
       <input
@@ -73,14 +78,14 @@
         >
 
       <div class="flex items-center justify-end w-full mt-4">
-        <small>quantity</small>
+        <small>Quantity (0-9999)</small>
       </div>
 
       <input
           type="number"
           name="quantity"
           v-model="quantity"
-          placeholder="Quantity"
+          placeholder="Quantity (1-9999)"
           class="w-full p-2 mt-2 text-right"
       >
 
@@ -90,7 +95,7 @@
               @click="addToNewInventory"
               :disabled="quantity < 1"
               class="bg-blue-dark hover:bg-blue-darkest text-grey p-2 rounded"
-          >Create</button>
+          >Create & Add</button>
 
           <button
               type="button"
@@ -128,6 +133,7 @@ export default {
     return {
       icon: util.icon,
       pretty: util.pretty,
+      validatedQty: util.validatedQty,
       inventories: [
         'Lifepod',
         'Seamoth',
@@ -139,7 +145,13 @@ export default {
       quantity: 0, // TODO: get the actual quantity of the item in that inventory, computed
       creatingNewInventory: false,
       addingToInventory: false,
+      addedToInventory: false,
     };
+  },
+  computed: {
+    inventoriesList: function () {
+      return this.$store.getters.inventoriesList(this.domain);
+    },
   },
   methods: {
     openAddingToInventory: function (selectedInventory) {
@@ -155,20 +167,25 @@ export default {
         domain: this.domain,
         inv: this.selectedInventory,
         id: this.id,
-        qty: this.quantity,
+        qty: this.validatedQty(this.quantity),
       });
+
+      this.addedToInventory = true;
+
+      setTimeout(() => { this.addedToInventory = false; this.$emit('closeMenu'); }, 750);
     },
     addToNewInventory: function () {
-      // TODO: validate new inventory name, ensure it's unique in this domain
-      // if unique...
-      this.selectedInventory = this.newInventory;
+      // Check if the inventory name already exists
+      const ix = this.inventoriesList.map(i => i.toUpperCase()).indexOf(this.newInventory.trim().toUpperCase());
 
-      this.$store.dispatch('addToInventory', {
-        domain: this.domain,
-        inv: this.selectedInventory,
-        id: this.id,
-        qty: this.quantity,
-      });
+      // If inventory name exists (case insensitive)...
+      if (ix > -1) {
+        this.selectedInventory = this.inventoriesList[ix]; // use the existing inventory name, preserving case
+      } else {
+        this.selectedInventory = this.newInventory; // otherwise use the new name
+      }
+
+      this.addToInventory();
 
       // TODO: otherwise show an error message requesting uniqueness
     },
@@ -194,5 +211,13 @@ export default {
       @apply bg-blue;
       //@apply text-blue-light;
     }
+  }
+
+  .added {
+    @apply font-normal;
+    @apply p-2;
+    @apply py-4;
+    @apply text-center;
+    @apply text-green-light;
   }
 </style>
