@@ -45,6 +45,7 @@
           type="number"
           name="quantity"
           v-model="quantity"
+          @keyup.enter="addToInventory"
           placeholder="Quantity (1-9999)"
           class="w-full p-2 text-right"
       >
@@ -74,6 +75,7 @@
             type="text"
             name="newInventory"
             v-model="newInventory"
+            @keyup.enter="addToNewInventory"
             placeholder="New Inventory"
             class="w-full p-2 mb-4"
         >
@@ -84,6 +86,7 @@
           type="number"
           name="quantity"
           v-model="quantity"
+          @keyup.enter="addToNewInventory"
           placeholder="Quantity (1-9999)"
           class="w-full p-2 text-right"
       >
@@ -156,16 +159,21 @@ export default {
       this.selectedInventory = null;
     },
     addToInventory: function () {
-      this.$store.dispatch('addToInventory', {
-        domain: this.domain,
-        inv: this.selectedInventory,
-        id: this.id,
-        qty: this.validatedQty(this.quantity),
-      });
+      const qty = this.validatedQty(this.quantity);
 
-      this.addedToInventory = true;
+      // Checking for quantity allows using Enter to add/create instead of clicking the button
+      if (qty) {
+        this.$store.dispatch('addToInventory', {
+          domain: this.domain,
+          inv: this.selectedInventory,
+          id: this.id,
+          qty,
+        });
 
-      setTimeout(() => { this.addedToInventory = false; this.$emit('closeMenu'); }, 750);
+        this.addedToInventory = true;
+
+        setTimeout(() => { this.addedToInventory = false; this.$emit('closeMenu'); }, 750);
+      }
     },
     addToNewInventory: function () {
       // Check if the inventory name already exists
