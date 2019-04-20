@@ -6,7 +6,6 @@
       class="flex items-center justify-between bg-blue text-blue-darkest font-normal border-b border-blue-darkest p-2"
     >
       <router-link
-          v-show="!addingToInventory"
           :to="{name: domain + 'details', params: { id }}"
           class="flex items-center text-blue-darkest hover:text-grey-light"
       >

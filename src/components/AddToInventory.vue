@@ -32,20 +32,21 @@
     <!-- ============= Adding to Inventory ============= -->
     <div
         v-show="addingToInventory && !addedToInventory"
-        class="flex flex-wrap items-center bg-blue text-blue-darkest font-normal p-2 py-4"
+        class="flex flex-wrap items-center bg-blue text-blue-darkest font-normal p-2"
     >
 
-      <div class="flex items-center justify-between w-full">
-        <span class="text-xl">{{ selectedInventory }}</span>
-        <small>Quantity (0-9999)</small>
+      <div class="mb-4">
+        Adding to <span class="text-xl font-bold">{{ selectedInventory }}</span>
       </div>
+
+      <small>Quantity (0-9999)</small>
 
       <input
           type="number"
           name="quantity"
           v-model="quantity"
           placeholder="Quantity (1-9999)"
-          class="w-full p-2 mt-2 text-right"
+          class="w-full p-2 text-right"
       >
 
       <div class="flex items-center justify-between w-full mt-2">
@@ -67,26 +68,24 @@
     <!-- ============= Create New Inventory ============= -->
     <div
         v-show="creatingNewInventory && !addedToInventory"
-        class="flex flex-wrap bg-blue text-blue-darkest font-normal border-t border-blue-darkest p-2"
+        class="flex flex-wrap bg-blue text-blue-darkest font-normal border-blue-darkest p-2"
     >
       <input
             type="text"
             name="newInventory"
             v-model="newInventory"
             placeholder="New Inventory"
-            class="w-full p-2"
+            class="w-full p-2 mb-4"
         >
 
-      <div class="flex items-center justify-end w-full mt-4">
-        <small>Quantity (0-9999)</small>
-      </div>
+      <small>Quantity (0-9999)</small>
 
       <input
           type="number"
           name="quantity"
           v-model="quantity"
           placeholder="Quantity (1-9999)"
-          class="w-full p-2 mt-2 text-right"
+          class="w-full p-2 text-right"
       >
 
       <div class="flex items-center justify-between w-full mt-2">
@@ -131,8 +130,8 @@ export default {
   },
   data: function () {
     return {
-      icon: util.icon,
-      pretty: util.pretty,
+      // icon: util.icon,
+      // pretty: util.pretty,
       validatedQty: util.validatedQty,
       newInventory: null,
       selectedInventory: null,
