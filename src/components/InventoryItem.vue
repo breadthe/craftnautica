@@ -25,6 +25,7 @@
         <input
             type="number"
             name="quantity"
+            ref="quantity"
             min="1"
             max="9999"
             class="w-24 p-2 text-right"
@@ -101,6 +102,7 @@ export default {
       this.$store.dispatch('itemAction', { action: 'decrement', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
     },
     updateQty: function (id) {
+      this.$refs.quantity.blur(); // lose the focus
       this.$store.dispatch('itemAction', { action: 'update', domain: this.domain, inventory: this.inventory, id, quantity: this.quantity });
     },
   },
