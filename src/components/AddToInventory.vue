@@ -45,6 +45,8 @@
       <input
           type="number"
           name="quantity"
+          min="1"
+          max="9999"
           v-model="quantity"
           @keyup.enter="addToInventory"
           placeholder="Quantity (1-9999)"
@@ -86,6 +88,8 @@
       <input
           type="number"
           name="quantity"
+          min="1"
+          max="9999"
           v-model="quantity"
           @keyup.enter="addToNewInventory"
           placeholder="Quantity (1-9999)"
