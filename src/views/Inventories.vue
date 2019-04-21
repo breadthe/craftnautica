@@ -14,23 +14,15 @@
     >
 
       <div class="max-w-lg mx-auto text-xl">
-        This is an overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in, say, your Cyclops.
+        This is an overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in each location.
       </div>
 
-      <div
+      <inventory
           v-for="(items, inventoryName) in inventories"
           :key="inventoryName"
-          class="mx-4 my-8"
-      >
-        <h2 class="text-center">{{ inventoryName }}</h2>
-
-        <div v-for="(itemQty, itemName) in items" :key="itemName">
-          <inventory-item
-              :inventory="inventoryName"
-              :item="{[itemName]: itemQty}"
-          ></inventory-item>
-        </div>
-      </div>
+          :inventory="inventoryName"
+          :items="items"
+      ></inventory>
     </div>
 
     <div class="flex flex-col" v-else>
@@ -42,12 +34,12 @@
 
 <script>
 import util from '@/util';
-import InventoryItem from '@/components/InventoryItem.vue';
+import Inventory from '@/components/Inventory.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   components: {
-    InventoryItem,
+    Inventory,
     VIcon,
   },
   data: () => ({
