@@ -40,7 +40,7 @@ const mutations = {
 
     const inventories = new Inventories();
     const domainInventories = inventories.get(domain);
-    const inv = domainInventories[inventory]; // get the specified inventory
+    let inv = domainInventories[inventory]; // get the specified inventory
     let qty = parseInt(quantity, 10);
     let invQty = parseInt(inv[id], 10);
 
@@ -48,6 +48,7 @@ const mutations = {
       case 'delete':
         delete inv[id];
         break;
+
       case 'increment':
         invQty += qty;
 
@@ -57,6 +58,7 @@ const mutations = {
 
         inv[id] = invQty;
         break;
+
       case 'decrement':
         invQty -= qty;
 
@@ -66,6 +68,7 @@ const mutations = {
 
         inv[id] = invQty;
         break;
+
       case 'update':
         if (qty < 1) {
           qty = 1;
@@ -77,6 +80,11 @@ const mutations = {
 
         inv[id] = qty;
         break;
+
+      case 'empty':
+        inv = {};
+        break;
+
       default:
         break;
     }
@@ -92,26 +100,6 @@ const mutations = {
 
     inventories.set(state.inventories);
   },
-  EMPTY_INVENTORY(state, obj) {
-    /*const { domain, id } = { ...obj };
-
-    const cart = new Cart();
-    const storedCart = cart.get();
-
-    const domainCart = storedCart[domain] || []; // cart.sn | cart.bz
-
-    const ix = _findIndex(domainCart, id);
-
-    if (ix > -1) {
-      domainCart.splice(ix, 1);
-    }
-
-    storedCart[domain] = domainCart;
-
-    state.cart = storedCart;
-
-    cart.set(state.cart);*/
-  },
 };
 
 const actions = {
@@ -120,9 +108,6 @@ const actions = {
   },
   inventoryAction({ commit }, obj) {
     commit('INVENTORY_ACTION', obj);
-  },
-  emptyInventory({ commit }, obj) {
-    commit('EMPTY_INVENTORY', obj);
   },
 };
 
