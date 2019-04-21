@@ -34,6 +34,7 @@ const mutations = {
 
   /**
    * Performs delete, increment, decrement on an inventory item
+   * Also empties an inventory (TODO: this should probably belong to a different namespace)
    */
   INVENTORY_ACTION(state, obj) {
     const { action, domain, inventory, id, quantity } = { ...obj };
@@ -100,6 +101,22 @@ const mutations = {
 
     inventories.set(state.inventories);
   },
+
+  /**
+   * Deletes an empty custom (user-created) inventory
+   */
+  DELETE_INVENTORY(state, obj) {
+    const { domain, inventory } = { ...obj };
+
+    const inventories = new Inventories();
+    const domainInventories = inventories.get(domain);
+
+    delete domainInventories[inventory];
+
+    state.inventories[domain] = { ...domainInventories };
+
+    inventories.set(state.inventories);
+  },
 };
 
 const actions = {
@@ -108,6 +125,9 @@ const actions = {
   },
   inventoryAction({ commit }, obj) {
     commit('INVENTORY_ACTION', obj);
+  },
+  deleteInventory({ commit }, obj) {
+    commit('DELETE_INVENTORY', obj);
   },
 };
 

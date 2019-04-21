@@ -19,7 +19,28 @@
     </div>
 
     <div v-else class="mt-4">
-      This custom inventory is empty and can be deleted. <a href="#" @click.prevent="confirmDeleteInventory = true">Delete inventory?</a>
+      <p v-if="confirmDeleteInventory" class="flex items-center">
+        Are you sure?
+
+        <button
+            @click="confirmDeleteInventory = false"
+            class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mx-4"
+        >
+          Cancel
+        </button>
+
+        <button
+            @click="deleteInventory"
+            class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue mx-4"
+        >
+          <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
+          Yes, Delete {{ inventory }}
+        </button>
+
+      </p>
+      <p v-else>
+        This custom inventory is empty and can be deleted. <a href="#" @click.prevent="confirmDeleteInventory = true">Delete inventory?</a>
+      </p>
     </div>
 
   </section>
@@ -28,11 +49,13 @@
 <script>
 import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
 import InventoryItem from '@/components/InventoryItem.vue';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   components: {
     EmptyCartOrInventory,
     InventoryItem,
+    VIcon,
   },
   props: {
     inventory: {
@@ -52,6 +75,11 @@ export default {
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/inventories/, ''), // strip out "inventories" from "sncart"
+  },
+  methods: {
+    deleteInventory: function () {
+      this.$store.dispatch('deleteInventory', { domain: this.domain, inventory: this.inventory });
+    },
   },
 };
 </script>
