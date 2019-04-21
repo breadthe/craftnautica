@@ -41,26 +41,38 @@ const mutations = {
     const inventories = new Inventories();
     const domainInventories = inventories.get(domain);
     const inv = domainInventories[inventory]; // get the specified inventory
-    let qty = parseInt(inv[id], 10);
+    let qty = parseInt(quantity, 10);
+    let invQty = parseInt(inv[id], 10);
 
     switch (action) {
       case 'delete':
         delete inv[id];
         break;
       case 'increment':
-        qty += parseInt(quantity, 10);
+        invQty += qty;
+
+        if (invQty > 9999) {
+          invQty = 9999;
+        }
+
+        inv[id] = invQty;
+        break;
+      case 'decrement':
+        invQty -= qty;
+
+        if (invQty < 1) {
+          invQty = 1;
+        }
+
+        inv[id] = invQty;
+        break;
+      case 'update':
+        if (qty < 1) {
+          qty = 1;
+        }
 
         if (qty > 9999) {
           qty = 9999;
-        }
-
-        inv[id] = qty;
-        break;
-      case 'decrement':
-        qty -= parseInt(quantity, 10);
-
-        if (qty < 1) {
-          qty = 1;
         }
 
         inv[id] = qty;

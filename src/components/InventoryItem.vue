@@ -25,9 +25,12 @@
         <input
             type="number"
             name="quantity"
-            @keyup.enter="addToInventory"
+            min="1"
+            max="9999"
             class="w-24 p-2 text-right"
-            :value="qty(item)"
+            v-model="q"
+            @blur="updateQty(id(item))"
+            @keyup.enter.prevent="updateQty(id(item))"
         >
 
         <div v-if="qty(item) < 9999" class="w-12 flex justify-center">
@@ -74,10 +77,15 @@ export default {
     return {
       pretty: util.pretty,
       icon: util.icon,
+      quantity: null,
     };
   },
   computed: {
     domain: vm => vm.$route.name.replace(/inventories/, ''), // strip out "inventories" from "sncart"
+    q: {
+      get: function () { return this.qty(this.item); },
+      set: function (data) { this.quantity = parseInt(data, 10); },
+    },
   },
   methods: {
     id: item => util.id(item),
@@ -91,6 +99,9 @@ export default {
     },
     decrementQty: function (id) {
       this.$store.dispatch('itemAction', { action: 'decrement', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
+    },
+    updateQty: function (id) {
+      this.$store.dispatch('itemAction', { action: 'update', domain: this.domain, inventory: this.inventory, id, quantity: this.quantity });
     },
   },
 };
