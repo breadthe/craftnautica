@@ -14,7 +14,7 @@
     >
 
       <div class="max-w-lg mx-auto text-xl">
-        This is an overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in each location.
+        An overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in each location.
       </div>
 
       <inventory

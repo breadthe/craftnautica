@@ -11,31 +11,11 @@
       ></inventory-item>
 
       <!-- ============= Empty Inventory ============= -->
-      <div v-if="confirmEmptyInventory" class="flex items-center justify-end mt-4">
-        <span class="mr-2">Are you sure?</span>
-        <button
-            @click="confirmEmptyInventory = false"
-            class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mr-2"
-        >
-          Cancel
-        </button>
-        <button
-            @click="emptyInventory"
-            class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-        >
-          <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-          &nbsp;Yes, Empty the Inventory
-        </button>
-      </div>
-      <div v-else class="flex justify-end mt-4">
-        <button
-            @click="confirmEmptyInventory = true"
-            class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-        >
-          <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-          &nbsp;Empty Inventory
-        </button>
-      </div>
+      <empty-cart-or-inventory
+          what="Inventory"
+          :domain="domain"
+          :inventory="inventory"
+      ></empty-cart-or-inventory>
     </div>
 
     <div v-else class="mt-4">
@@ -46,13 +26,13 @@
 </template>
 
 <script>
+import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
 import InventoryItem from '@/components/InventoryItem.vue';
-import VIcon from '@/components/VIcon.vue';
 
 export default {
   components: {
+    EmptyCartOrInventory,
     InventoryItem,
-    VIcon,
   },
   props: {
     inventory: {
@@ -72,11 +52,6 @@ export default {
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/inventories/, ''), // strip out "inventories" from "sncart"
-  },
-  methods: {
-    emptyInventory: function () {
-      this.$store.dispatch('inventoryAction', { action: 'empty', domain: this.domain, inventory: this.inventory, id: null, quantity: null });
-    },
   },
 };
 </script>

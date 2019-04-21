@@ -32,31 +32,10 @@
       </div>
 
       <!-- ============= Empty Cart ============= -->
-      <div v-if="confirmEmptyCart" class="flex items-center justify-end mt-4">
-        <span class="mr-2">Are you sure?</span>
-        <button
-          @click="confirmEmptyCart = false"
-          class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mr-2"
-        >
-          Cancel
-        </button>
-        <button
-          @click="emptyCart"
-          class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-        >
-          <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-          &nbsp;Yes, Empty the Cart
-        </button>
-      </div>
-      <div v-else class="flex justify-end mt-4">
-        <button
-          @click="confirmEmptyCart = true"
-          class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-        >
-          <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-          &nbsp;Empty Cart
-        </button>
-      </div>
+      <empty-cart-or-inventory
+          what="Cart"
+          :domain="domain"
+      ></empty-cart-or-inventory>
 
       <!-- ============= Shopping List ============= -->
       <div class="flex flex-col mt-4">
@@ -89,12 +68,14 @@ import 'array-flat-polyfill';
 import util from '@/util';
 import Algo from '@/algo';
 import CartItem from '@/components/CartItem.vue';
+import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Cart',
   components: {
     CartItem,
+    EmptyCartOrInventory,
     VIcon,
   },
   data: () => ({
@@ -115,9 +96,6 @@ export default {
     id: item => util.id(item),
     components: function (id) {
       return (new Algo(this.items)).listOfMaterials(id);
-    },
-    emptyCart: function () {
-      this.$store.dispatch('emptyCart', { domain: this.domain });
     },
   },
 };
