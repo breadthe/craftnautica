@@ -69,7 +69,12 @@ const mutations = {
         break;
     }
 
-    domainInventories[inventory] = inv; // replace the domain inventory with the modified inventory
+    // Delete default inventory from permanent storage if it is empty
+    if (['Lifepod', 'Seamoth', 'Cyclops', 'Prawn'].indexOf(inventory) > -1 && !Object.keys(inv).length) {
+      delete domainInventories[inventory];
+    } else {
+      domainInventories[inventory] = inv; // replace the domain inventory with the modified inventory
+    }
 
     state.inventories[domain] = { ...domainInventories };
 
