@@ -35,7 +35,7 @@ const mutations = {
   /**
    * Performs delete, increment, decrement on an inventory item
    */
-  ITEM_ACTION(state, obj) {
+  INVENTORY_ACTION(state, obj) {
     const { action, domain, inventory, id, quantity } = { ...obj };
 
     const inventories = new Inventories();
@@ -118,8 +118,8 @@ const actions = {
   addToInventory({ commit }, obj) {
     commit('ADD_TO_INVENTORY', obj);
   },
-  itemAction({ commit }, obj) {
-    commit('ITEM_ACTION', obj);
+  inventoryAction({ commit }, obj) {
+    commit('INVENTORY_ACTION', obj);
   },
   emptyInventory({ commit }, obj) {
     commit('EMPTY_INVENTORY', obj);

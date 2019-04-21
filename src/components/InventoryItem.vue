@@ -93,17 +93,17 @@ export default {
     qty: item => item[Object.keys(item)[0]],
 
     deleteItem: function (id) {
-      this.$store.dispatch('itemAction', { action: 'delete', domain: this.domain, inventory: this.inventory, id, quantity: null });
+      this.$store.dispatch('inventoryAction', { action: 'delete', domain: this.domain, inventory: this.inventory, id, quantity: null });
     },
     incrementQty: function (id) {
-      this.$store.dispatch('itemAction', { action: 'increment', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
+      this.$store.dispatch('inventoryAction', { action: 'increment', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
     },
     decrementQty: function (id) {
-      this.$store.dispatch('itemAction', { action: 'decrement', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
+      this.$store.dispatch('inventoryAction', { action: 'decrement', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
     },
     updateQty: function (id) {
       this.$refs.quantity.blur(); // lose the focus
-      this.$store.dispatch('itemAction', { action: 'update', domain: this.domain, inventory: this.inventory, id, quantity: this.quantity });
+      this.$store.dispatch('inventoryAction', { action: 'update', domain: this.domain, inventory: this.inventory, id, quantity: this.quantity });
     },
   },
 };
