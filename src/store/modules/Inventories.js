@@ -118,8 +118,9 @@ const getters = {
    */
   inventoriesList: state => (domain) => {
     const defaultInventories = ['Lifepod', 'Seamoth', 'Cyclops', 'Prawn']; // Merge default inventories...
-    const allInventories = Object.keys(state.inventories[domain]);
-    const domainInventories = allInventories.length ? allInventories.sort() : []; // ... with user-created ones
+    const domainInventories = typeof state.inventories[domain] !== 'undefined'
+      ? Object.keys(state.inventories[domain]).sort() // ... with user-created ones
+      : [];
 
     // Ensure default inventories are always at the top of the list
     return Array.from(new Set([...defaultInventories, ...domainInventories]));
@@ -128,13 +129,20 @@ const getters = {
   /**
    * Total inventories per domain
    */
-  inventoriesCount: state => domain => (typeof state.inventories[domain] !== 'undefined' ? Object.keys(state.inventories[domain]).length : 0),
+  inventoriesCount: state => domain => (
+    typeof state.inventories[domain] !== 'undefined'
+      ? Object.keys(state.inventories[domain]).length
+      : 0
+  ),
 
   /**
    * Counts how much qty of an item is in a specific inventory
    */
   itemCountInInventory: state => (domain, inventory, id) => {
     const domainInventories = state.inventories[domain];
+    if (typeof domainInventories === 'undefined') {
+      return 0;
+    }
     if (typeof domainInventories[inventory] === 'undefined') {
       return 0;
     }
