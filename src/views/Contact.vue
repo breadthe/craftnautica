@@ -10,9 +10,9 @@
         action="/thanks"
         class="mt-8"
         data-netlify="true"
-        netlify-honeypot="honeybadger"
+        data-netlify-honeypot="bot-field"
     >
-      <input type="text" name="honeybadger" class="hidden invisible" />
+      <input type="text" name="form-name" value="contact" class="hidden invisible" />
 
       <div
           class="flex justify-start pb-4"
