@@ -7,8 +7,8 @@
     <form
         name="contact"
         method="post"
-        data-netlify="true"
         class="mt-8"
+        netlify
     >
       <div
           class="flex justify-start pb-4"
