@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto mt-4">
+  <main class="container mx-4 sm:mx-auto mt-4">
     <h1>Privacy Policy</h1>
 
     <p class="mt-4">Craftnautica is offered as is, without any guarantees (not excluding service availability or features).</p>

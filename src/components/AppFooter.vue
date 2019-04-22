@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="flex justify-between w-full max-w-lg">
+    <div class="flex items-start justify-between w-full max-w-lg">
       <div class="flex items-center">
         <div class="beta">beta</div>
         {{ version }}
@@ -10,8 +10,9 @@
           <v-icon icon="github" color="blue-dark" class="mr-4"></v-icon>
         </a>
       </div>
-      <div class="flex items-center">
-        <router-link to="/privacy">Privacy Policy</router-link>
+      <div class="flex flex-col">
+        <router-link to="/contact" class="mb-4 sm:mb-2">Contact</router-link>
+        <router-link to="/privacy" class="mb-4 sm:mb-2">Privacy Policy</router-link>
       </div>
     </div>
 

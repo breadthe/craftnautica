@@ -18,7 +18,8 @@ a {
     }
 }
 
-input {
+input,
+textarea {
   @apply p-1;
   @apply text-grey;
   @apply bg-blue-darkest;
