@@ -1,5 +1,5 @@
-const path = require('path');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
+// const path = require('path');
+// const PrerenderSPAPlugin = require('prerender-spa-plugin');
 
 module.exports = {
   plugins: [
@@ -22,7 +22,7 @@ module.exports = {
       }),
     ] : [],
   ],
-  configureWebpack: () => {
+  /*configureWebpack: () => {
     if (process.env.NODE_ENV !== 'production') return;
     return {
       plugins: [
@@ -37,5 +37,5 @@ module.exports = {
         ),
       ],
     };
-  },
+  },*/
 };

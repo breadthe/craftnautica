@@ -11,7 +11,7 @@
         </a>
       </div>
       <div class="flex flex-col">
-        <router-link to="/contact" class="mb-4 sm:mb-2">Contact</router-link>
+<!--        <router-link to="/contact" class="mb-4 sm:mb-2">Contact</router-link>-->
         <router-link to="/privacy" class="mb-4 sm:mb-2">Privacy Policy</router-link>
       </div>
     </div>
