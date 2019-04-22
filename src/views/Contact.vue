@@ -17,24 +17,33 @@
       <div
           class="flex justify-start pb-4"
       >
-        <div class="w-full">
-          <input placeholder="Your Name" type="text" id="name" name="name" class="p-2" />
+        <div class="w-full max-w-xs">
+          <label class="flex flex-col">
+            <span class="mb-2">Name:</span>
+            <input placeholder="Your Name" type="text" id="name" name="name" class="p-2" />
+          </label>
         </div>
       </div>
 
       <div
           class="flex justify-start pb-4"
       >
-        <div class="w-full">
-          <input placeholder="Your Email" type="email" id="email" name="email" class="p-2" />
+        <div class="w-full max-w-xs">
+          <label class="flex flex-col">
+            <span class="mb-2">Email:</span>
+            <input placeholder="Your Email" type="email" id="email" name="email" class="p-2" />
+          </label>
         </div>
       </div>
 
       <div
           class="flex justify-start pb-4"
       >
-        <div class="w-full">
-          <textarea placeholder="Message" id="message" name="message" class="p-2 w-64 h-32"></textarea>
+        <div class="w-full max-w-xs">
+          <label class="flex flex-col">
+            <span class="mb-2">Message:</span>
+            <textarea placeholder="Message" id="message" name="message" class="p-2 h-32"></textarea>
+          </label>
         </div>
       </div>
 
