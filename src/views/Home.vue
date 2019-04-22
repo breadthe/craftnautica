@@ -14,8 +14,8 @@
         <li class="f2">See at a glance the total amount of base components required to craft it.</li>
         <li class="f3">Create a shopping list of crafted items and see a grand total of all the raw materials required! 🔥 Useful when building a new base!</li>
         <li class="f6">Individual shopping lists for Subnautica and Below Zero.</li>
+        <li class="f4">Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Silver Ore do I have in my Lifepod?".</li>
         <li class="f7"><small class="text-xs border border-blue-dark rounded p-1 mr-2">SOON</small> Backup your data by exporting it in CSV format, and restore it later.</li>
-        <li class="f4"><small class="text-xs border border-blue-dark rounded p-1 mr-2">SOON</small> Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Silver Ore do I have in my Lifepod?".</li>
         <li class="f5">And more...</li>
       </ul>
 
@@ -48,6 +48,7 @@
         <li>Most <strong>Below Zero</strong> items are missing. Not my main focus at the moment as the expansion is in flux, but I will continue to add them slowly, time permitting.</li>
         <li>All items appear on one page. Currently brainstorming better ways to organize them but in the meantime the search works great. <strong>Tip:</strong> press "/" to focus the searchbar and start typing quickly.</li>
         <li>Upgrade recipes requiring an existing piece of equipment or module (such as vehicle depth modules, or oxygen tanks) will break down the components all the way down to the raw materials instead of showing the item that is upgraded as a component. Not a huge deal. Worst case is that you will have some extra raw mats left. It's on my to-do list but not a major priority.</li>
+        <li>Some quirks/bugs in mobile browsers.</li>
       </ul>
     </div>
 
