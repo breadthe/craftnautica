@@ -7,11 +7,12 @@
     <form
         name="contact"
         method="POST"
+        action="/thanks"
         class="mt-8"
         data-netlify="true"
         netlify-honeypot="honeybadger"
     >
-      <input type="text" name="honeybadger" />
+      <input type="text" name="honeybadger" class="hidden invisible" />
 
       <div
           class="flex justify-start pb-4"

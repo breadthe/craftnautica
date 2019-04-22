@@ -33,6 +33,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue'),
     },
     {
+      path: '/thanks',
+      name: 'thanks',
+      component: () => import(/* webpackChunkName: "thanks" */ './views/ThankYou.vue'),
+    },
+    {
       path: '/privacy',
       name: 'privacy',
       component: () => import(/* webpackChunkName: "privacy" */ './views/Privacy.vue'),
