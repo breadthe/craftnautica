@@ -138,8 +138,6 @@ export default {
   },
   data: function () {
     return {
-      // icon: util.icon,
-      // pretty: util.pretty,
       validatedQty: util.validatedQty,
       newInventory: null,
       selectedInventory: null,

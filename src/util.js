@@ -42,8 +42,8 @@ const fullDomainName = (domain) => {
 const validatedQty = (quantity) => {
   const qty = parseInt(quantity, 10);
 
-  if (qty < 0) {
-    return 0;
+  if (qty < 0 || isNaN(qty)) {
+    return 1;
   }
 
   if (qty > 9999) {

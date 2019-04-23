@@ -4,17 +4,17 @@
 >
   <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
       <div class="flex items-center w-1/2">
-        <div class="item-icon" :style="'background-image: url(' + icon(id(item)) + ')'"></div>
+        <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
 
         <div class="relative flex flex-col ml-4 -my-2">
-          <router-link :to="`/${domain}/i/${id(item)}`" class="my-1">{{ pretty(id(item)) }}</router-link>
+          <router-link :to="`/${domain}/i/${id}`" class="my-1">{{ pretty(id) }}</router-link>
         </div>
       </div>
 
       <div class="flex items-center justify-end w-1/4">
 
         <div v-if="qty(item) > 1" class="w-12 flex justify-center">
-          <button @click="decrementQty(id(item))" class="flex">
+          <button @click="decrementQty()" class="flex">
             <v-icon icon="minus-circle" color="blue-dark" class=""></v-icon>
           </button>
         </div>
@@ -29,13 +29,12 @@
             min="1"
             max="9999"
             class="w-24 p-2 text-right"
-            v-model="q"
-            @blur="updateQty(id(item))"
-            @keyup.enter.prevent="updateQty(id(item))"
+            v-model="quantity"
+            @keyup.enter="$refs.quantity.blur()"
         >
 
         <div v-if="qty(item) < 9999" class="w-12 flex justify-center">
-          <button @click="incrementQty(id(item))" class="flex">
+          <button @click="incrementQty()" class="flex">
             <v-icon icon="plus-circle" color="blue-dark" class=""></v-icon>
           </button>
         </div>
@@ -45,7 +44,7 @@
       </div>
 
       <div class="flex items-center">
-        <button @click="deleteItem(id(item))" class="flex ml-4">
+        <button @click="deleteItem()" class="flex ml-4">
           <v-icon icon="x-circle" color="blue-dark" class=""></v-icon>
         </button>
       </div>
@@ -78,32 +77,34 @@ export default {
     return {
       pretty: util.pretty,
       icon: util.icon,
-      quantity: null,
+      validatedQty: util.validatedQty,
+      quantity: this.qty(this.item),
     };
   },
   computed: {
     domain: vm => vm.$route.name.replace(/inventories/, ''), // strip out "inventories" from "sncart"
-    q: {
-      get: function () { return this.qty(this.item); },
-      set: function (data) { this.quantity = parseInt(data, 10); },
+    id: function () {
+      return util.id(this.item);
+    },
+  },
+  watch: {
+    quantity: function () {
+      const qty = this.validatedQty(this.quantity);
+
+      this.$store.dispatch('inventoryAction', { action: 'update', domain: this.domain, inventory: this.inventory, id: this.id, quantity: qty });
     },
   },
   methods: {
-    id: item => util.id(item),
-    qty: item => item[Object.keys(item)[0]],
+    qty: item => parseInt(item[Object.keys(item)[0]], 10),
 
-    deleteItem: function (id) {
-      this.$store.dispatch('inventoryAction', { action: 'delete', domain: this.domain, inventory: this.inventory, id, quantity: null });
+    deleteItem: function () {
+      this.$store.dispatch('inventoryAction', { action: 'delete', domain: this.domain, inventory: this.inventory, id: this.id, quantity: null });
     },
-    incrementQty: function (id) {
-      this.$store.dispatch('inventoryAction', { action: 'increment', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
+    incrementQty: function () {
+      this.quantity = this.validatedQty(parseInt(this.quantity, 10) + 1);
     },
-    decrementQty: function (id) {
-      this.$store.dispatch('inventoryAction', { action: 'decrement', domain: this.domain, inventory: this.inventory, id, quantity: 1 });
-    },
-    updateQty: function (id) {
-      this.$refs.quantity.blur(); // lose the focus
-      this.$store.dispatch('inventoryAction', { action: 'update', domain: this.domain, inventory: this.inventory, id, quantity: this.quantity });
+    decrementQty: function () {
+      this.quantity = this.validatedQty(parseInt(this.quantity, 10) - 1);
     },
   },
 };
