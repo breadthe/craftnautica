@@ -9,7 +9,7 @@
       <div class="flex-1 flex items-center">
         <router-link
           to="/"
-          class="flex items-center justify-center mr-4 mr-2"
+          class="flex items-center justify-center mr-0 sm:mr-4"
         >
           <span class="logo hidden sm:block">Craftnautica</span>
           <span class="flex sm:hidden">
@@ -19,13 +19,13 @@
 
         <router-link
           to="/sn"
-          class="border-b-4 border-black pb-2 mt-3 mr-4 text-grey-light hover:text-white"
+          class="border-b-4 border-black pb-2 mt-3 mr-4 text-grey-light hover:text-white text-sm sm:text-base"
           :class="domain === 'sn' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
         >Subnautica</router-link>
 
         <router-link
           to="/bz"
-          class="border-b-4 border-black pb-2 mt-3 mr-4 text-grey-light hover:text-white"
+          class="border-b-4 border-black pb-2 mt-3 mr-4 text-grey-light hover:text-white text-sm sm:text-base"
           :class="domain === 'bz' ? 'font-bold text-blue-lightest border-blue-dark' : 'hover:border-grey-light'"
         >Below Zero</router-link>
 
@@ -37,12 +37,12 @@
         <router-link
             v-if="showCart"
             :to="`/${domain}/inventories`"
-            class="flex items-center ml-8"
+            class="flex items-center ml-4 sm:ml-8"
         >
           <v-icon icon="box" color="blue-dark" title="Inventories"></v-icon>
           <span
               v-if="inventoriesCount"
-              class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
+              class="ml-2 w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
               :title="`${inventoriesCount} inventories`"
           >
             {{ inventoriesCount }}
@@ -53,12 +53,12 @@
         <router-link
           v-if="showCart"
           :to="`/${domain}/cart`"
-          class="flex items-center ml-8"
+          class="flex items-center ml-4 sm:ml-8"
         >
           <v-icon icon="shopping-cart" color="blue-dark" title="Shopping cart"></v-icon>
           <span
             v-if="cartCount"
-            class="ml-2 w-6 h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
+            class="ml-2 w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
             :title="`${cartCount} items in cart`"
           >
             {{ cartCount }}

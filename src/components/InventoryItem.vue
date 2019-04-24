@@ -13,7 +13,7 @@
 
       <div class="flex items-center justify-end w-1/4">
 
-        <div v-if="qty(item) > 1" class="w-12 flex justify-center">
+        <div v-if="qty(item) > 1" class="w-12 flex justify-center mr-1">
           <button @click="decrementQty()" class="flex">
             <v-icon icon="minus-circle" color="blue-dark" class=""></v-icon>
           </button>
@@ -33,7 +33,7 @@
             @keyup.enter="$refs.quantity.blur()"
         >
 
-        <div v-if="qty(item) < 9999" class="w-12 flex justify-center">
+        <div v-if="qty(item) < 9999" class="w-12 flex justify-center ml-1">
           <button @click="incrementQty()" class="flex">
             <v-icon icon="plus-circle" color="blue-dark" class=""></v-icon>
           </button>

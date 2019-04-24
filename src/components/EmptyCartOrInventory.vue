@@ -12,7 +12,7 @@
       class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
     >
       <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-      &nbsp;Yes, Empty the {{ what }}
+      &nbsp;Yes, Empty It
     </button>
   </div>
   <div v-else class="flex justify-end mt-4">

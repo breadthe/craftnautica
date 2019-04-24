@@ -1,5 +1,5 @@
 <template>
-  <main class="container mx-auto max-w-lg">
+  <main class="mx-4 sm:mx-auto max-w-lg">
     <div class="flex justify-start my-4">
       <router-link :to="`/${domain}`">{{ fullDomainName }}</router-link>
       &nbsp;&gt;

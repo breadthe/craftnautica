@@ -13,7 +13,7 @@
         v-if="Object.keys(inventories).length"
     >
 
-      <div class="max-w-lg mx-auto text-xl">
+      <div class="max-w-lg mx-4 sm:mx-auto">
         An overview of all your inventories (vehicles, bases, lockers, and other storage locations) where you store items and materials. You can easily see how much quantity of a certain material you have in each location.
       </div>
 
