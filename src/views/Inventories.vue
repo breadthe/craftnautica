@@ -38,6 +38,7 @@ import Inventory from '@/components/Inventory.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
+  name: 'Inventories',
   components: {
     Inventory,
     VIcon,

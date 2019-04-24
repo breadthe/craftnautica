@@ -52,6 +52,7 @@ import InventoryItem from '@/components/InventoryItem.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
+  name: 'Inventory',
   components: {
     EmptyCartOrInventory,
     InventoryItem,

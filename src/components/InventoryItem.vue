@@ -58,6 +58,7 @@ import util from '@/util';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
+  name: 'InventoryItem',
   components: {
     VIcon,
   },
