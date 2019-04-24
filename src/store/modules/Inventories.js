@@ -31,6 +31,8 @@ const mutations = {
     state.inventories[domain] = { ...domainInventories };
 
     inventories.set(state.inventories);
+
+    state.inventories = inventories.get();
   },
 
   /**
@@ -72,6 +74,8 @@ const mutations = {
     state.inventories[domain] = { ...domainInventories };
 
     inventories.set(state.inventories);
+
+    state.inventories = inventories.get();
   },
 
   /**
@@ -88,6 +92,8 @@ const mutations = {
     state.inventories[domain] = { ...domainInventories };
 
     inventories.set(state.inventories);
+
+    state.inventories = inventories.get();
   },
 };
 
@@ -106,6 +112,7 @@ const actions = {
 const getters = {
 
   domainInventories: state => domain => state.inventories[domain] || {},
+  inventoryItems: state => (domain, inventory) => state.inventories[domain][inventory] || [],
 
   /**
    * List of inventories per domain
