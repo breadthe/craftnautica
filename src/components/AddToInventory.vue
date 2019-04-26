@@ -32,7 +32,7 @@
 
     <!-- ============= Adding to Inventory ============= -->
     <div
-        v-show="addingToInventory && !addedToInventory"
+        v-if="addingToInventory && !addedToInventory"
         class="flex flex-wrap items-center bg-blue text-blue-darkest font-normal p-2"
     >
 
@@ -40,9 +40,11 @@
         Adding to <span class="text-xl font-bold">{{ selectedInventory }}</span>
       </div>
 
-      <small>Quantity (0-9999)</small>
+      <small class="w-full">Quantity (0-9999)</small>
 
       <input
+          v-focus
+          v-select
           type="number"
           name="quantity"
           min="1"
@@ -71,19 +73,20 @@
 
     <!-- ============= Create New Inventory ============= -->
     <div
-        v-show="creatingNewInventory && !addedToInventory"
+        v-if="creatingNewInventory && !addedToInventory"
         class="flex flex-wrap bg-blue text-blue-darkest font-normal border-blue-darkest p-2"
     >
       <input
-            type="text"
-            name="newInventory"
-            v-model="newInventory"
-            @keyup.enter="addToNewInventory"
-            placeholder="New Inventory"
-            class="w-full p-2 mb-4"
+          v-focus
+          type="text"
+          name="newInventory"
+          v-model="newInventory"
+          @keyup.enter="addToNewInventory"
+          placeholder="New Inventory"
+          class="w-full p-2 mb-4"
         >
 
-      <small>Quantity (0-9999)</small>
+      <small class="w-full">Quantity (0-9999)</small>
 
       <input
           type="number"

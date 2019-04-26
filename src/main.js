@@ -23,6 +23,20 @@ Vue.directive('click-outside', {
   },
 });
 
+// Use v-focus to focus an input
+Vue.directive('focus', {
+  inserted(el) {
+    el.focus();
+  },
+});
+
+// Use v-select to select all the text in an input
+Vue.directive('select', {
+  inserted(el) {
+    el.select();
+  },
+});
+
 new Vue({
   router,
   store,
