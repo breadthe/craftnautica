@@ -12,7 +12,12 @@
           class="menu-entry"
       >
         {{ inventory }}
-        &nbsp;<small v-html="itemCountInInventory(inventory)" class="text-blue-light font-bold"></small>
+
+        <small
+            v-if="itemCountInInventory(inventory)"
+            v-html="`(${itemCountInInventory(inventory)})`"
+            class="text-blue-light font-bold ml-1"
+        ></small>
       </div>
     </div>
 
@@ -159,6 +164,9 @@ export default {
     openAddingToInventory: function (selectedInventory) {
       this.addingToInventory = true;
       this.selectedInventory = selectedInventory;
+
+      // Fill in the existing quantity of this item in the selected inventory, if it exists
+      this.quantity = parseInt(this.itemCountInInventory(this.selectedInventory), 10) || 0;
     },
     closeAddingToInventory: function () {
       this.addingToInventory = false;
@@ -201,9 +209,7 @@ export default {
       this.newInventory = null;
     },
     itemCountInInventory: function (inventory) {
-      const count = this.$store.getters.itemCountInInventory(this.domain, inventory, this.id);
-
-      return count ? `(${count})` : '';
+      return this.$store.getters.itemCountInInventory(this.domain, inventory, this.id);
     },
   },
 };
