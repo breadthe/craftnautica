@@ -39,7 +39,7 @@
             :to="`/${domain}/inventories`"
             class="flex items-center ml-4 sm:ml-8"
         >
-          <v-icon icon="box" color="blue-dark" title="Inventories"></v-icon>
+          <v-icon icon="box" :color="inventoriesCount ? 'blue-dark' : 'blue-darkest'" title="Inventories"></v-icon>
           <span
               v-if="inventoriesCount"
               class="ml-2 w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
@@ -55,7 +55,7 @@
           :to="`/${domain}/cart`"
           class="flex items-center ml-4 sm:ml-8"
         >
-          <v-icon icon="shopping-cart" color="blue-dark" title="Shopping cart"></v-icon>
+          <v-icon icon="shopping-cart" :color="cartCount ? 'blue-dark' : 'blue-darkest'" title="Shopping cart"></v-icon>
           <span
             v-if="cartCount"
             class="ml-2 w-4 h-4 sm:w-6 sm:h-6 flex items-center justify-center rounded-full border-2 border-blue bg-blue text-black text-sm"
