@@ -136,12 +136,10 @@ export default {
     id: {
       type: String,
       required: true,
-      default: null,
     },
     domain: {
       type: String,
       required: true,
-      default: null,
     },
   },
   data: function () {
@@ -186,7 +184,7 @@ export default {
 
         this.addedToInventory = true;
 
-        setTimeout(() => { this.addedToInventory = false; this.$emit('closeMenu'); }, 750);
+        setTimeout(() => { this.addedToInventory = false; this.$emit('closeItemMenu'); }, 750);
       }
     },
     addToNewInventory: function () {

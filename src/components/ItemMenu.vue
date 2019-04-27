@@ -18,7 +18,7 @@
 
       <span v-show="addingToInventory">&nbsp;</span>
 
-      <v-icon @click.native="$emit('closeMenu')" icon="x" color="blue-darkest"></v-icon>
+      <v-icon @click.native="$emit('closeItemMenu')" icon="x" color="blue-darkest"></v-icon>
     </div>
 
     <!-- ============= Add to Cart ============= -->
@@ -39,7 +39,7 @@
         v-show="addingToInventory"
         :id="id"
         :domain="domain"
-        @closeMenu="$emit('closeMenu')"
+        @closeItemMenu="$emit('closeItemMenu')"
     ></add-to-inventory>
 
   </div>
@@ -60,12 +60,10 @@ export default {
     id: {
       type: String,
       required: true,
-      default: null,
     },
-    item: {
-      type: Object,
+    domain: {
+      type: String,
       required: true,
-      default: () => [],
     },
   },
   data: function () {
@@ -76,14 +74,11 @@ export default {
       addingToInventory: false,
     };
   },
-  computed: {
-    domain: vm => vm.$route.path.replace(/\//, ''),
-  },
   methods: {
     addToCart: function () {
       this.addingToCart = true;
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
-      setTimeout(() => { this.addingToCart = false; this.$emit('closeMenu'); }, 750);
+      setTimeout(() => { this.addingToCart = false; this.$emit('closeItemMenu'); }, 750);
     },
     addToInventory: function () {
       this.addingToInventory = true;

@@ -21,17 +21,44 @@
 
       </div>
 
-      <div v-if="adding">
-        Added to cart
-      </div>
-      <div v-else>
-        <button
-            @click.stop.prevent="addToCart"
-            class="flex items-center text-grey border border-blue-dark rounded p-2 text-2xl hover:bg-blue hover:text-white"
+      <div class="flex">
+        <!-- ============= Add to Inventory ============= -->
+        <div
+            v-click-outside="closeItemMenu"
+            class="relative ml-4"
         >
-          +&nbsp;
-          <v-icon icon="shopping-cart" color="blue-dark"></v-icon>
-        </button>
+          <button
+              @click.stop.prevent="menu = true"
+              class="flex items-center text-grey border border-blue-dark rounded p-2 text-2xl hover:bg-blue hover:text-white"
+              title="Add to Inventory"
+          >
+            +&nbsp;
+            <v-icon icon="box" color="blue-dark"></v-icon>
+          </button>
+
+          <item-menu
+              v-if="menu"
+              :id="id"
+              :domain="domain"
+              @closeItemMenu="menu = false"
+          ></item-menu>
+
+        </div>
+
+        <!-- ============= Add to Cart ============= -->
+        <div v-if="addingToCart">
+          Added to cart
+        </div>
+        <div v-else class="ml-4">
+          <button
+              @click.stop.prevent="addToCart"
+              class="flex items-center text-grey border border-blue-dark rounded p-2 text-2xl hover:bg-blue hover:text-white"
+              title="Add to Cart"
+          >
+            +&nbsp;
+            <v-icon icon="shopping-cart" color="blue-dark"></v-icon>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -85,11 +112,13 @@
 import store from '@/store';
 import Algo from '@/algo';
 import util from '@/util';
+import ItemMenu from '@/components/ItemMenu.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Details',
   components: {
+    ItemMenu,
     VIcon,
   },
   props: {
@@ -99,7 +128,8 @@ export default {
     pretty: util.pretty,
     icon: util.icon,
     components: null,
-    adding: false,
+    menu: false,
+    addingToCart: false,
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/details/, ''), // strip out "details" from "sndetails"
@@ -113,9 +143,9 @@ export default {
       this.components = components;
     },
     addToCart: function () {
-      this.adding = true;
+      this.addingToCart = true;
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
-      setTimeout(() => { this.adding = false; }, 750);
+      setTimeout(() => { this.addingToCart = false; }, 750);
     },
     formatType: type => util.formatType(type),
     recipe: function (item) {
@@ -125,6 +155,9 @@ export default {
       return this.domain === 'sn'
         ? `https://subnautica.fandom.com/wiki/${item}`
         : `https://subnautica-belowzero.fandom.com/wiki/${item}`;
+    },
+    closeItemMenu: function () {
+      this.menu = false;
     },
   },
   beforeRouteEnter(to, from, next) {

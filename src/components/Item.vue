@@ -2,7 +2,7 @@
   <div
       :ref="`item_${id}`"
       @click="menu = true"
-      v-click-outside="closeMenu"
+      v-click-outside="closeItemMenu"
       class="item-frame relative"
   >
       <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
@@ -12,8 +12,8 @@
       <item-menu
           v-if="menu"
           :id="id"
-          :item="item"
-          @closeMenu="menu = false"
+          :domain="domain"
+          @closeItemMenu="menu = false"
       ></item-menu>
   </div>
 </template>
@@ -46,8 +46,11 @@ export default {
       pretty: util.pretty,
     };
   },
+  computed: {
+    domain: vm => vm.$route.path.replace(/\//, ''),
+  },
   methods: {
-    closeMenu: function () {
+    closeItemMenu: function () {
       this.menu = false;
     },
   },
