@@ -70,43 +70,10 @@
 
     <div class="" v-else>
       <!-- ============= Recipe ============= -->
-      <div class="flex flex-col mt-8">
-        <h3 class="border-b border-grey-darkest py-2">Recipe</h3>
-
-        <div
-            v-for="item in recipe(id)"
-            :key="item.c"
-            class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
-        >
-          <router-link :to="`${item.c}`" class="flex items-center">
-            <item-icon :id="item.c" class="mr-4"></item-icon>
-
-            {{ pretty(item.c) }}
-          </router-link>
-
-          <div>{{ item.q }}</div>
-        </div>
-      </div>
+      <components-list :domain="domain" title="Recipe" :list="recipe(id)"></components-list>
 
       <!-- ============= Base Components ============= -->
-      <div class="flex flex-col mt-8">
-        <h3 class="border-b border-grey-darkest py-2">Base Components</h3>
-
-        <div
-            v-for="comp in components"
-            :key="comp.c"
-            class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
-        >
-          <router-link :to="`${comp.c}`" class="flex items-center">
-            <item-icon :id="comp.c" class="mr-4"></item-icon>
-
-            {{ pretty(comp.c) }}
-          </router-link>
-
-          <div>{{ comp.q }}</div>
-        </div>
-      </div>
-
+      <components-list :domain="domain" title="Base Components" :list="components"></components-list>
     </div>
 
     <!-- ============= Inventories containing this item ============= -->
@@ -144,6 +111,7 @@
 import store from '@/store';
 import Algo from '@/algo';
 import util from '@/util';
+import ComponentsList from '@/components/ComponentsList.vue';
 import ItemIcon from '@/components/ItemIcon.vue';
 import ItemMenu from '@/components/ItemMenu.vue';
 import VIcon from '@/components/VIcon.vue';
@@ -151,6 +119,7 @@ import VIcon from '@/components/VIcon.vue';
 export default {
   name: 'Details',
   components: {
+    ComponentsList,
     ItemIcon,
     ItemMenu,
     VIcon,
@@ -161,7 +130,6 @@ export default {
   data: () => ({
     pretty: util.pretty,
     icon: util.icon,
-    components: null,
     menu: false,
     addingToCart: false,
   }),
@@ -177,11 +145,11 @@ export default {
     totalQtyInInventories: function () {
       return this.qtyInInventories.reduce((total, i) => total + i.q, 0);
     },
+    components: function () {
+      return (new Algo(this.items)).listOfMaterials(this.id);
+    },
   },
   methods: {
-    setData: function (components) {
-      this.components = components;
-    },
     addToCart: function () {
       this.addingToCart = true;
       this.$store.dispatch('addToCart', { domain: this.domain, id: this.id, qty: 1 });
@@ -210,10 +178,16 @@ export default {
         break;
     }
 
-    const components = (new Algo(items)).listOfMaterials(to.params.id);
-    if (components.length) {
-      next(vm => vm.setData(components));
-    } else {
+    // Handle bad item name in URL (item doesn't exist)
+    try {
+      const components = (new Algo(items)).listOfMaterials(to.params.id);
+
+      if (components.length) {
+        next();
+      } else {
+        next(vm => vm.$router.push({ path: '/404' }));
+      }
+    } catch (e) {
       next(vm => vm.$router.push({ path: '/404' }));
     }
   },

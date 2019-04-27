@@ -38,23 +38,7 @@
       ></empty-cart-or-inventory>
 
       <!-- ============= Shopping List ============= -->
-      <div class="flex flex-col mt-4">
-        <h3 class="border-b border-grey-darkest py-2">Shopping List</h3>
-
-        <div
-          v-for="comp in shoppingList"
-          :key="comp.c"
-          class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
-        >
-          <router-link :to="`/${domain}/i/${comp.c}`" class="flex items-center">
-            <item-icon :id="comp.c" class="mr-4"></item-icon>
-
-            {{ pretty(comp.c) }}
-          </router-link>
-
-          <div>{{ comp.q }}</div>
-        </div>
-      </div>
+      <components-list :domain="domain" title="Shopping List" :list="shoppingList"></components-list>
 
     </div>
 
@@ -71,7 +55,7 @@ import util from '@/util';
 import Algo from '@/algo';
 import CartItem from '@/components/CartItem.vue';
 import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
-import ItemIcon from '@/components/ItemIcon.vue';
+import ComponentsList from '@/components/ComponentsList.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
@@ -79,7 +63,7 @@ export default {
   components: {
     CartItem,
     EmptyCartOrInventory,
-    ItemIcon,
+    ComponentsList,
     VIcon,
   },
   data: () => ({
