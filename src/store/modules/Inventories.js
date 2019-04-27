@@ -149,6 +149,32 @@ const getters = {
     }
     return parseInt(domainInventories[inventory][id], 10);
   },
+
+  /**
+   * How much quantity of this item is in each inventory
+   */
+  qtyInInventories: state => (domain, id) => {
+    const arr = [];
+    const domainInventories = state.inventories[domain];
+    if (typeof domainInventories === 'undefined') {
+      return arr;
+    }
+
+    Object.entries(domainInventories).forEach((inventory) => {
+      const itemsInInventory = Object.entries(inventory[1]); // all the items in the inventory being iterated over
+
+      itemsInInventory.forEach((item) => {
+        if (item[0] === id) {
+          arr.push({
+            i: inventory[0],
+            q: item[1],
+          });
+        }
+      });
+    });
+
+    return arr;
+  },
 };
 
 export default {

@@ -63,14 +63,14 @@
 
     </div>
 
-
-    <div class="" v-if="rawMat">
+    <!-- ============= Recipe / Base Components ============= -->
+    <div class="text-center" v-if="rawMat">
       This item is a raw material or base component.
     </div>
 
     <div class="" v-else>
       <!-- ============= Recipe ============= -->
-      <div class="flex flex-col">
+      <div class="flex flex-col mt-8">
         <h3 class="border-b border-grey-darkest py-2">Recipe</h3>
 
         <div
@@ -105,6 +105,34 @@
 
     </div>
 
+    <!-- ============= Inventories containing this item ============= -->
+    <div v-if="qtyInInventories.length" class="mt-8">
+      <div class="flex items-center justify-between border-b border-grey-darkest py-2">
+        <h3 class="flex items-center">
+          <router-link
+              :to="`/${domain}/inventories`"
+              class="flex items-center"
+          >
+            <v-icon icon="box" color="blue-dark" class="mr-2"></v-icon>
+            Inventories
+          </router-link>
+          <small class="font-light ml-2">({{ qtyInInventories.length }})</small>
+        </h3>
+        <span class="font-bold text-lg">{{ totalQtyInInventories }}</span>
+      </div>
+
+      <div
+          v-for="(inventory, i) in qtyInInventories"
+          :key="i"
+          class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
+      >
+        <div class="flex items-center font-bold">
+            {{ pretty(inventory.i) }}
+        </div>
+        <div>{{ inventory.q }}</div>
+      </div>
+    </div>
+
   </main>
 </template>
 
@@ -137,6 +165,12 @@ export default {
     items: vm => vm.$store.state.App['items_' + vm.domain],
     type: vm => vm.items[vm.id].t,
     rawMat: vm => vm.type.split('.')[0] === 'Raw_Materials',
+    qtyInInventories: function () {
+      return this.$store.getters.qtyInInventories(this.domain, this.id);
+    },
+    totalQtyInInventories: function () {
+      return this.qtyInInventories.reduce((total, i) => total + i.q, 0);
+    },
   },
   methods: {
     setData: function (components) {
