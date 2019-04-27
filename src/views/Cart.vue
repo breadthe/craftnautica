@@ -46,11 +46,12 @@
           :key="comp.c"
           class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
         >
-          <div class="flex items-center">
-            <item-icon :id="comp.c"></item-icon>
+          <router-link :to="`/${domain}/i/${comp.c}`" class="flex items-center">
+            <item-icon :id="comp.c" class="mr-4"></item-icon>
 
-            <router-link :to="`/${domain}/i/${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
-          </div>
+            {{ pretty(comp.c) }}
+          </router-link>
+
           <div>{{ comp.q }}</div>
         </div>
       </div>

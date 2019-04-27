@@ -4,7 +4,9 @@
 >
   <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
       <div class="flex items-center w-1/2">
-        <item-icon :id="id(item)"></item-icon>
+        <router-link :to="`/${domain}/i/${id(item)}`">
+          <item-icon :id="id(item)"></item-icon>
+        </router-link>
 
         <div class="relative flex flex-col ml-4 -my-2">
           <router-link :to="`/${domain}/i/${id(item)}`" class="my-1">{{ pretty(id(item)) }}</router-link>
@@ -49,7 +51,9 @@
           :key="ix"
           class="mx-2 flex items-center rounded-full bg-blue-darker pr-2"
         >
-          <item-icon small :id="item.c"></item-icon>
+          <router-link :to="`/${domain}/i/${item.c}`">
+            <item-icon small :id="item.c"></item-icon>
+          </router-link>
 
           {{ pretty(item.c) }}
           &nbsp;x&nbsp;

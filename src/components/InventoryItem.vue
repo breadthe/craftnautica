@@ -3,13 +3,11 @@
     class="flex flex-col hover:bg-blue-darker -mx-4 px-4"
 >
   <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
-      <div class="flex items-center w-1/2">
-        <item-icon :id="id"></item-icon>
+      <router-link :to="`/${domain}/i/${id}`" class="flex items-center w-1/2">
+        <item-icon :id="id" class="mr-4"></item-icon>
 
-        <div class="relative flex flex-col ml-4 -my-2">
-          <router-link :to="`/${domain}/i/${id}`" class="my-1">{{ pretty(id) }}</router-link>
-        </div>
-      </div>
+        {{ pretty(id) }}
+      </router-link>
 
       <div class="flex items-center justify-end w-1/4">
 
