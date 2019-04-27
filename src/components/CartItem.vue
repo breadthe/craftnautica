@@ -41,7 +41,7 @@
 
     <!-- ============= Recipe ============= -->
     <div
-      v-if="showingRecipe"
+      v-if="showingRecipe && recipe.length"
       class="flex p-1 -mt-2 -mx-2 mb-6 z-10 flex-wrap"
     >
         <div
