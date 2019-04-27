@@ -5,9 +5,9 @@
       v-click-outside="closeItemMenu"
       class="item-frame relative"
   >
-      <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
+    <item-icon :id="id"></item-icon>
 
-      <span class="ml-2">{{ pretty(id) }}</span>
+    <span class="ml-2">{{ pretty(id) }}</span>
 
       <item-menu
           v-if="menu"
@@ -20,11 +20,13 @@
 
 <script>
 import util from '@/util';
+import ItemIcon from '@/components/ItemIcon.vue';
 import ItemMenu from '@/components/ItemMenu.vue';
 
 export default {
   name: 'Item',
   components: {
+    ItemIcon,
     ItemMenu,
   },
   props: {

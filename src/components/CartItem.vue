@@ -4,7 +4,7 @@
 >
   <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
       <div class="flex items-center w-1/2">
-        <div class="item-icon" :style="'background-image: url(' + icon(id(item)) + ')'"></div>
+        <item-icon :id="id(item)"></item-icon>
 
         <div class="relative flex flex-col ml-4 -my-2">
           <router-link :to="`/${domain}/i/${id(item)}`" class="my-1">{{ pretty(id(item)) }}</router-link>
@@ -49,7 +49,8 @@
           :key="ix"
           class="mx-2 flex items-center rounded-full bg-blue-darker pr-2"
         >
-          <div class="item-icon--sm mr-2" :style="'background-image: url(' + icon(item.c) + ')'"></div>
+          <item-icon small :id="item.c"></item-icon>
+
           {{ pretty(item.c) }}
           &nbsp;x&nbsp;
           {{ item.q }}
@@ -60,11 +61,13 @@
 
 <script>
 import util from '@/util';
+import ItemIcon from '@/components/ItemIcon.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'CartItem',
   components: {
+    ItemIcon,
     VIcon,
   },
   props: {

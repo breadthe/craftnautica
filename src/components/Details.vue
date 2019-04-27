@@ -8,7 +8,7 @@
 
     <div class="flex justify-between items-center my-8 text-lg font-light">
       <div class="flex items-center">
-        <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
+        <item-icon :id="id"></item-icon>
 
         <div class="flex flex-col ml-4">
           <h2 class="">{{ pretty(id) }}</h2>
@@ -79,7 +79,8 @@
             class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
         >
           <div class="flex items-center">
-            <div class="item-icon" :style="'background-image: url(' + icon(item.c) + ')'"></div>
+            <item-icon :id="item.c"></item-icon>
+
             <router-link :to="`${item.c}`" class="ml-4">{{ pretty(item.c) }}</router-link>
           </div>
           <div>{{ item.q }}</div>
@@ -96,7 +97,8 @@
             class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
         >
           <div class="flex items-center">
-            <div class="item-icon" :style="'background-image: url(' + icon(comp.c) + ')'"></div>
+            <item-icon :id="comp.c"></item-icon>
+
             <router-link :to="`${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
           </div>
           <div>{{ comp.q }}</div>
@@ -140,12 +142,14 @@
 import store from '@/store';
 import Algo from '@/algo';
 import util from '@/util';
+import ItemIcon from '@/components/ItemIcon.vue';
 import ItemMenu from '@/components/ItemMenu.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Details',
   components: {
+    ItemIcon,
     ItemMenu,
     VIcon,
   },

@@ -4,7 +4,7 @@
 >
   <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
       <div class="flex items-center w-1/2">
-        <div class="item-icon" :style="'background-image: url(' + icon(id) + ')'"></div>
+        <item-icon :id="id"></item-icon>
 
         <div class="relative flex flex-col ml-4 -my-2">
           <router-link :to="`/${domain}/i/${id}`" class="my-1">{{ pretty(id) }}</router-link>
@@ -55,11 +55,13 @@
 
 <script>
 import util from '@/util';
+import ItemIcon from '@/components/ItemIcon.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'InventoryItem',
   components: {
+    ItemIcon,
     VIcon,
   },
   props: {

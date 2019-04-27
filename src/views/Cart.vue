@@ -47,7 +47,8 @@
           class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light hover:bg-blue-darker"
         >
           <div class="flex items-center">
-            <div class="item-icon" :style="'background-image: url(' + icon(comp.c) + ')'"></div>
+            <item-icon :id="comp.c"></item-icon>
+
             <router-link :to="`/${domain}/i/${comp.c}`" class="ml-4">{{ pretty(comp.c) }}</router-link>
           </div>
           <div>{{ comp.q }}</div>
@@ -56,7 +57,7 @@
 
     </div>
 
-    <div class="flex flex-col" v-else>
+    <div class="flex flex-col text-center" v-else>
       Your cart is empty.
     </div>
 
@@ -69,6 +70,7 @@ import util from '@/util';
 import Algo from '@/algo';
 import CartItem from '@/components/CartItem.vue';
 import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
+import ItemIcon from '@/components/ItemIcon.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
@@ -76,6 +78,7 @@ export default {
   components: {
     CartItem,
     EmptyCartOrInventory,
+    ItemIcon,
     VIcon,
   },
   data: () => ({

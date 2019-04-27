@@ -25,7 +25,7 @@
       ></inventory>
     </div>
 
-    <div class="flex flex-col" v-else>
+    <div class="flex flex-col text-center" v-else>
       You don't have items in inventories yet.
     </div>
 
