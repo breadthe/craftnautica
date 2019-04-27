@@ -9,10 +9,8 @@
           :to="{name: domain + 'details', params: { id }}"
           class="flex items-center text-blue-darkest hover:text-grey-light"
       >
-        <div
-          class="item-icon--sm border border-blue-light mr-2"
-          :style="'background-image: url(' + icon(id) + ')'"
-        ></div>
+        <item-icon small :id="id"></item-icon>
+
         {{ pretty(id) }}
       </router-link>
 
@@ -48,12 +46,14 @@
 <script>
 import util from '@/util';
 import AddToInventory from '@/components/AddToInventory.vue';
+import ItemIcon from '@/components/ItemIcon.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'ItemMenu',
   components: {
     AddToInventory,
+    ItemIcon,
     VIcon,
   },
   props: {
