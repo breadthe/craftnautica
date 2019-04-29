@@ -18,7 +18,33 @@ const filterByType = (items, type) => fromEntries(Object.entries(items)
 
 const formatType = type => type.split('.').join(' > ').split('_').join(' ');
 
+// Returns an item's recipe
 const recipe = (item, items) => items[item].m || [];
+
+/**
+ * Gets all the recipes that the item is used in, with quantity
+ * usedIn('Some_Item', itemsSn) -> [{ c: 'Recipe_1', q: 3 }, { c: 'Recipe_2', q: 5 }]
+ */
+const usedIn = (item, items) => {
+  const arr = [];
+
+  Object.entries(items).forEach((entries) => {
+    const mats = entries[1].m;
+
+    if (mats) { // Make sure it's a recipe
+      mats.forEach((mat) => { // Loop thru all the mats and
+        if (mat.c === item) {
+          arr.push({
+            c: entries[0],
+            q: mat.q,
+          });
+        }
+      });
+    }
+  });
+
+  return arr;
+};
 
 const search = (items, srcStr) => fromEntries(Object.entries(items)
   .filter(i => formatType(i[0]).match(new RegExp(srcStr, 'ig')) || formatType(i[1].t).match(new RegExp(srcStr, 'ig'))));
@@ -54,5 +80,5 @@ const validatedQty = (quantity) => {
 };
 
 export default {
-  id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe, validatedQty,
+  id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe, usedIn, validatedQty,
 };
