@@ -76,6 +76,11 @@
       <components-list :domain="domain" title="Base Components" :list="components"></components-list>
     </div>
 
+    <!-- ============= Used In ============= -->
+    <div v-if="usedIn.length">
+      <components-list :domain="domain" title="Used In" :list="usedIn"></components-list>
+    </div>
+
     <!-- ============= Inventories containing this item ============= -->
     <div v-if="qtyInInventories.length" class="mt-8">
       <div class="flex items-center justify-between border-b border-grey-darkest py-2">
@@ -147,6 +152,9 @@ export default {
     },
     components: function () {
       return (new Algo(this.items)).listOfMaterials(this.id);
+    },
+    usedIn: function () {
+      return util.usedIn(this.id, this.items);
     },
   },
   methods: {
