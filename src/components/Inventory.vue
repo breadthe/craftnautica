@@ -22,20 +22,9 @@
       <p v-if="confirmDeleteInventory" class="flex items-center">
         Are you sure?
 
-        <button
-            @click="confirmDeleteInventory = false"
-            class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mx-4"
-        >
-          Cancel
-        </button>
+        <v-button link @click="confirmDeleteInventory = false">Cancel</v-button>
 
-        <button
-            @click="deleteInventory"
-            class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue mx-4"
-        >
-          <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-          Yes, Delete {{ inventory }}
-        </button>
+        <v-button icon="trash-2" @click="deleteInventory">Yes, Delete {{ inventory }}</v-button>
 
       </p>
       <p v-else>
@@ -49,14 +38,14 @@
 <script>
 import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
 import InventoryItem from '@/components/InventoryItem.vue';
-import VIcon from '@/components/VIcon.vue';
+import VButton from '@/components/VButton.vue';
 
 export default {
   name: 'Inventory',
   components: {
     EmptyCartOrInventory,
     InventoryItem,
-    VIcon,
+    VButton,
   },
   props: {
     inventory: {

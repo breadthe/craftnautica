@@ -47,20 +47,11 @@
         </button>
       </div>
       <div v-show="confirmDelete" class="flex flex-grow items-center justify-end mx-auto sm:mx-0 mt-2 sm:mt-0">
-          <span class="mr-2">Are you sure?</span>
-          <button
-              @click="confirmDelete = false"
-              class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mr-2"
-          >
-            Cancel
-          </button>
-          <button
-              @click="deleteItem"
-              class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-          >
-            <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-            &nbsp;Delete
-          </button>
+          Are you sure?
+
+          <v-button link @click="confirmDelete = false">Cancel</v-button>
+
+          <v-button icon="trash-2" @click="deleteItem">Delete</v-button>
       </div>
 
     </div>
@@ -71,12 +62,14 @@
 <script>
 import util from '@/util';
 import ItemIcon from '@/components/ItemIcon.vue';
+import VButton from '@/components/VButton.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'InventoryItem',
   components: {
     ItemIcon,
+    VButton,
     VIcon,
   },
   props: {

@@ -1,37 +1,23 @@
 <template>
   <div v-if="confirmEmpty" class="flex items-center justify-end mt-4">
-    <span class="mr-2">Are you sure?</span>
-    <button
-      @click="confirmEmpty = false"
-      class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mr-2"
-    >
-      Cancel
-    </button>
-    <button
-      @click="emptyIt"
-      class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-    >
-      <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-      &nbsp;Yes, Empty It
-    </button>
+    Are you sure?
+
+    <v-button link @click="confirmEmpty = false">Cancel</v-button>
+
+    <v-button icon="trash-2" @click="emptyIt">Yes, Empty It</v-button>
   </div>
+
   <div v-else class="flex justify-end mt-4">
-    <button
-      @click="confirmEmpty = true"
-      class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
-    >
-      <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
-      &nbsp;Empty {{ what }}
-    </button>
+    <v-button icon="trash-2" @click="confirmEmpty = true">Empty {{ what }}</v-button>
   </div>
 </template>
 
 <script>
-import VIcon from '@/components/VIcon.vue';
+import VButton from '@/components/VButton.vue';
 
 export default {
   components: {
-    VIcon,
+    VButton,
   },
   props: {
     what: {
