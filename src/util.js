@@ -2,6 +2,8 @@ import fromEntries from 'object.fromentries';
 
 // TODO: test coverage
 
+const defaultInventories = ['Lifepod', 'Seamoth', 'Cyclops', 'Prawn'];
+
 const id = item => Object.keys(item)[0]; // {'Copper_Ore': 2} -> Copper_Ore
 
 const icon = item => `/img/items/${item}.png`;
@@ -79,6 +81,8 @@ const validatedQty = (quantity) => {
   return qty;
 };
 
+const isDefaultInventory = inventory => defaultInventories.indexOf(inventory) >= 0;
+
 export default {
-  id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe, usedIn, validatedQty,
+  defaultInventories, id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe, usedIn, validatedQty, isDefaultInventory,
 };

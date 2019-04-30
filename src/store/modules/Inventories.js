@@ -65,7 +65,7 @@ const mutations = {
     }
 
     // Delete default inventory from permanent storage if it is empty
-    if (['Lifepod', 'Seamoth', 'Cyclops', 'Prawn'].indexOf(inventory) > -1 && !Object.keys(inv).length) {
+    if (util.isDefaultInventory(inventory) && !Object.keys(inv).length) {
       delete domainInventories[inventory];
     } else {
       domainInventories[inventory] = inv; // replace the domain inventory with the modified inventory
@@ -118,13 +118,15 @@ const getters = {
    * List of inventories per domain
    */
   inventoriesList: state => (domain) => {
-    const defaultInventories = ['Lifepod', 'Seamoth', 'Cyclops', 'Prawn']; // Merge default inventories...
+    // Merge default inventories...
+
+    // ... with user-created ones
     const domainInventories = typeof state.inventories[domain] !== 'undefined'
-      ? Object.keys(state.inventories[domain]).sort() // ... with user-created ones
+      ? Object.keys(state.inventories[domain]).sort()
       : [];
 
     // Ensure default inventories are always at the top of the list
-    return Array.from(new Set([...defaultInventories, ...domainInventories]));
+    return Array.from(new Set([...util.defaultInventories, ...domainInventories]));
   },
 
   /**
