@@ -81,7 +81,7 @@ const validatedQty = (quantity) => {
   return qty;
 };
 
-const isDefaultInventory = inventory => defaultInventories.indexOf(inventory) >= 0;
+const isDefaultInventory = inventory => !defaultInventories.every(inv => inv.toUpperCase() !== inventory.toUpperCase());
 
 export default {
   defaultInventories, id, icon, pretty, types, filterByType, search, fullDomainName, formatType, recipe, usedIn, validatedQty, isDefaultInventory,
