@@ -2,14 +2,14 @@
 <section
     class="flex flex-col hover:bg-blue-darker -mx-4 px-4"
 >
-  <div class="flex justify-between items-center my-2 -mx-2 p-2 text-lg font-light">
-      <router-link :to="`/${domain}/i/${id}`" class="flex items-center w-1/2">
+  <div class="flex flex-wrap sm:flex-nowrap justify-between items-center my-2 -mx-2 p-2 font-light">
+      <router-link :to="`/${domain}/i/${id}`" class="flex items-center w-1/2 text-lg">
         <item-icon :id="id" class="mr-4"></item-icon>
 
         {{ pretty(id) }}
       </router-link>
 
-      <div class="flex items-center justify-end w-1/4">
+      <div v-show="!confirmDelete" class="flex items-center justify-end w-1/4">
 
         <div v-if="qty(item) > 1" class="w-12 flex justify-center mr-1">
           <button @click="decrementQty()" class="flex">
@@ -41,11 +41,28 @@
         </div>
       </div>
 
-      <div class="flex items-center">
-        <button @click="deleteItem()" class="flex ml-4">
+      <div v-show="!confirmDelete" class="flex items-center">
+        <button @click="confirmDelete = true" class="flex ml-4">
           <v-icon icon="x-circle" color="blue-dark" class=""></v-icon>
         </button>
       </div>
+      <div v-show="confirmDelete" class="flex flex-grow items-center justify-end mx-auto sm:mx-0 mt-2 sm:mt-0">
+          <span class="mr-2">Are you sure?</span>
+          <button
+              @click="confirmDelete = false"
+              class="flex items-center text-blue-dark p-2 hover:border-b hover:border-blue-dark mr-2"
+          >
+            Cancel
+          </button>
+          <button
+              @click="deleteItem"
+              class="flex items-center text-blue-dark border border-blue p-2 rounded hover:bg-blue"
+          >
+            <v-icon icon="trash-2" color="blue-dark" class="mr-2"></v-icon>
+            &nbsp;Delete
+          </button>
+      </div>
+
     </div>
 
 </section>
@@ -80,6 +97,7 @@ export default {
       icon: util.icon,
       validatedQty: util.validatedQty,
       quantity: this.qty(this.item),
+      confirmDelete: false,
     };
   },
   computed: {
