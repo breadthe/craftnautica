@@ -9,14 +9,14 @@
           v-for="inventory in inventoriesList"
           :key="inventory"
           @click="openAddingToInventory(inventory)"
-          class="menu-entry"
+          class="menu-entry justify-between"
       >
         {{ inventory }}
 
         <small
             v-if="itemCountInInventory(inventory)"
             v-html="`(${itemCountInInventory(inventory)})`"
-            class="text-blue-light font-bold ml-1"
+            class="text-blue-light font-bold mr-2"
         ></small>
       </div>
     </div>
