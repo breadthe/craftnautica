@@ -24,6 +24,7 @@ import VChevronDown from '@/components/icons/VChevronDown.vue';
 import VChevronLeft from '@/components/icons/VChevronLeft.vue';
 import VChevronRight from '@/components/icons/VChevronRight.vue';
 import VChevronUp from '@/components/icons/VChevronUp.vue';
+import VEdit from '@/components/icons/VEdit.vue';
 import VExternalLink from '@/components/icons/VExternalLink.vue';
 import VFolderPlus from '@/components/icons/VFolderPlus.vue';
 import VGithub from '@/components/icons/VGithub.vue';
@@ -45,6 +46,7 @@ export default {
     VChevronLeft,
     VChevronRight,
     VChevronUp,
+    VEdit,
     VExternalLink,
     VFolderPlus,
     VGithub,
