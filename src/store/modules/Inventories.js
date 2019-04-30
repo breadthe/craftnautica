@@ -95,6 +95,32 @@ const mutations = {
 
     state.inventories = inventories.get();
   },
+
+  /**
+   * Renames a custom inventory
+   */
+  RENAME_INVENTORY(state, obj) {
+    const { domain, oldInventoryName, newInventoryName } = { ...obj };
+
+    const inventories = new Inventories();
+    const domainInventories = inventories.get(domain);
+
+    // prevent naming to an existing inventory name, to a default inventory name, or to a default inventory
+    if (typeof domainInventories[newInventoryName] === 'undefined'
+      && !util.isDefaultInventory(oldInventoryName)
+      && !util.isDefaultInventory(newInventoryName)
+    ) {
+      // next 2 lines could probably be accomplished better
+      domainInventories[newInventoryName] = domainInventories[oldInventoryName];
+      delete domainInventories[oldInventoryName];
+
+      state.inventories[domain] = { ...domainInventories };
+
+      inventories.set(state.inventories);
+
+      state.inventories = inventories.get();
+    }
+  },
 };
 
 const actions = {
@@ -107,12 +133,14 @@ const actions = {
   deleteInventory({ commit }, obj) {
     commit('DELETE_INVENTORY', obj);
   },
+  renameInventory({ commit }, obj) {
+    commit('RENAME_INVENTORY', obj);
+  },
 };
 
 const getters = {
 
   domainInventories: state => domain => state.inventories[domain] || {},
-  inventoryItems: state => (domain, inventory) => state.inventories[domain][inventory] || [],
 
   /**
    * List of inventories per domain
@@ -162,18 +190,19 @@ const getters = {
       return arr;
     }
 
-    Object.entries(domainInventories).forEach((inventory) => {
-      const itemsInInventory = Object.entries(inventory[1]); // all the items in the inventory being iterated over
+    Object.entries(domainInventories)
+      .forEach((inventory) => {
+        const itemsInInventory = Object.entries(inventory[1]); // all the items in the inventory being iterated over
 
-      itemsInInventory.forEach((item) => {
-        if (item[0] === id) {
-          arr.push({
-            i: inventory[0],
-            q: item[1],
-          });
-        }
+        itemsInInventory.forEach((item) => {
+          if (item[0] === id) {
+            arr.push({
+              i: inventory[0],
+              q: item[1],
+            });
+          }
+        });
       });
-    });
 
     return arr;
   },

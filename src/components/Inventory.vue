@@ -1,6 +1,32 @@
 <template>
   <section class="mx-4 my-8">
-    <h3 class="border-b border-grey-darkest py-2">{{ inventory }}</h3>
+    <h3
+        v-if="!renamingInventory"
+        @click="!isDefaultInventory ? renamingInventory = true : null"
+        class="flex items-center border-b border-grey-darkest py-2"
+    >
+      {{ inventory }}
+
+      <button v-if="!isDefaultInventory" @click="renamingInventory = true" class="flex ml-2">
+        <v-icon icon="edit" color="blue-dark"></v-icon>
+      </button>
+    </h3>
+    <div v-if="renamingInventory" class="flex items-center border-b border-grey-darkest py-2">
+      <input
+          v-focus
+          v-select
+          ref="inventoryName"
+          name="inventoryName"
+          type="text"
+          v-model="newInventoryName"
+          @keyup.enter="renameInventory"
+          class="p-2"
+      >
+
+      <v-button link @click="renamingInventory = false">Cancel</v-button>
+
+      <v-button @click="renameInventory">Save</v-button>
+    </div>
 
     <div v-if="Object.keys(items).length">
       <inventory-item
@@ -36,9 +62,11 @@
 </template>
 
 <script>
+import util from '@/util';
 import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
 import InventoryItem from '@/components/InventoryItem.vue';
 import VButton from '@/components/VButton.vue';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   name: 'Inventory',
@@ -46,6 +74,7 @@ export default {
     EmptyCartOrInventory,
     InventoryItem,
     VButton,
+    VIcon,
   },
   props: {
     inventory: {
@@ -59,16 +88,26 @@ export default {
       default: () => {},
     },
   },
-  data: () => ({
+  data: vm => ({
     confirmEmptyInventory: false,
     confirmDeleteInventory: false,
+    renamingInventory: false,
+    newInventoryName: vm.inventory,
   }),
   computed: {
     domain: vm => vm.$route.name.replace(/inventories/, ''), // strip out "inventories" from "sncart"
+    isDefaultInventory: function () {
+      return util.isDefaultInventory(this.inventory);
+    },
   },
   methods: {
     deleteInventory: function () {
       this.$store.dispatch('deleteInventory', { domain: this.domain, inventory: this.inventory });
+    },
+    renameInventory: function () {
+      this.$store.dispatch('renameInventory', { domain: this.domain, oldInventoryName: this.inventory, newInventoryName: this.newInventoryName });
+      this.renamingInventory = false;
+      this.newInventoryName = this.inventory;
     },
   },
 };
