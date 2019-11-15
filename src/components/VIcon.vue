@@ -24,6 +24,7 @@ import VChevronDown from '@/components/icons/VChevronDown.vue';
 import VChevronLeft from '@/components/icons/VChevronLeft.vue';
 import VChevronRight from '@/components/icons/VChevronRight.vue';
 import VChevronUp from '@/components/icons/VChevronUp.vue';
+import VDownload from '@/components/icons/VDownload.vue';
 import VEdit from '@/components/icons/VEdit.vue';
 import VExternalLink from '@/components/icons/VExternalLink.vue';
 import VFolderPlus from '@/components/icons/VFolderPlus.vue';
@@ -34,8 +35,10 @@ import VMinusCircle from '@/components/icons/VMinusCircle.vue';
 import VPlus from '@/components/icons/VPlus.vue';
 import VPlusCircle from '@/components/icons/VPlusCircle.vue';
 import VSearch from '@/components/icons/VSearch.vue';
+import VSettings from '@/components/icons/VSettings.vue';
 import VShoppingCart from '@/components/icons/VShoppingCart.vue';
 import VTrash2 from '@/components/icons/VTrash2.vue';
+import VUpload from '@/components/icons/VUpload.vue';
 import VX from '@/components/icons/VX.vue';
 import VXCircle from '@/components/icons/VXCircle.vue';
 
@@ -46,6 +49,7 @@ export default {
     VChevronLeft,
     VChevronRight,
     VChevronUp,
+    VDownload,
     VEdit,
     VExternalLink,
     VFolderPlus,
@@ -56,8 +60,10 @@ export default {
     VPlus,
     VPlusCircle,
     VSearch,
+    VSettings,
     VShoppingCart,
     VTrash2,
+    VUpload,
     VX,
     VXCircle,
   },

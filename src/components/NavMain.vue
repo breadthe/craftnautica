@@ -64,6 +64,15 @@
             {{ cartCount }}
           </span>
         </router-link>
+
+        <!-- Settings -->
+        <router-link
+          to='/settings'
+          class="flex items-center ml-4 sm:ml-8"
+        >
+          <v-icon icon="settings" color="blue-dark" title="Settings"></v-icon>
+        </router-link>
+
       </div>
 
     </div>
