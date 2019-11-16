@@ -1,13 +1,16 @@
 <template>
-  <section>
-    <h2>Export</h2>
-    <p>You can export your <strong>Cart</strong> and <strong>Inventory</strong> in JSON format and then restore them from the saved backup.</p>
-    <p>The file is saved to your default Downloads directory.</p>
+  <section class="border-b border-grey-darkest flex flex-col sm:flex-row my-8 pb-8">
+    <h2 class="w-full sm:w-1/6">Export</h2>
 
-    <button class="flex items-center text-blue-dark p-2 border border-blue rounded hover:bg-blue" @click.stop="exportData()">
-      <v-icon icon="download" color="blue-dark" title="Export all data" class="mr-2"></v-icon>
-      Export
-    </button>
+    <div class="w-full sm:w-5/6">
+      <p class="mb-4 mt-4 sm:mt-0">You can export your <strong>Cart</strong> and <strong>Inventory</strong> in JSON format and then restore them from the saved backup.</p>
+      <p class="mb-4">The file is saved to your default Downloads directory.</p>
+
+      <button class="flex items-center text-blue-dark p-2 border border-blue rounded hover:bg-blue" @click.stop="exportData()">
+        <v-icon icon="download" color="blue-dark" title="Export all data" class="mr-2"></v-icon>
+        Export
+      </button>
+    </div>
   </section>
 </template>
 
@@ -45,7 +48,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-</style>

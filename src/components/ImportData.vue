@@ -1,67 +1,72 @@
 <template>
-  <section>
-    <h2>Import</h2>
-    <p>Import a previously saved JSON export of your data.</p>
-    <p class="text-red">This will overwrite your existing <strong>Cart</strong> and <strong>Inventory</strong>!</p>
+  <section class="border-b border-grey-darkest flex flex-col sm:flex-row my-8 pb-8">
+    <h2 class="w-full sm:w-1/6">Import</h2>
 
-    <form id="fileImportForm">
-      <label
-        for="fileUploader"
-        class="relative flex flex-col justify-center items-center mt-2 sm:mt-0 p-8 sm:p-4 border-2 rounded border-dashed w-full font-light text-lg text-center"
-        :class="{
+    <div class="w-full sm:w-5/6">
+      <p class="mb-4 mt-4 sm:mt-0">Import a previously saved JSON export of your data.</p>
+      <p class="mb-4 text-red">This will overwrite your existing <strong>Cart</strong> and <strong>Inventory</strong>!</p>
+
+      <form id="fileImportForm" v-show="!restoreConfirm">
+        <label
+          for="fileUploader"
+          class="relative flex flex-col justify-center items-center mt-2 sm:mt-0 p-8 sm:p-4 border-2 rounded border-dashed w-full font-light text-lg text-center"
+          :class="{
                     'border-red bg-red': error,
                     'border-blue-dark bg-blue-dark': draggingOver,
                     'border-blue-dark bg-blue-darker': !draggingOver,
                 }"
-      >
-        <input
-          id="fileUploader"
-          name=""
-          type="file"
-          alt="Image upload"
-          @change="readFile($event)"
-          @dragenter="onDragenter"
-          @dragleave="onDragleave"
-          @drop="onDrop"
-          class="absolute w-full inset-0 opacity-0 bg-green-100"
         >
-      </label>
-    </form>
+          <span class="font-bold mb-4">Upload a file by clicking or dragging here</span>
+          <span><strong>.json</strong> files only</span>
 
-    <div class="notification is-info" v-if="restoreMsg">
-      <button class="delete" @click="restoreMsg = null"></button>
-      <p>{{ restoreMsg }}</p>
-    </div>
+          <input
+            id="fileUploader"
+            name=""
+            type="file"
+            alt="Image upload"
+            @change="readFile($event)"
+            @dragenter="onDragenter"
+            @dragleave="onDragleave"
+            @drop="onDrop"
+            class="absolute w-full inset-0 opacity-0 bg-green-100"
+          >
+        </label>
+      </form>
 
-    <!--  Restore confirmation  -->
-    <section v-if="restoreConfirm">
-      <div class="flex flex-col max-w-sm mx-auto my-4 bg-blue-darker p-4 rounded">
-        <p>Are you sure you want to restore the following data?</p>
+      <div class="notification is-info" v-if="restoreMsg">
+        <button class="delete" @click="restoreMsg = null"></button>
+        <p>{{ restoreMsg }}</p>
+      </div>
 
-        <div class="flex flex-row justify-between mt-4">
-          <button class="flex items-center text-blue-dark p-2" @click.stop="cancelImport()">
-            <v-icon icon="x" color="blue-dark" title="Cancel restore data" class="mr-2"></v-icon>
-            Cancel
-          </button>
+      <!--  Restore confirmation  -->
+      <section v-if="restoreConfirm">
+        <div class="flex flex-col max-w-sm mx-auto my-4 mt-8 bg-blue-darker p-4 rounded">
+          <p>Are you sure you want to restore the following data?</p>
 
-          <button class="flex items-center text-blue-dark p-2 border border-blue rounded hover:bg-blue" @click.stop="restoreData()">
-            <v-icon icon="upload" color="blue-dark" title="Restore data" class="mr-2"></v-icon>
-            Restore
-          </button>
+          <div class="flex flex-row justify-between mt-4">
+            <button class="flex items-center text-blue-dark p-2" @click.stop="cancelImport()">
+              <v-icon icon="x" color="blue-dark" title="Cancel restore data" class="mr-2"></v-icon>
+              Cancel
+            </button>
+
+            <button class="flex items-center text-blue-dark p-2 border border-blue rounded hover:bg-blue" @click.stop="restoreData()">
+              <v-icon icon="upload" color="blue-dark" title="Restore data" class="mr-2"></v-icon>
+              Restore
+            </button>
+          </div>
         </div>
-      </div>
 
-      <h2>Cart</h2>
-      <div class="bg-blue-darker p-4 shadow-inner rounded overflow-auto font-mono max-w-full sm:mx-0 mx-4">
-        {{ importedData.cart }}
-      </div>
+        <h2 class="mt-8 p-4 bg-blue-darker rounded rounded-b-none border-b border-blue-darkest">Cart</h2>
+        <div class="bg-blue-darker p-4 shadow-inner rounded rounded-t-none overflow-auto font-mono max-w-full">
+          {{ importedData.cart }}
+        </div>
 
-      <h2>Inventory</h2>
-      <div class="bg-blue-darker p-4 shadow-inner rounded overflow-auto font-mono max-w-full sm:mx-0 mx-4">
-        {{ importedData.inventory }}
-      </div>
-    </section>
-
+        <h2 class="mt-8 p-4 bg-blue-darker rounded rounded-b-none border-b border-blue-darkest">Inventory</h2>
+        <div class="bg-blue-darker p-4 shadow-inner rounded rounded-t-none overflow-auto font-mono max-w-full">
+          {{ importedData.inventory }}
+        </div>
+      </section>
+    </div>
   </section>
 </template>
 
@@ -148,7 +153,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-</style>

@@ -1,6 +1,6 @@
 <template>
-  <main class="container mx-4 sm:mx-auto mt-4">
-    <h1>Settings</h1>
+  <main class="container mx-0 sm:mx-auto px-4 sm:px-0 mt-4">
+    <h1><v-icon icon="settings" title="Settings" class="mr-4"></v-icon>Settings</h1>
 
     <export-data></export-data>
 
@@ -12,11 +12,13 @@
 <script>
 import ExportData from '@/components/ExportData.vue';
 import ImportData from '@/components/ImportData.vue';
+import VIcon from '@/components/VIcon.vue';
 
 export default {
   components: {
     ExportData,
     ImportData,
+    VIcon,
   },
 };
 </script>
