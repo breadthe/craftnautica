@@ -19,8 +19,26 @@
       <p class="text-red">This will overwrite your existing <strong>Cart</strong> and <strong>Inventory</strong>!</p>
 
       <form id="fileImportForm">
-        <label for="import">
-          <input id="import" class="file-input" type="file" name="import" @change="readFile($event)">
+        <label
+          for="fileUploader"
+          class="relative flex flex-col justify-center items-center mt-2 sm:mt-0 p-8 sm:p-4 border-2 rounded border-dashed w-full font-light text-lg text-center"
+          :class="{
+                    'border-red bg-red': error,
+                    'border-blue-dark bg-blue-dark': draggingOver,
+                    'border-blue-dark bg-blue-darker': !draggingOver,
+                }"
+        >
+          <input
+            id="fileUploader"
+            name=""
+            type="file"
+            alt="Image upload"
+            @change="readFile($event)"
+            @dragenter="onDragenter"
+            @dragleave="onDragleave"
+            @drop="onDrop"
+            class="absolute w-full inset-0 opacity-0 bg-green-100"
+          >
         </label>
       </form>
 
@@ -36,7 +54,7 @@
         <p>Are you sure you want to restore the following data?</p>
 
         <div class="flex flex-row justify-between mt-4">
-          <button class="flex items-center text-blue-dark p-2" @click.stop="cancelRestoreData()">
+          <button class="flex items-center text-blue-dark p-2" @click.stop="cancelImport()">
             <v-icon icon="x" color="blue-dark" title="Cancel restore data" class="mr-2"></v-icon>
             Cancel
           </button>
@@ -79,6 +97,8 @@ export default {
       importedData: null,
       restoreConfirm: false,
       restoreMsg: null,
+      error: null,
+      draggingOver: false,
     };
   },
   methods: {
@@ -119,6 +139,7 @@ export default {
       this.restoreMsg = 'Data restored successfully';
       this.restoreConfirm = false;
       this.resetImportedData();
+      setTimeout(() => { this.restoreMsg = null; }, 5000);
     },
     async readFile($event) { // async
       const file = $event.target.files[0];
@@ -144,12 +165,25 @@ export default {
     showImportedData() {
       this.restoreConfirm = true;
     },
-    resetImportedData: function () {
+    resetImportedData() {
       // Reset the file input explicitly; simply clearing the data won't reset it properly
       document.getElementById('fileImportForm').reset();
       this.importedFileName = '';
       this.importedData = null;
-      setTimeout(() => { this.restoreMsg = null; }, 5000);
+    },
+    cancelImport() {
+      this.restoreConfirm = false;
+      this.resetImportedData();
+    },
+    onDragenter: function (e) {
+      this.draggingOver = true;
+    },
+    onDragleave: function (e) {
+      this.draggingOver = false;
+    },
+    onDrop: function (e) {
+      this.draggingOver = false;
+      this.error = null;
     },
   },
 };
