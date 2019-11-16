@@ -6,7 +6,7 @@
       <p class="mb-4 mt-4 sm:mt-0">Import a previously saved JSON export of your data.</p>
       <p class="mb-4 text-red">This will overwrite your existing <strong>Cart</strong> and <strong>Inventory</strong>!</p>
 
-      <form id="fileImportForm" v-show="!restoreConfirm">
+      <form id="fileImportForm" v-show="!restoreConfirm && !restoredSuccessfully">
         <label
           for="fileUploader"
           class="relative flex flex-col justify-center items-center mt-2 sm:mt-0 p-8 sm:p-4 border-2 rounded border-dashed w-full font-light text-lg text-center"
@@ -33,9 +33,11 @@
         </label>
       </form>
 
-      <div class="notification is-info" v-if="restoreMsg">
-        <button class="delete" @click="restoreMsg = null"></button>
-        <p>{{ restoreMsg }}</p>
+      <div
+        v-if="restoredSuccessfully"
+        class="mt-2 sm:mt-0 p-4 border-2 rounded border-dashed w-full font-light text-center text-2xl bg-green-darkest border-green-darker text-green-lightest"
+      >
+        Data restored successfully!
       </div>
 
       <!--  Restore confirmation  -->
@@ -84,7 +86,7 @@ export default {
       importedFileName: '',
       importedData: null,
       restoreConfirm: false,
-      restoreMsg: null,
+      restoredSuccessfully: false,
       error: null,
       draggingOver: false,
     };
@@ -101,14 +103,15 @@ export default {
       inventories.set(JSON.parse(this.importedData.inventory));
       this.$store.commit('INIT_INVENTORIES');
 
-      this.restoreMsg = 'Data restored successfully';
+      this.restoredSuccessfully = true;
       this.restoreConfirm = false;
       this.resetImportedData();
-      setTimeout(() => { this.restoreMsg = null; }, 5000);
+      setTimeout(() => { this.restoredSuccessfully = false; }, 5000);
     },
     async readFile($event) { // async
       const file = $event.target.files[0];
-      if (file) {
+
+      if (file && file.type === 'application/json') {
         this.importedFileName = file.name;
         const reader = new FileReader();
 
