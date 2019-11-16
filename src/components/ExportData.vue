@@ -12,32 +12,22 @@
 </template>
 
 <script>
-import Cart from '@/cart';
-import Inventories from '@/inventories';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
   components: {
     VIcon,
   },
-  props: {
-  },
-  data: vm => ({
-  }),
   computed: {
+    filename() {
+      const date = new Date();
+      const now = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}T${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+
+      return `craftnautica-data_${now}.json`;
+    },
   },
   methods: {
     exportData: function () {
-      const now = (new Date()).toLocaleString('en-US', {
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour12: false,
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-      });
-      const filename = `craftnautica-data_${now.replace(/\/|,|\s|:/gi, '-')}.json`; // 'YYYY-MM-DD_HH.mm.ss'
       const exportStr = JSON.stringify({
         cart: window.localStorage.getItem('cart'),
         inventory: window.localStorage.getItem('inventory'),
@@ -47,7 +37,7 @@ export default {
       const link = document.createElement('a');
       link.href = dataUri;
       link.style = 'visibility:hidden';
-      link.download = filename;
+      link.download = this.filename;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
