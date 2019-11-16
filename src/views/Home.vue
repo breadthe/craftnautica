@@ -1,57 +1,68 @@
 <template>
   <main class="container mx-auto p-4">
 
-    <div class="max-w-lg mx-auto mt-4 text-xl leading-normal">
+    <section class="text-xl mx-auto mt-4 leading-normal">
       <h1>Craftnautica</h1>
-      <h2 class="text-blue font-light mb-4">The Subnautica and Subnautica: Below Zero crafting helper tool.</h2>
+      <h2 class="text-blue font-light">The Subnautica and Subnautica: Below Zero crafting helper tool.</h2>
 
-      <p>
+      <p class="mt-4">
         Welcome to <span class="font-bold">Craftnautica</span>! After crashing-landing on 4546B you've had your work cut out for you, so why not enjoy a respite with our crafting helper?
       </p>
 
-      <ul class="features">
-        <li class="f1">Quickly search a raw material or crafted item.</li>
-        <li class="f2">See at a glance the total amount of base components required to craft it.</li>
-        <li class="f3">Create a shopping list of crafted items and see a grand total of all the raw materials required! 🔥 Useful when building a new base!</li>
-        <li class="f6">Individual shopping lists for Subnautica and Below Zero.</li>
-        <li class="f4">Manage your inventory by defining storage locations and assigning items and quantities. No more trying to remember "Uh how much Silver Ore do I have in my Lifepod?".</li>
-        <li class="f7"><small class="text-xs border border-blue-dark rounded p-1 mr-2">SOON</small> Backup your data by exporting it in CSV format, and restore it later.</li>
-        <li class="f5">And more...</li>
-      </ul>
-
-      <p class="">
+      <p class="mt-4">
         Pick a game to get started!
       </p>
-    </div>
+    </section>
 
-    <div class="flex flex-col justify-center max-w-sm mx-auto mt-4">
-      <!--<Dashboard/>-->
-      <router-link
+    <!-- Select game -->
+    <section class="flex justify-around flex-col sm:flex-row mx-auto mt-4">
+        <router-link
           to="/sn"
-          class="flex flex-col text-center p-8 m-8 border border-blue-dark rounded hover:border-blue-dark hover:bg-blue-darker hover:text-blue-light"
-      >
-        <h1 class="font-light text-3xl">Subnautica</h1>
-        <span class="mt-2 text-blue-dark">The original game</span>
-      </router-link>
-      <router-link
+          class="flex flex-col sm:w-1/2 text-center p-8 m-4 sm:m-8 border border-blue-dark rounded hover:border-blue-dark hover:bg-blue-darker hover:text-blue-light"
+        >
+          <h1 class="font-light text-3xl">Subnautica</h1>
+          <span class="mt-2 text-xl text-blue-dark">The original game</span>
+        </router-link>
+        <router-link
           to="/bz"
-          class="flex flex-col text-center p-8 m-8 border border-blue-dark rounded hover:border-blue-dark hover:bg-blue-darker hover:text-blue-light"
-      >
-        <h1 class="font-light text-3xl">Below Zero</h1>
-        <span class="mt-2 text-blue-dark">The upcoming expansion</span>
-      </router-link>
-    </div>
+          class="flex flex-col sm:w-1/2 text-center p-8 m-4 sm:m-8 border border-blue-dark rounded hover:border-blue-dark hover:bg-blue-darker hover:text-blue-light"
+        >
+          <h1 class="font-light text-3xl">Below Zero</h1>
+          <span class="mt-2 text-xl text-blue-dark">The upcoming expansion</span>
+        </router-link>
+    </section>
 
-    <div class="flex flex-col justify-center max-w-lg mx-auto text-xl border border-red-darkest text-red-darkest bg-pink-light rounded p-4 mt-8 leading-normal">
-      <h3>Known Issues</h3>
-      <ul class="text-lg">
-        <li>Most <strong>Below Zero</strong> items are missing. Not my main focus at the moment as the expansion is in flux, but I will continue to add them slowly, time permitting.</li>
-        <li>All items appear on one page. Currently brainstorming better ways to organize them but in the meantime the search works great. <strong>Tip:</strong> press "/" to focus the searchbar and start typing quickly.</li>
-        <li>Upgrade recipes requiring an existing piece of equipment or module (such as vehicle depth modules, or oxygen tanks) will break down the components all the way down to the raw materials instead of showing the item that is upgraded as a component. Not a huge deal. Worst case is that you will have some extra raw mats left. It's on my to-do list but not a major priority.</li>
-        <li>Some quirks/bugs in mobile browsers.</li>
-      </ul>
-    </div>
-
+    <!--  Features  -->
+    <section class="features flex flex-wrap justify-around">
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f1 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Items database</span></dt>
+          <dd class="ml-12 text-xl leading-normal">Quickly search a raw material or crafted item.</dd>
+        </dl>
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f2 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Component tree</span></dt>
+          <dd class="ml-12 text-xl leading-normal">See at a glance the total amount of base components required to craft anything.</dd>
+        </dl>
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f3 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Shopping list</span></dt>
+          <dd class="ml-12 text-xl leading-normal">Create a shopping list of crafted items and see a grand total of all the raw materials required!</dd>
+        </dl>
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f4 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Inventory management</span></dt>
+          <dd class="ml-12 text-xl leading-normal">Manage your inventory by defining storage locations and assigning items and quantities.</dd>
+        </dl>
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f6 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Separate lists</span></dt>
+          <dd class="ml-12 text-xl leading-normal">Individual shopping lists and inventories for Subnautica and Below Zero.</dd>
+        </dl>
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f5 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Your data</span></dt>
+          <dd class="ml-12 text-xl leading-normal">No account needed. No data collection. All data is stored in your browser.</dd>
+        </dl>
+        <dl class="sm:w-1/3 p-8 flex flex-col sm:my-2">
+          <dt class="f7 flex mb-2 font-bold text-blue text-2xl"><span class="ml-4">Data backup</span></dt>
+          <dd class="ml-12 text-xl leading-normal">Backup your data by exporting it in CSV format, and restore it later.</dd>
+        </dl>
+    </section>
   </main>
 </template>
 
