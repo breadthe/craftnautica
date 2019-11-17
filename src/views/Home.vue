@@ -23,7 +23,7 @@
           <h1 class="logo text-4xl">
             <span class="sub">Sub</span><span class="nautica">nautica</span>
           </h1>
-          <span class="mt-2 text-xl text-blue">The original game</span>
+          <span class="mt-2 text-xl text-blue-light">The original game</span>
         </router-link>
         <router-link
           to="/bz"
@@ -32,7 +32,7 @@
           <h1 class="logo text-4xl text-blue-light">
             <span class="sub">Sub</span><span class="nautica">nautica</span> Below Zero
           </h1>
-          <span class="mt-2 text-xl text-blue">The upcoming expansion</span>
+          <span class="mt-2 text-xl text-blue-light">The upcoming expansion</span>
         </router-link>
     </section>
 

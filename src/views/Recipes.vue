@@ -1,7 +1,13 @@
 <template>
   <main class="container mx-auto mt-4">
-    <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mx-4">
-      <h1>{{ fullDomainName }}</h1>
+    <div class="flex flex-col sm:flex-row items-center sm:items-baseline justify-center sm:justify-between mx-4">
+      <h1 class="logo" v-if="fullDomainName === 'Subnautica'">
+        <span class="sub">Sub</span><span class="nautica">nautica</span>
+      </h1>
+      <h1 class="logo text-blue-light" v-if="fullDomainName === 'Below Zero'">
+        <span class="sub">Sub</span><span class="nautica">nautica</span>
+        <br>Below Zero
+      </h1>
 
       <search></search>
     </div>

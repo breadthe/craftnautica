@@ -5,11 +5,9 @@
         <div class="beta">beta</div>
         {{ version }}
       </div>
-      <div class="flex items-center">
-        <a href="https://github.com/breadthe/craftnautica" target="_blank">
-          <v-icon icon="github" color="blue-dark" class="mr-4"></v-icon>
-        </a>
-      </div>
+      <a href="https://github.com/breadthe/craftnautica" target="_blank" aria-label="Craftnautica on Github">
+        <v-icon icon="github" color="blue"></v-icon>
+      </a>
       <div class="flex flex-col">
 <!--        <router-link to="/contact" class="mb-4 sm:mb-2">Contact</router-link>-->
         <router-link to="/privacy" class="mb-4 sm:mb-2">Privacy Policy</router-link>
@@ -35,8 +33,6 @@ export default {
       default: '',
     },
   },
-  computed: {
-  },
 };
 </script>
 
@@ -58,8 +54,8 @@ footer {
 }
 .beta {
   @apply border;
-  @apply border-blue-dark;
-  @apply bg-blue-dark;
+  @apply border-blue;
+  @apply bg-blue;
   @apply rounded;
   @apply text-black;
   @apply text-xs;
