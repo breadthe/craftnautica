@@ -10,8 +10,11 @@
         <router-link
           to="/"
           class="flex items-center justify-center mr-0 sm:mr-4"
+          aria-label="Craftnautica - Subnautica & Subnautica: Below Zero crafting helper"
         >
-          <span class="logo hidden sm:block">Craftnautica</span>
+          <span class="logo hidden sm:block uppercase">
+            <span class="sub">Craft</span><span class="nautica">nautica</span>
+          </span>
           <span class="flex sm:hidden">
             <v-icon icon="home" color="blue-dark" class="mr-4"></v-icon>
           </span>
@@ -100,16 +103,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-.logo {
-  font-family: 'Luckiest Guy', sans-serif;
-  @apply h-4;
-  @apply text-white;
-  @apply tracking-wide;
-  &:hover {
-    @apply text-blue;
-  }
-}
-</style>

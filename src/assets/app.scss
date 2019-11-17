@@ -63,48 +63,24 @@ textarea {
   }
 }
 
-/*ul {
-  &.features {
-    @apply list-reset;
-    @apply m-8;
-    @apply leading-normal;
+.logo {
+  font-family: 'Titillium Web', sans-serif;
+  @apply font-black;
+  @apply tracking-wide;
+  @apply uppercase;
 
-    li {
-      @apply p-0;
-      @apply mb-4;
-      @apply flex;
-      @apply items-start;
-
-      &::before {
-        @apply -ml-8;
-        @apply text-4xl;
-        @apply mr-4;
-      }
-
-      &.f1::before {
-        content: '🔎';
-      }
-      &.f2::before {
-        content: '📃';
-      }
-      &.f3::before {
-        content: '🛒';
-      }
-      &.f4::before {
-        content: '📦';
-      }
-      &.f5::before {
-        content: '🦄';
-      }
-      &.f6::before {
-        content: '✌️';
-      }
-      &.f7::before {
-        content: '💾';
-      }
-    }
+  .sub {
+    background: -webkit-linear-gradient(#DD6B20, #FAF089); // orange-600 -> yellow-300
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-}*/
+
+  .nautica {
+    background: -webkit-linear-gradient(#63B3ED, #EBF8FF); // blue-400 -> blue-100
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 
 .features {
   dt::before {
