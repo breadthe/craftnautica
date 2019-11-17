@@ -38,6 +38,7 @@ import VSearch from '@/components/icons/VSearch.vue';
 import VSettings from '@/components/icons/VSettings.vue';
 import VShoppingCart from '@/components/icons/VShoppingCart.vue';
 import VTrash2 from '@/components/icons/VTrash2.vue';
+import VTwitter from '@/components/icons/VTwitter.vue';
 import VUpload from '@/components/icons/VUpload.vue';
 import VX from '@/components/icons/VX.vue';
 import VXCircle from '@/components/icons/VXCircle.vue';
@@ -63,6 +64,7 @@ export default {
     VSettings,
     VShoppingCart,
     VTrash2,
+    VTwitter,
     VUpload,
     VX,
     VXCircle,

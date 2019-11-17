@@ -32,12 +32,12 @@ export default new Router({
       name: 'settings',
       component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue'),
     },
-    /*{
+    {
       path: '/contact',
       name: 'contact',
-      component: () => import(/!* webpackChunkName: "contact" *!/ './views/Contact.vue'),
+      component: () => import(/* webpackChunkName: "contact" */ './views/Contact.vue'),
     },
-    {
+    /*{
       path: '/thanks',
       name: 'thanks',
       component: () => import(/!* webpackChunkName: "thanks" *!/ './views/ThankYou.vue'),

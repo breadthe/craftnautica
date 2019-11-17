@@ -1,14 +1,19 @@
 <template>
   <footer>
     <div class="flex items-start justify-between w-full max-w-2xl">
-      <div class="flex items-center">
+      <div class="flex flex-col">
         v{{ version }}
       </div>
-      <a href="https://github.com/breadthe/craftnautica" target="_blank" rel="noopener" aria-label="Craftnautica on Github">
-        <v-icon icon="github" color="blue"></v-icon>
-      </a>
+      <div class="w-16 flex justify-between">
+        <a href="https://github.com/breadthe/craftnautica" aria-label="Craftnautica on Github">
+          <v-icon icon="github" color="blue"></v-icon>
+        </a>
+        <a href="https://twitter.com/brbcoding" aria-label="Find me on Twitter">
+          <v-icon icon="twitter" color="blue"></v-icon>
+        </a>
+      </div>
       <div class="flex flex-col">
-<!--        <router-link to="/contact" class="mb-4 sm:mb-2">Contact</router-link>-->
+        <router-link to="/contact" class="mb-4 sm:mb-2">Contact</router-link>
         <router-link to="/privacy" class="mb-4 sm:mb-2">Privacy Policy</router-link>
       </div>
     </div>
