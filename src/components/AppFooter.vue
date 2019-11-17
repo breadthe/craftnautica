@@ -4,7 +4,7 @@
       <div class="flex items-center">
         v{{ version }}
       </div>
-      <a href="https://github.com/breadthe/craftnautica" target="_blank" aria-label="Craftnautica on Github">
+      <a href="https://github.com/breadthe/craftnautica" target="_blank" rel="noopener" aria-label="Craftnautica on Github">
         <v-icon icon="github" color="blue"></v-icon>
       </a>
       <div class="flex flex-col">
