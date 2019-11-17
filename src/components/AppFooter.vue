@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="flex items-start justify-between w-full max-w-lg">
+    <div class="flex items-start justify-between w-full max-w-2xl">
       <div class="flex items-center">
         v{{ version }}
       </div>

@@ -3,20 +3,20 @@
     id="nav"
     class="bg-black"
   >
-    <div class="flex items-center justify-between max-w-xl mx-4 sm:mx-8 lg:mx-auto">
+    <div class="flex items-center justify-between max-w-2xl mx-4 sm:mx-8 lg:mx-auto">
 
       <!-- Left side -->
-      <div class="flex-1 flex items-center">
+      <div class="flex-1 flex items-center -ml-3 sm:-ml-0">
         <router-link
           to="/"
-          class="flex items-center justify-center mr-0 sm:mr-4"
+          class="flex items-center justify-center mr-4"
           aria-label="Craftnautica - Subnautica & Subnautica: Below Zero crafting helper"
         >
           <span class="logo hidden sm:block uppercase">
             <span class="sub">Craft</span><span class="nautica">nautica</span>
           </span>
           <span class="flex sm:hidden">
-            <v-icon icon="home" color="blue-dark" class="mr-4"></v-icon>
+            <img src="favicons/favicon-32x32.png" alt="Craftnautica - Subnautica & Subnautica: Below Zero crafting helper" title="Craftnautica - Subnautica & Subnautica: Below Zero crafting helper">
           </span>
         </router-link>
 
@@ -35,7 +35,7 @@
       </div>
 
       <!-- Right side -->
-      <div class="flex items-center">
+      <div class="flex items-center -mr-2 sm:-mr-0">
         <!-- Inventories -->
         <router-link
             v-if="showCart"
