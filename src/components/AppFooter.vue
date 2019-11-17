@@ -2,8 +2,7 @@
   <footer>
     <div class="flex items-start justify-between w-full max-w-lg">
       <div class="flex items-center">
-        <div class="beta">beta</div>
-        {{ version }}
+        v{{ version }}
       </div>
       <a href="https://github.com/breadthe/craftnautica" target="_blank" aria-label="Craftnautica on Github">
         <v-icon icon="github" color="blue"></v-icon>
@@ -51,15 +50,5 @@ footer {
   @screen sm {
     @apply p-8;
   }
-}
-.beta {
-  @apply border;
-  @apply border-blue;
-  @apply bg-blue;
-  @apply rounded;
-  @apply text-black;
-  @apply text-xs;
-  @apply p-1;
-  @apply mr-2;
 }
 </style>
