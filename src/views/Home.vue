@@ -1,6 +1,20 @@
 <template>
   <main class="container mx-auto p-4">
 
+    <a
+      href="https://www.producthunt.com/posts/craftnautica?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-craftnautica"
+      target="_blank"
+    >
+      <img
+        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=174852&theme=dark"
+        alt="Craftnautica - Subnautica crafting helper and inventory management tool | Product Hunt Embed"
+        style="width: 250px; height: 54px;"
+        width="250px"
+        height="54px"
+        class="bg-blue-darker rounded-lg shadow-lg"
+      />
+    </a>
+
     <section class="text-xl mx-auto mt-4 leading-normal">
       <h1 class="logo text-5xl text-center"><span class="sub">Craft</span><span class="nautica">nautica</span></h1>
       <h2 class="text-blue font-light text-center">Subnautica & Subnautica: Below Zero crafting helper</h2>
