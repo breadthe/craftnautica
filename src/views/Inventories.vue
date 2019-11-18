@@ -1,10 +1,9 @@
 <template>
   <main class="container mx-auto mt-4">
     <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-8">
-      <h1 class="flex items-center">
+      <sub-nautica :full-domain-name=fullDomainName>
         <v-icon icon="box" :size=10 color="blue-dark" class="mr-4"></v-icon>
-        {{ fullDomainName }}
-      </h1>
+      </sub-nautica>
       <span v-if="inventoriesCount">{{ inventoriesCount }} inventories</span>
     </div>
 
@@ -36,10 +35,12 @@
 import util from '@/util';
 import Inventory from '@/components/Inventory.vue';
 import VIcon from '@/components/VIcon.vue';
+import SubNautica from '@/components/SubNautica.vue';
 
 export default {
   name: 'Inventories',
   components: {
+    SubNautica,
     Inventory,
     VIcon,
   },

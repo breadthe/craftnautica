@@ -1,10 +1,9 @@
 <template>
   <main class="container mx-auto mt-4">
     <div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-8">
-      <h1 class="flex items-center">
+      <sub-nautica :full-domain-name=fullDomainName>
         <v-icon icon="shopping-cart" :size=10 color="blue-dark" class="mr-4"></v-icon>
-        {{ fullDomainName }}
-      </h1>
+      </sub-nautica>
       <span v-if="cart.length">{{ cart.length }} items</span>
     </div>
 
@@ -56,6 +55,7 @@ import Algo from '@/algo';
 import CartItem from '@/components/CartItem.vue';
 import EmptyCartOrInventory from '@/components/EmptyCartOrInventory.vue';
 import ComponentsList from '@/components/ComponentsList.vue';
+import SubNautica from '@/components/SubNautica.vue';
 import VIcon from '@/components/VIcon.vue';
 
 export default {
@@ -64,6 +64,7 @@ export default {
     CartItem,
     EmptyCartOrInventory,
     ComponentsList,
+    SubNautica,
     VIcon,
   },
   data: () => ({
